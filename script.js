@@ -144,6 +144,12 @@ const ruleProviders = {
         url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml",
         path: "./ruleset/blackmatrix7/openai.yaml",
     },
+    youtube: {
+        ...ruleProviderCommon,
+        behavior: "classical",
+        url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.yaml",
+        path: "./ruleset/blackmatrix7/youtube.yaml",
+    },
 };
 
 const rules = [
@@ -152,6 +158,7 @@ const rules = [
     "RULE-SET,bilibili,bilibili",
     "RULE-SET,openai,OpenAI",
     "RULE-SET,microsoft,Microsoft",
+    "RULE-SET,youtube,YouTube",
     "RULE-SET,applications,Direct",
     "RULE-SET,private,Direct",
     "RULE-SET,reject,Reject",
@@ -268,6 +275,21 @@ function main(config) {
             ],
             "include-all": true,
             icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@develop/icons/google.svg",
+        },
+        {
+            ...groupBaseOption,
+            name: "YouTube",
+            type: "select",
+            proxies: [
+                "Proxy",
+                "Lowest latency",
+                "Fallback",
+                "Load balancing (Consistent hashing)",
+                "Load balancing (Round robin)",
+                "Direct",
+            ],
+            "include-all": true,
+            icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@develop/icons/youtube.svg",
         },
         {
             ...groupBaseOption,
