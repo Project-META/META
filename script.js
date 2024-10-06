@@ -21,8 +21,11 @@ const dnsConfig = {
     "enhanced-mode": "fake-ip",
     "fake-ip-range": "198.18.0.1/16",
     "fake-ip-filter": [
+        "*",
         "+.lan",
         "+.local",
+        "time.*.com",
+        "ntp.*.com",
         "+.msftconnecttest.com",
         "+.msftncsi.com",
         "localhost.ptlogin2.qq.com",
