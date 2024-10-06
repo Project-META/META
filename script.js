@@ -1,7 +1,6 @@
 const domesticNameservers = [
     "https://dns.alidns.com/dns-query",
     "https://doh.pub/dns-query",
-    "https://doh.360.cn/dns-query",
 ];
 
 const foreignNameservers = [
