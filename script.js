@@ -155,6 +155,7 @@ const ruleProviders = {
 const rules = [
     "DOMAIN,metacubex.github.io,DIRECT",
     "DOMAIN,yacd.metacubex.one,DIRECT",
+    "DOMAIN-SUFFIX,pornhub.com,P.",
     "RULE-SET,bilibili,bilibili",
     "RULE-SET,openai,OpenAI",
     "RULE-SET,microsoft,Microsoft",
@@ -397,6 +398,19 @@ function main(config) {
             type: "select",
             proxies: ["REJECT", "DIRECT"],
             icon: "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20enable-background%3D%22new%200%200%2024%2024%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%2C2C6.5%2C2%2C2%2C6.5%2C2%2C12s4.5%2C10%2C10%2C10s10-4.5%2C10-10C22%2C6.5%2C17.5%2C2%2C12%2C2z%20M20%2C12c0%2C1.8-0.6%2C3.5-1.7%2C4.9L7.1%2C5.7%0A%09c3.5-2.7%2C8.5-2.1%2C11.2%2C1.4C19.4%2C8.5%2C20%2C10.2%2C20%2C12z%20M4%2C12c0-1.8%2C0.6-3.5%2C1.7-4.9l11.2%2C11.2c-3.5%2C2.7-8.5%2C2.1-11.2-1.4%0A%09C4.6%2C15.5%2C4%2C13.8%2C4%2C12z%22%2F%3E%3C%2Fsvg%3E",
+        },
+        {
+            ...groupBaseOption,
+            name: "P.",
+            type: "select",
+            proxies: [
+                "Proxy",
+                "Lowest latency",
+                "Fallback",
+                "Load balancing (Consistent hashing)",
+                "Load balancing (Round robin)",
+            ],
+            "include-all": true,
         },
     ];
     config["rule-providers"] = ruleProviders;
