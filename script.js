@@ -132,6 +132,12 @@ const ruleProviders = {
         url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.yaml",
         path: "./ruleset/blackmatrix7/bilibili.yaml",
     },
+    binance: {
+        ...ruleProviderCommon,
+        behavior: "classical",
+        url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Binance/Binance.yaml",
+        path: "./ruleset/blackmatrix7/binance.yaml",
+    },
     microsoft: {
         ...ruleProviderCommon,
         behavior: "classical",
@@ -157,6 +163,7 @@ const rules = [
     "DOMAIN,yacd.metacubex.one,DIRECT",
     "DOMAIN-SUFFIX,pornhub.com,P.",
     "RULE-SET,bilibili,bilibili",
+    "RULE-SET,binance,Binance",
     "RULE-SET,openai,OpenAI",
     "RULE-SET,microsoft,Microsoft",
     "RULE-SET,youtube,YouTube",
@@ -243,6 +250,21 @@ function main(config) {
             ],
             "include-all": true,
             icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@develop/icons/openai.svg",
+        },
+        {
+            ...groupBaseOption,
+            name: "Binance",
+            type: "select",
+            proxies: [
+                "Proxy",
+                "Lowest latency",
+                "Fallback",
+                "Load balancing (Consistent hashing)",
+                "Load balancing (Round robin)",
+                "Direct",
+            ],
+            "include-all": true,
+            icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@develop/icons/binance.svg",
         },
         {
             ...groupBaseOption,
