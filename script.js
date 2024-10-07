@@ -213,7 +213,7 @@ function main(config) {
             name: "Proxy",
             type: "select",
             proxies: [
-                "Lowest latency",
+                "Auto",
                 "Fallback",
                 "Load balancing (Consistent hashing)",
                 "Load balancing (Round robin)",
@@ -227,7 +227,7 @@ function main(config) {
             type: "select",
             proxies: [
                 "Proxy",
-                "Lowest latency",
+                "Auto",
                 "Fallback",
                 "Load balancing (Consistent hashing)",
                 "Load balancing (Round robin)",
@@ -242,7 +242,7 @@ function main(config) {
             type: "select",
             proxies: [
                 "Proxy",
-                "Lowest latency",
+                "Auto",
                 "Fallback",
                 "Load balancing (Consistent hashing)",
                 "Load balancing (Round robin)",
@@ -256,7 +256,7 @@ function main(config) {
             type: "select",
             proxies: [
                 "Proxy",
-                "Lowest latency",
+                "Auto",
                 "Fallback",
                 "Load balancing (Consistent hashing)",
                 "Load balancing (Round robin)",
@@ -271,7 +271,7 @@ function main(config) {
             type: "select",
             proxies: [
                 "Proxy",
-                "Lowest latency",
+                "Auto",
                 "Fallback",
                 "Load balancing (Consistent hashing)",
                 "Load balancing (Round robin)",
@@ -285,7 +285,7 @@ function main(config) {
             type: "select",
             proxies: [
                 "Proxy",
-                "Lowest latency",
+                "Auto",
                 "Fallback",
                 "Load balancing (Consistent hashing)",
                 "Load balancing (Round robin)",
@@ -300,7 +300,7 @@ function main(config) {
             type: "select",
             proxies: [
                 "Proxy",
-                "Lowest latency",
+                "Auto",
                 "Fallback",
                 "Load balancing (Consistent hashing)",
                 "Load balancing (Round robin)",
@@ -314,7 +314,7 @@ function main(config) {
             type: "select",
             proxies: [
                 "Proxy",
-                "Lowest latency",
+                "Auto",
                 "Fallback",
                 "Load balancing (Consistent hashing)",
                 "Load balancing (Round robin)",
@@ -329,7 +329,7 @@ function main(config) {
             type: "select",
             proxies: [
                 "Proxy",
-                "Lowest latency",
+                "Auto",
                 "Fallback",
                 "Load balancing (Consistent hashing)",
                 "Load balancing (Round robin)",
@@ -343,7 +343,7 @@ function main(config) {
             type: "select",
             proxies: [
                 "Proxy",
-                "Lowest latency",
+                "Auto",
                 "Fallback",
                 "Load balancing (Consistent hashing)",
                 "Load balancing (Round robin)",
@@ -358,7 +358,7 @@ function main(config) {
             type: "select",
             proxies: [
                 "Proxy",
-                "Lowest latency",
+                "Auto",
                 "Fallback",
                 "Load balancing (Consistent hashing)",
                 "Load balancing (Round robin)",
@@ -369,7 +369,7 @@ function main(config) {
         },
         {
             ...groupBaseOption,
-            name: "Lowest latency",
+            name: "Auto",
             type: "url-test",
             tolerance: 100,
             "include-all": true,
@@ -405,7 +405,7 @@ function main(config) {
             proxies: [
                 "DIRECT",
                 "Proxy",
-                "Lowest latency",
+                "Auto",
                 "Fallback",
                 "Load balancing (Consistent hashing)",
                 "Load balancing (Round robin)",
