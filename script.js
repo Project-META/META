@@ -6,7 +6,7 @@ const services = [
     // Routing rules are matched in order from top to bottom, with the rule at the top of the list taking precedence over the rules below it.
     {
         name: "bilibili",
-        alias: "Bilibili",
+        alias: "BiliBili",
         icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/bilibili_2.png",
     },
     {
