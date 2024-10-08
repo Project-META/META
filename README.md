@@ -1,6 +1,6 @@
 # MCO - M. Configuration Override
 
-| From | URL |
+| Via | URL |
 | --- | --- |
 | GitHub Raw | [https://raw.githubusercontent.com/xixu-me/MCO/refs/heads/main/script.js](https://raw.githubusercontent.com/xixu-me/MCO/refs/heads/main/script.js) |
 | jsDelivr | [https://cdn.jsdelivr.net/gh/xixu-me/MCO@main/script.js](https://cdn.jsdelivr.net/gh/xixu-me/MCO@main/script.js) |
