@@ -197,6 +197,7 @@ const locationGroupBaseOption = {
     ...groupBaseOption,
     type: "url-test",
     tolerance: 100,
+    proxies: ["REJECT"],
     "include-all": true,
 };
 
