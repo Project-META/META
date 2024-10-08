@@ -1,5 +1,7 @@
 // GitHub repository URL: https://github.com/xixu-me/MCG
 
+// ########################################### This Area Can Be Flexibly Customized ###########################################
+
 const services = [
     {
         name: "bilibili",
@@ -105,6 +107,8 @@ const locations = [
         icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Cloudflare.png",
     },
 ];
+
+// ############################## Do Not Modify The Code Below Unless You Know What You Are Doing ##############################
 
 function generateGeneralConfig(config) {
     config["global-client-fingerprint"] = "chrome";
