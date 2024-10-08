@@ -171,11 +171,11 @@ const ruleProviderCommon = {
 function serviceRuleProviders(services, ruleProviderCommon) {
     const ruleProviders = {};
     for (const { name, alias } of services) {
-        if (!alias) alias = name;
+        const ruleName = alias ? alias : name;
         ruleProviders[name.toLowerCase()] = {
             ...ruleProviderCommon,
             behavior: "classical",
-            url: `https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/${alias}/${alias}.yaml`,
+            url: `https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/${ruleName}/${ruleName}.yaml`,
             path: `./ruleset/blackmatrix7/${name.toLowerCase()}.yaml`,
         };
     }
