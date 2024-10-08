@@ -73,6 +73,89 @@ const services = [
     },
 ];
 
+const locations = [
+    {
+        name: "Argentina",
+        filter: "(?i)阿根廷|Argentina|ARG|AR|argentina|arg|ar|🇦🇷",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Argentina.png",
+    },
+    {
+        name: "Finland",
+        filter: "(?i)芬兰|Finland|FIN|FI|finland|fin|fi|🇫🇮",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Finland.png",
+    },
+    {
+        name: "France",
+        filter: "(?i)法国|France|FR|france|fr|🇫🇷",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/France.png",
+    },
+    {
+        name: "Germany",
+        filter: "(?i)德国|Germany|GER|DE|germany|ger|de|🇩🇪",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Germany.png",
+    },
+    {
+        name: "Hong Kong, China",
+        filter: "(?i)香港|Hong Kong|HK|hong kong|hk|🇭🇰",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png",
+    },
+    {
+        name: "Iraq",
+        filter: "(?i)伊拉克|Iraq|IRQ|IQ|iraq|iq|🇮🇶",
+        icon: "https://img.icons8.com/fluency/96/iraq.png",
+    },
+    {
+        name: "Japan",
+        filter: "(?i)日本|Japan|japan|ja|🇯🇵",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png",
+    },
+    {
+        name: "Korea",
+        filter: "(?i)韩国|Korea|KR|korea|kr|🇰🇷",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Korea.png",
+    },
+    {
+        name: "Russia",
+        filter: "(?i)俄罗斯|Russia|RU|russia|ru|🇷🇺",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Russia.png",
+    },
+    {
+        name: "Singapore",
+        filter: "(?i)新加坡|Singapore|singapore|sg|🇸🇬",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png",
+    },
+    {
+        name: "Taiwan, China",
+        filter: "(?i)台湾|Taiwan|TW|taiwan|tw|🇹🇼",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/China.png",
+    },
+    {
+        name: "Thailand",
+        filter: "(?i)泰国|Thailand|TH|thailand|th|🇹🇭",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Thailand.png",
+    },
+    {
+        name: "Türkiye",
+        filter: "(?i)土耳其|Türkiye|Turkey|TUR|TR|türkiye|turkey|turk|tr|🇹🇷",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Turkey.png",
+    },
+    {
+        name: "United Kingdom",
+        filter: "(?i)英国|United Kingdom|Great Britain|UK|GB|united kingdom|great britain|uk|gb|🇬🇧",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_Kingdom.png",
+    },
+    {
+        name: "United States",
+        filter: "(?i)美国|United States of America|United States|USA|US|united states of america|united states|usa|us|🇺🇸",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png",
+    },
+    {
+        name: "Cloudflare",
+        filter: "(?i)Cloudflare|CF|cloudflare|cf",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Cloudflare.png",
+    },
+];
+
 const ruleProviderCommon = {
     type: "http",
     interval: 86400,
@@ -215,24 +298,24 @@ const locationProxyGroupCommon = {
     "include-all": true,
 };
 
-const locations = [
-    "Argentina",
-    "Finland",
-    "France",
-    "Germany",
-    "Hong Kong, China",
-    "Iraq",
-    "Japan",
-    "Korea",
-    "Russia",
-    "Singapore",
-    "Taiwan, China",
-    "Thailand",
-    "Türkiye",
-    "United Kingdom",
-    "United States",
-    "Cloudflare",
-];
+// const locations = [
+//     "Argentina",
+//     "Finland",
+//     "France",
+//     "Germany",
+//     "Hong Kong, China",
+//     "Iraq",
+//     "Japan",
+//     "Korea",
+//     "Russia",
+//     "Singapore",
+//     "Taiwan, China",
+//     "Thailand",
+//     "Türkiye",
+//     "United Kingdom",
+//     "United States",
+//     "Cloudflare",
+// ];
 
 const serviceProxyGroupProxies = [
     "PROXY",
@@ -241,7 +324,7 @@ const serviceProxyGroupProxies = [
     "LOAD BALANCING (Consistent hashing)",
     "LOAD BALANCING (Round robin)",
     "DIRECT",
-    ...locations,
+    ...locations.map(({ name }) => name),
 ];
 
 function serviceProxyGroups(
@@ -261,6 +344,18 @@ function serviceProxyGroups(
     return proxyGroups;
 }
 
+function locationProxyGroups(locations, locationProxyGroupCommon) {
+    const proxyGroups = [];
+    for (const { name, filter, icon } of locations)
+        proxyGroups.push({
+            ...locationProxyGroupCommon,
+            name: name,
+            filter: filter,
+            icon: icon,
+        });
+    return proxyGroups;
+}
+
 const proxyGroups = [
     {
         ...proxyGroupCommon,
@@ -271,7 +366,7 @@ const proxyGroups = [
             "FALLBACK",
             "LOAD BALANCING (Consistent hashing)",
             "LOAD BALANCING (Round robin)",
-            ...locations,
+            ...locations.map(({ name }) => name),
         ],
         icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png",
     },
@@ -280,14 +375,14 @@ const proxyGroups = [
         name: "AUTO",
         type: "url-test",
         tolerance: 100,
-        proxies: [...locations],
+        proxies: [...locations.map(({ name }) => name)],
         icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png",
     },
     {
         ...proxyGroupCommon,
         name: "FALLBACK",
         type: "fallback",
-        proxies: [...locations],
+        proxies: [...locations.map(({ name }) => name)],
         icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Available.png",
     },
     {
@@ -295,7 +390,7 @@ const proxyGroups = [
         name: "LOAD BALANCING (Consistent hashing)",
         type: "load-balance",
         strategy: "consistent-hashing",
-        proxies: [...locations],
+        proxies: [...locations.map(({ name }) => name)],
         icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Round_Robin_1.png",
     },
     {
@@ -303,7 +398,7 @@ const proxyGroups = [
         name: "LOAD BALANCING (Round robin)",
         type: "load-balance",
         strategy: "round-robin",
-        proxies: [...locations],
+        proxies: [...locations.map(({ name }) => name)],
         icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Round_Robin.png",
     },
     ...serviceProxyGroups(services, proxyGroupCommon, serviceProxyGroupProxies),
@@ -349,102 +444,7 @@ const proxyGroups = [
         proxies: ["REJECT", "DIRECT"],
         icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Advertising.png",
     },
-    {
-        ...locationProxyGroupCommon,
-        name: "Argentina",
-        filter: "(?i)阿根廷|Argentina|ARG|AR|🇦🇷",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Argentina.png",
-    },
-    {
-        ...locationProxyGroupCommon,
-        name: "Finland",
-        filter: "(?i)芬兰|Finland|FIN|FI|🇫🇮",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Finland.png",
-    },
-    {
-        ...locationProxyGroupCommon,
-        name: "France",
-        filter: "(?i)法国|France|FR|🇫🇷",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/France.png",
-    },
-    {
-        ...locationProxyGroupCommon,
-        name: "Germany",
-        filter: "(?i)德国|Germany|GER|DE|🇩🇪",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Germany.png",
-    },
-    {
-        ...locationProxyGroupCommon,
-        name: "Hong Kong, China",
-        filter: "(?i)香港|Hong Kong|HK|🇭🇰",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png",
-    },
-    {
-        ...locationProxyGroupCommon,
-        name: "Iraq",
-        filter: "(?i)伊拉克|Iraq|IRQ|IQ|🇮🇶",
-        icon: "https://img.icons8.com/fluency/96/iraq.png",
-    },
-    {
-        ...locationProxyGroupCommon,
-        name: "Japan",
-        filter: "(?i)日本|Japan|🇯🇵",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png",
-    },
-    {
-        ...locationProxyGroupCommon,
-        name: "Korea",
-        filter: "(?i)韩国|Korea|South Korea|KR|🇰🇷",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Korea.png",
-    },
-    {
-        ...locationProxyGroupCommon,
-        name: "Russia",
-        filter: "(?i)俄罗斯|Russia|RU|🇷🇺",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Russia.png",
-    },
-    {
-        ...locationProxyGroupCommon,
-        name: "Singapore",
-        filter: "(?i)新加坡|Singapore|🇸🇬",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png",
-    },
-    {
-        ...locationProxyGroupCommon,
-        name: "Taiwan, China",
-        filter: "(?i)台湾|Taiwan|TW|🇹🇼",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/China.png",
-    },
-    {
-        ...locationProxyGroupCommon,
-        name: "Thailand",
-        filter: "(?i)泰国|Thailand|TH|🇹🇭",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Thailand.png",
-    },
-    {
-        ...locationProxyGroupCommon,
-        name: "Türkiye",
-        filter: "(?i)土耳其|Türkiye|Turkey|TUR|TR|🇹🇷",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Turkey.png",
-    },
-    {
-        ...locationProxyGroupCommon,
-        name: "United Kingdom",
-        filter: "(?i)英国|United Kingdom|Great Britain|UK|GB|🇬🇧",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_Kingdom.png",
-    },
-    {
-        ...locationProxyGroupCommon,
-        name: "United States",
-        filter: "(?i)美国|United States of America|United States|USA|US|🇺🇸",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png",
-    },
-    {
-        ...locationProxyGroupCommon,
-        name: "Cloudflare",
-        filter: "(?i)Cloudflare|CF",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Cloudflare.png",
-    },
+    ...locationProxyGroups(locations, locationProxyGroupCommon),
 ];
 
 function main(config) {
