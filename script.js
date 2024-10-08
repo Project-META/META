@@ -216,6 +216,7 @@ const locations = [
     "Türkiye",
     "United Kingdom",
     "United States",
+    "Cloudflare",
 ];
 
 const normalGroupProxies = [
@@ -438,6 +439,11 @@ function main(config) {
             ...locationGroupBaseOption,
             name: "United States",
             filter: "(?i)美国|United States of America|United States|USA|US|🇺🇸",
+        },
+        {
+            ...locationGroupBaseOption,
+            name: "Cloudflare",
+            filter: "(?i)Cloudflare|CF",
         },
     ];
     config["rule-providers"] = ruleProviders;
