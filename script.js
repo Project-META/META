@@ -1,5 +1,9 @@
 // GitHub repository URL: https://github.com/xixu-me/MCG
 
+function genGeneralConfig(config) {
+    config["global-client-fingerprint"] = "chrome";
+}
+
 const domesticNameservers = [
     "https://dns.alidns.com/dns-query",
     "https://doh.pub/dns-query",
@@ -14,7 +18,7 @@ const foreignNameservers = [
     "https://194.242.2.3/dns-query",
 ];
 
-const dnsConfig = {
+const dns = {
     enable: true,
     listen: "0.0.0.0:1053",
     ipv6: false,
@@ -186,15 +190,15 @@ const rules = [
     "MATCH,Others",
 ];
 
-const groupBaseOption = {
+const proxyGroupCommon = {
     interval: 300,
     lazy: true,
     "max-failed-times": 5,
     hidden: false,
 };
 
-const locationGroupBaseOption = {
-    ...groupBaseOption,
+const locationProxyGroupCommon = {
+    ...proxyGroupCommon,
     type: "url-test",
     tolerance: 50,
     proxies: ["REJECT"],
@@ -220,7 +224,7 @@ const locations = [
     "Cloudflare",
 ];
 
-const normalGroupProxies = [
+const platformProxyGroupProxies = [
     "PROXY",
     "AUTO",
     "FALLBACK",
@@ -228,6 +232,226 @@ const normalGroupProxies = [
     "LOAD BALANCING (Round robin)",
     "DIRECT",
     ...locations,
+];
+
+const proxyGroups = [
+    {
+        ...proxyGroupCommon,
+        name: "PROXY",
+        type: "select",
+        proxies: [
+            "AUTO",
+            "FALLBACK",
+            "LOAD BALANCING (Consistent hashing)",
+            "LOAD BALANCING (Round robin)",
+            ...locations,
+        ],
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png",
+    },
+    {
+        ...proxyGroupCommon,
+        name: "AUTO",
+        type: "url-test",
+        tolerance: 100,
+        proxies: [...locations],
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png",
+    },
+    {
+        ...proxyGroupCommon,
+        name: "FALLBACK",
+        type: "fallback",
+        proxies: [...locations],
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Available.png",
+    },
+    {
+        ...proxyGroupCommon,
+        name: "LOAD BALANCING (Consistent hashing)",
+        type: "load-balance",
+        strategy: "consistent-hashing",
+        proxies: [...locations],
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Round_Robin_1.png",
+    },
+    {
+        ...proxyGroupCommon,
+        name: "LOAD BALANCING (Round robin)",
+        type: "load-balance",
+        strategy: "round-robin",
+        proxies: [...locations],
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Round_Robin.png",
+    },
+    {
+        ...proxyGroupCommon,
+        name: "iCloud",
+        type: "select",
+        proxies: [...platformProxyGroupProxies],
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/iCloud.png",
+    },
+    {
+        ...proxyGroupCommon,
+        name: "OpenAI",
+        type: "select",
+        proxies: [...platformProxyGroupProxies],
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ChatGPT.png",
+    },
+    {
+        ...proxyGroupCommon,
+        name: "Binance",
+        type: "select",
+        proxies: [...platformProxyGroupProxies],
+        icon: "https://img.icons8.com/arcade/100/binance.png",
+    },
+    {
+        ...proxyGroupCommon,
+        name: "Telegram",
+        type: "select",
+        proxies: [...platformProxyGroupProxies],
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram_X.png",
+    },
+    {
+        ...proxyGroupCommon,
+        name: "bilibili",
+        type: "select",
+        proxies: [...platformProxyGroupProxies],
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/bilibili_2.png",
+    },
+    {
+        ...proxyGroupCommon,
+        name: "YouTube",
+        type: "select",
+        proxies: [...platformProxyGroupProxies],
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png",
+    },
+    {
+        ...proxyGroupCommon,
+        name: "Apple",
+        type: "select",
+        proxies: [...platformProxyGroupProxies],
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple_1.png",
+    },
+    {
+        ...proxyGroupCommon,
+        name: "Google",
+        type: "select",
+        proxies: [...platformProxyGroupProxies],
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png",
+    },
+    {
+        ...proxyGroupCommon,
+        name: "Microsoft",
+        type: "select",
+        proxies: [...platformProxyGroupProxies],
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png",
+    },
+    {
+        ...proxyGroupCommon,
+        name: "Others",
+        type: "select",
+        proxies: [...platformProxyGroupProxies],
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Final.png",
+    },
+    {
+        ...proxyGroupCommon,
+        name: "Advertising",
+        type: "select",
+        proxies: ["REJECT", "DIRECT"],
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Advertising.png",
+    },
+    {
+        ...locationProxyGroupCommon,
+        name: "Argentina",
+        filter: "(?i)阿根廷|Argentina|ARG|AR|🇦🇷",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Argentina.png",
+    },
+    {
+        ...locationProxyGroupCommon,
+        name: "Finland",
+        filter: "(?i)芬兰|Finland|FIN|FI|🇫🇮",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Finland.png",
+    },
+    {
+        ...locationProxyGroupCommon,
+        name: "France",
+        filter: "(?i)法国|France|FR|🇫🇷",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/France.png",
+    },
+    {
+        ...locationProxyGroupCommon,
+        name: "Germany",
+        filter: "(?i)德国|Germany|GER|DE|🇩🇪",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Germany.png",
+    },
+    {
+        ...locationProxyGroupCommon,
+        name: "Hong Kong, China",
+        filter: "(?i)香港|Hong Kong|HK|🇭🇰",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png",
+    },
+    {
+        ...locationProxyGroupCommon,
+        name: "Iraq",
+        filter: "(?i)伊拉克|Iraq|IRQ|IQ|🇮🇶",
+        icon: "https://img.icons8.com/fluency/96/iraq.png",
+    },
+    {
+        ...locationProxyGroupCommon,
+        name: "Japan",
+        filter: "(?i)日本|Japan|🇯🇵",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png",
+    },
+    {
+        ...locationProxyGroupCommon,
+        name: "Korea",
+        filter: "(?i)韩国|Korea|South Korea|KR|🇰🇷",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Korea.png",
+    },
+    {
+        ...locationProxyGroupCommon,
+        name: "Russia",
+        filter: "(?i)俄罗斯|Russia|RU|🇷🇺",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Russia.png",
+    },
+    {
+        ...locationProxyGroupCommon,
+        name: "Singapore",
+        filter: "(?i)新加坡|Singapore|🇸🇬",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png",
+    },
+    {
+        ...locationProxyGroupCommon,
+        name: "Taiwan, China",
+        filter: "(?i)台湾|Taiwan|TW|🇹🇼",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/China.png",
+    },
+    {
+        ...locationProxyGroupCommon,
+        name: "Thailand",
+        filter: "(?i)泰国|Thailand|TH|🇹🇭",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Thailand.png",
+    },
+    {
+        ...locationProxyGroupCommon,
+        name: "Türkiye",
+        filter: "(?i)土耳其|Türkiye|Turkey|TUR|TR|🇹🇷",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Turkey.png",
+    },
+    {
+        ...locationProxyGroupCommon,
+        name: "United Kingdom",
+        filter: "(?i)英国|United Kingdom|Great Britain|UK|GB|🇬🇧",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_Kingdom.png",
+    },
+    {
+        ...locationProxyGroupCommon,
+        name: "United States",
+        filter: "(?i)美国|United States of America|United States|USA|US|🇺🇸",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png",
+    },
+    {
+        ...locationProxyGroupCommon,
+        name: "Cloudflare",
+        filter: "(?i)Cloudflare|CF",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Cloudflare.png",
+    },
 ];
 
 function main(config) {
@@ -238,228 +462,10 @@ function main(config) {
             : 0;
     if (proxyCount === 0 && proxyProviderCount === 0)
         throw new Error("No proxy was found in the profile");
-    config["global-client-fingerprint"] = "chrome";
-    config["dns"] = dnsConfig;
-    config["proxy-groups"] = [
-        {
-            ...groupBaseOption,
-            name: "PROXY",
-            type: "select",
-            proxies: [
-                "AUTO",
-                "FALLBACK",
-                "LOAD BALANCING (Consistent hashing)",
-                "LOAD BALANCING (Round robin)",
-                ...locations,
-            ],
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png",
-        },
-        {
-            ...groupBaseOption,
-            name: "AUTO",
-            type: "url-test",
-            tolerance: 100,
-            proxies: [...locations],
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png",
-        },
-        {
-            ...groupBaseOption,
-            name: "FALLBACK",
-            type: "fallback",
-            proxies: [...locations],
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Available.png",
-        },
-        {
-            ...groupBaseOption,
-            name: "LOAD BALANCING (Consistent hashing)",
-            type: "load-balance",
-            strategy: "consistent-hashing",
-            proxies: [...locations],
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Round_Robin_1.png",
-        },
-        {
-            ...groupBaseOption,
-            name: "LOAD BALANCING (Round robin)",
-            type: "load-balance",
-            strategy: "round-robin",
-            proxies: [...locations],
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Round_Robin.png",
-        },
-        {
-            ...groupBaseOption,
-            name: "iCloud",
-            type: "select",
-            proxies: [...normalGroupProxies],
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/iCloud.png",
-        },
-        {
-            ...groupBaseOption,
-            name: "OpenAI",
-            type: "select",
-            proxies: [...normalGroupProxies],
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ChatGPT.png",
-        },
-        {
-            ...groupBaseOption,
-            name: "Binance",
-            type: "select",
-            proxies: [...normalGroupProxies],
-            icon: "https://img.icons8.com/arcade/100/binance.png",
-        },
-        {
-            ...groupBaseOption,
-            name: "Telegram",
-            type: "select",
-            proxies: [...normalGroupProxies],
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram_X.png",
-        },
-        {
-            ...groupBaseOption,
-            name: "bilibili",
-            type: "select",
-            proxies: [...normalGroupProxies],
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/bilibili_2.png",
-        },
-        {
-            ...groupBaseOption,
-            name: "YouTube",
-            type: "select",
-            proxies: [...normalGroupProxies],
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png",
-        },
-        {
-            ...groupBaseOption,
-            name: "Apple",
-            type: "select",
-            proxies: [...normalGroupProxies],
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple_1.png",
-        },
-        {
-            ...groupBaseOption,
-            name: "Google",
-            type: "select",
-            proxies: [...normalGroupProxies],
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png",
-        },
-        {
-            ...groupBaseOption,
-            name: "Microsoft",
-            type: "select",
-            proxies: [...normalGroupProxies],
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png",
-        },
-        {
-            ...groupBaseOption,
-            name: "Others",
-            type: "select",
-            proxies: [...normalGroupProxies],
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Final.png",
-        },
-        {
-            ...groupBaseOption,
-            name: "Advertising",
-            type: "select",
-            proxies: ["REJECT", "DIRECT"],
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Advertising.png",
-        },
-        {
-            ...locationGroupBaseOption,
-            name: "Argentina",
-            filter: "(?i)阿根廷|Argentina|ARG|AR|🇦🇷",
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Argentina.png",
-        },
-        {
-            ...locationGroupBaseOption,
-            name: "Finland",
-            filter: "(?i)芬兰|Finland|FIN|FI|🇫🇮",
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Finland.png",
-        },
-        {
-            ...locationGroupBaseOption,
-            name: "France",
-            filter: "(?i)法国|France|FR|🇫🇷",
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/France.png",
-        },
-        {
-            ...locationGroupBaseOption,
-            name: "Germany",
-            filter: "(?i)德国|Germany|GER|DE|🇩🇪",
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Germany.png",
-        },
-        {
-            ...locationGroupBaseOption,
-            name: "Hong Kong, China",
-            filter: "(?i)香港|Hong Kong|HK|🇭🇰",
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png",
-        },
-        {
-            ...locationGroupBaseOption,
-            name: "Iraq",
-            filter: "(?i)伊拉克|Iraq|IRQ|IQ|🇮🇶",
-            icon: "https://img.icons8.com/fluency/96/iraq.png",
-        },
-        {
-            ...locationGroupBaseOption,
-            name: "Japan",
-            filter: "(?i)日本|Japan|🇯🇵",
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png",
-        },
-        {
-            ...locationGroupBaseOption,
-            name: "Korea",
-            filter: "(?i)韩国|Korea|South Korea|KR|🇰🇷",
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Korea.png",
-        },
-        {
-            ...locationGroupBaseOption,
-            name: "Russia",
-            filter: "(?i)俄罗斯|Russia|RU|🇷🇺",
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Russia.png",
-        },
-        {
-            ...locationGroupBaseOption,
-            name: "Singapore",
-            filter: "(?i)新加坡|Singapore|🇸🇬",
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png",
-        },
-        {
-            ...locationGroupBaseOption,
-            name: "Taiwan, China",
-            filter: "(?i)台湾|Taiwan|TW|🇹🇼",
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/China.png",
-        },
-        {
-            ...locationGroupBaseOption,
-            name: "Thailand",
-            filter: "(?i)泰国|Thailand|TH|🇹🇭",
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Thailand.png",
-        },
-        {
-            ...locationGroupBaseOption,
-            name: "Türkiye",
-            filter: "(?i)土耳其|Türkiye|Turkey|TUR|TR|🇹🇷",
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Turkey.png",
-        },
-        {
-            ...locationGroupBaseOption,
-            name: "United Kingdom",
-            filter: "(?i)英国|United Kingdom|Great Britain|UK|GB|🇬🇧",
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_Kingdom.png",
-        },
-        {
-            ...locationGroupBaseOption,
-            name: "United States",
-            filter: "(?i)美国|United States of America|United States|USA|US|🇺🇸",
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png",
-        },
-        {
-            ...locationGroupBaseOption,
-            name: "Cloudflare",
-            filter: "(?i)Cloudflare|CF",
-            icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Cloudflare.png",
-        },
-    ];
-    config["rule-providers"] = ruleProviders;
+    genGeneralConfig(config);
+    config["dns"] = dns;
+    config["proxy-groups"] = proxyGroups;
     config["rules"] = rules;
+    config["rule-providers"] = ruleProviders;
     return config;
 }
