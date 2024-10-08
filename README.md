@@ -1,4 +1,4 @@
-# MCO - M. Configuration Override
+# MCG - M. Configuration Generator
 
 | Via | URL |
 | --- | --- |
