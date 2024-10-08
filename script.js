@@ -4,12 +4,12 @@ function generateGeneralConfig(config) {
     config["global-client-fingerprint"] = "chrome";
 }
 
-const domesticNameservers = [
+const chineseNameservers = [
     "https://dns.alidns.com/dns-query",
     "https://doh.pub/dns-query",
 ];
 
-const foreignNameservers = [
+const internationalNameservers = [
     "https://1.1.1.1/dns-query",
     "https://1.0.0.1/dns-query",
     "https://208.67.222.222/dns-query",
@@ -38,12 +38,15 @@ const dns = {
         "localhost.work.weixin.qq.com",
     ],
     "default-nameserver": ["223.5.5.5", "119.29.29.29", "1.1.1.1", "8.8.8.8"],
-    nameserver: [...domesticNameservers, ...foreignNameservers],
-    "proxy-server-nameserver": [...domesticNameservers, ...foreignNameservers],
+    nameserver: [...chineseNameservers, ...internationalNameservers],
+    "proxy-server-nameserver": [
+        ...chineseNameservers,
+        ...internationalNameservers,
+    ],
     "nameserver-policy": {
-        "geosite:private,cn,geolocation-cn": domesticNameservers,
+        "geosite:private,cn,geolocation-cn": chineseNameservers,
         "geosite:google,youtube,telegram,gfw,geolocation-!cn":
-            foreignNameservers,
+            internationalNameservers,
     },
 };
 
