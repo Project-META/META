@@ -187,7 +187,7 @@ const rules = [
 const groupBaseOption = {
     url: "https://www.google.com/generate_204",
     interval: 300,
-    lazy: true,
+    lazy: false,
     timeout: 3000,
     "max-failed-times": 3,
     hidden: false,
@@ -197,8 +197,8 @@ const locationGroupBaseOption = {
     ...groupBaseOption,
     type: "url-test",
     tolerance: 100,
-    "include-all": true,
     proxies: ["REJECT"],
+    "include-all": true,
 };
 
 const locations = [
