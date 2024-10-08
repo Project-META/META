@@ -1,6 +1,6 @@
 // GitHub repository URL: https://github.com/xixu-me/MCG
 
-function genGeneralConfig(config) {
+function generateGeneralConfig(config) {
     config["global-client-fingerprint"] = "chrome";
 }
 
@@ -460,7 +460,7 @@ function main(config) {
             : 0;
     if (proxyCount === 0 && proxyProviderCount === 0)
         throw new Error("No proxy was found in the profile");
-    genGeneralConfig(config);
+    generateGeneralConfig(config);
     config["dns"] = dns;
     config["proxy-groups"] = proxyGroups;
     config["rules"] = rules;
