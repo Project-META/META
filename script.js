@@ -187,14 +187,14 @@ const rules = [
 const groupBaseOption = {
     interval: 300,
     lazy: true,
-    "max-failed-times": 5,
     hidden: false,
+    "max-failed-times": 5,
 };
 
 const locationGroupBaseOption = {
     ...groupBaseOption,
     type: "url-test",
-    tolerance: 100,
+    tolerance: 50,
     proxies: ["REJECT"],
     "include-all": true,
 };
