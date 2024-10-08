@@ -1,55 +1,5 @@
 // GitHub repository URL: https://github.com/xixu-me/MCG
 
-function generateGeneralConfig(config) {
-    config["global-client-fingerprint"] = "chrome";
-}
-
-const chineseNameservers = [
-    "https://dns.alidns.com/dns-query",
-    "https://doh.pub/dns-query",
-];
-
-const internationalNameservers = [
-    "https://1.1.1.1/dns-query",
-    "https://1.0.0.1/dns-query",
-    "https://208.67.222.222/dns-query",
-    "https://208.67.220.220/dns-query",
-    "https://194.242.2.2/dns-query",
-    "https://194.242.2.3/dns-query",
-];
-
-const dns = {
-    enable: true,
-    listen: "0.0.0.0:1053",
-    ipv6: false,
-    "use-system-hosts": false,
-    "enhanced-mode": "fake-ip",
-    "fake-ip-range": "198.18.0.1/16",
-    "fake-ip-filter": [
-        "*",
-        "+.lan",
-        "+.local",
-        "time.*.com",
-        "ntp.*.com",
-        "+.msftconnecttest.com",
-        "+.msftncsi.com",
-        "localhost.ptlogin2.qq.com",
-        "localhost.sec.qq.com",
-        "localhost.work.weixin.qq.com",
-    ],
-    "default-nameserver": ["223.5.5.5", "119.29.29.29", "1.1.1.1", "8.8.8.8"],
-    nameserver: [...chineseNameservers, ...internationalNameservers],
-    "proxy-server-nameserver": [
-        ...chineseNameservers,
-        ...internationalNameservers,
-    ],
-    "nameserver-policy": {
-        "geosite:private,cn,geolocation-cn": chineseNameservers,
-        "geosite:google,youtube,telegram,gfw,geolocation-!cn":
-            internationalNameservers,
-    },
-};
-
 const services = [
     {
         name: "bilibili",
@@ -155,6 +105,56 @@ const locations = [
         icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Cloudflare.png",
     },
 ];
+
+function generateGeneralConfig(config) {
+    config["global-client-fingerprint"] = "chrome";
+}
+
+const chineseNameservers = [
+    "https://dns.alidns.com/dns-query",
+    "https://doh.pub/dns-query",
+];
+
+const internationalNameservers = [
+    "https://1.1.1.1/dns-query",
+    "https://1.0.0.1/dns-query",
+    "https://208.67.222.222/dns-query",
+    "https://208.67.220.220/dns-query",
+    "https://194.242.2.2/dns-query",
+    "https://194.242.2.3/dns-query",
+];
+
+const dns = {
+    enable: true,
+    listen: "0.0.0.0:1053",
+    ipv6: false,
+    "use-system-hosts": false,
+    "enhanced-mode": "fake-ip",
+    "fake-ip-range": "198.18.0.1/16",
+    "fake-ip-filter": [
+        "*",
+        "+.lan",
+        "+.local",
+        "time.*.com",
+        "ntp.*.com",
+        "+.msftconnecttest.com",
+        "+.msftncsi.com",
+        "localhost.ptlogin2.qq.com",
+        "localhost.sec.qq.com",
+        "localhost.work.weixin.qq.com",
+    ],
+    "default-nameserver": ["223.5.5.5", "119.29.29.29", "1.1.1.1", "8.8.8.8"],
+    nameserver: [...chineseNameservers, ...internationalNameservers],
+    "proxy-server-nameserver": [
+        ...chineseNameservers,
+        ...internationalNameservers,
+    ],
+    "nameserver-policy": {
+        "geosite:private,cn,geolocation-cn": chineseNameservers,
+        "geosite:google,youtube,telegram,gfw,geolocation-!cn":
+            internationalNameservers,
+    },
+};
 
 const ruleProviderCommon = {
     type: "http",
@@ -297,25 +297,6 @@ const locationProxyGroupCommon = {
     proxies: ["REJECT"],
     "include-all": true,
 };
-
-// const locations = [
-//     "Argentina",
-//     "Finland",
-//     "France",
-//     "Germany",
-//     "Hong Kong, China",
-//     "Iraq",
-//     "Japan",
-//     "Korea",
-//     "Russia",
-//     "Singapore",
-//     "Taiwan, China",
-//     "Thailand",
-//     "Türkiye",
-//     "United Kingdom",
-//     "United States",
-//     "Cloudflare",
-// ];
 
 const serviceProxyGroupProxies = [
     "PROXY",
