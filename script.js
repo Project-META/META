@@ -165,8 +165,6 @@ const ruleProviders = {
 };
 
 const rules = [
-    "DOMAIN,metacubex.github.io,DIRECT",
-    "DOMAIN,yacd.metacubex.one,DIRECT",
     "RULE-SET,bilibili,bilibili",
     "RULE-SET,binance,Binance",
     "RULE-SET,openai,OpenAI",
