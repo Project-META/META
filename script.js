@@ -189,8 +189,8 @@ const rules = [
 const groupBaseOption = {
     interval: 300,
     lazy: false,
-    hidden: false,
     "max-failed-times": 5,
+    hidden: false,
 };
 
 const locationGroupBaseOption = {
