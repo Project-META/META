@@ -3,7 +3,7 @@
 // ########################################### This Area Can Be Flexibly Customized ###########################################
 
 const services = [
-    // Routing rules will be matched in order from top to bottom, with the rules at the top having higher priority than those below.
+    // Routing rules are matched in order from top to bottom, with the rule at the top of the list taking precedence over the rules below it.
     {
         name: "bilibili",
         icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/bilibili_2.png",
