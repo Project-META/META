@@ -185,10 +185,8 @@ const rules = [
 ];
 
 const groupBaseOption = {
-    url: "https://www.google.com/generate_204",
     interval: 300,
     lazy: false,
-    timeout: 5000,
     "max-failed-times": 5,
     hidden: false,
 };
@@ -238,11 +236,7 @@ function main(config) {
             : 0;
     if (proxyCount === 0 && proxyProviderCount === 0)
         throw new Error("No proxy was found in the profile");
-    config["unified-delay"] = true;
-    config["tcp-concurrent"] = true;
     config["global-client-fingerprint"] = "chrome";
-    config["geo-auto-update"] = true;
-    config["geo-update-interval"] = 24;
     config["dns"] = dnsConfig;
     config["proxy-groups"] = [
         {
