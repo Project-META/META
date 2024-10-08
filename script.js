@@ -188,7 +188,7 @@ const rules = [
 
 const groupBaseOption = {
     interval: 300,
-    lazy: true,
+    lazy: false,
     hidden: false,
     "max-failed-times": 5,
 };
