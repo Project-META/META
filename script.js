@@ -188,8 +188,8 @@ const groupBaseOption = {
     url: "https://www.google.com/generate_204",
     interval: 300,
     lazy: false,
-    timeout: 3000,
-    "max-failed-times": 3,
+    timeout: 5000,
+    "max-failed-times": 5,
     hidden: false,
 };
 
