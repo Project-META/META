@@ -50,11 +50,46 @@ const dns = {
     },
 };
 
+const services = [
+    {
+        name: "bilibili",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/bilibili_2.png",
+    },
+    {
+        name: "Binance",
+        icon: "https://img.icons8.com/arcade/100/binance.png",
+    },
+    {
+        name: "OpenAI",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ChatGPT.png",
+    },
+    {
+        name: "Microsoft",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png",
+    },
+    {
+        name: "YouTube",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png",
+    },
+];
+
 const ruleProviderCommon = {
     type: "http",
     interval: 86400,
     format: "yaml",
 };
+
+function serviceRuleProviders(services, ruleProviderCommon) {
+    const ruleProviders = {};
+    for (const { name } of services)
+        ruleProviders[name.toLowerCase()] = {
+            ...ruleProviderCommon,
+            behavior: "classical",
+            url: `https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/${name}/${name}.yaml`,
+            path: `./ruleset/blackmatrix7/${name.toLowerCase()}.yaml`,
+        };
+    return ruleProviders;
+}
 
 const ruleProviders = {
     direct: {
@@ -135,44 +170,18 @@ const ruleProviders = {
         url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt",
         path: "./ruleset/loyalsoldier/applications.yaml",
     },
-    bilibili: {
-        ...ruleProviderCommon,
-        behavior: "classical",
-        url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.yaml",
-        path: "./ruleset/blackmatrix7/bilibili.yaml",
-    },
-    binance: {
-        ...ruleProviderCommon,
-        behavior: "classical",
-        url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Binance/Binance.yaml",
-        path: "./ruleset/blackmatrix7/binance.yaml",
-    },
-    microsoft: {
-        ...ruleProviderCommon,
-        behavior: "classical",
-        url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.yaml",
-        path: "./ruleset/blackmatrix7/microsoft.yaml",
-    },
-    openai: {
-        ...ruleProviderCommon,
-        behavior: "classical",
-        url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml",
-        path: "./ruleset/blackmatrix7/openai.yaml",
-    },
-    youtube: {
-        ...ruleProviderCommon,
-        behavior: "classical",
-        url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.yaml",
-        path: "./ruleset/blackmatrix7/youtube.yaml",
-    },
+    ...serviceRuleProviders(services, ruleProviderCommon),
 };
 
+function serviceRules(services) {
+    const rules = [];
+    for (const { name } of services)
+        rules.push(`RULE-SET,${name.toLowerCase()},${name}`);
+    return rules;
+}
+
 const rules = [
-    "RULE-SET,bilibili,bilibili",
-    "RULE-SET,binance,Binance",
-    "RULE-SET,openai,OpenAI",
-    "RULE-SET,microsoft,Microsoft",
-    "RULE-SET,youtube,YouTube",
+    ...serviceRules(services),
     "RULE-SET,applications,DIRECT",
     "RULE-SET,private,DIRECT",
     "RULE-SET,reject,Advertising",
@@ -235,6 +244,23 @@ const serviceProxyGroupProxies = [
     ...locations,
 ];
 
+function serviceProxyGroups(
+    services,
+    proxyGroupCommon,
+    serviceProxyGroupProxies
+) {
+    const proxyGroups = [];
+    for (const { name, icon } of services)
+        proxyGroups.push({
+            ...proxyGroupCommon,
+            name: name,
+            type: "select",
+            proxies: [...serviceProxyGroupProxies],
+            icon: icon,
+        });
+    return proxyGroups;
+}
+
 const proxyGroups = [
     {
         ...proxyGroupCommon,
@@ -280,6 +306,7 @@ const proxyGroups = [
         proxies: [...locations],
         icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Round_Robin.png",
     },
+    ...serviceProxyGroups(services, proxyGroupCommon, serviceProxyGroupProxies),
     {
         ...proxyGroupCommon,
         name: "iCloud",
@@ -289,38 +316,10 @@ const proxyGroups = [
     },
     {
         ...proxyGroupCommon,
-        name: "OpenAI",
-        type: "select",
-        proxies: [...serviceProxyGroupProxies],
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ChatGPT.png",
-    },
-    {
-        ...proxyGroupCommon,
-        name: "Binance",
-        type: "select",
-        proxies: [...serviceProxyGroupProxies],
-        icon: "https://img.icons8.com/arcade/100/binance.png",
-    },
-    {
-        ...proxyGroupCommon,
         name: "Telegram",
         type: "select",
         proxies: [...serviceProxyGroupProxies],
         icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram_X.png",
-    },
-    {
-        ...proxyGroupCommon,
-        name: "bilibili",
-        type: "select",
-        proxies: [...serviceProxyGroupProxies],
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/bilibili_2.png",
-    },
-    {
-        ...proxyGroupCommon,
-        name: "YouTube",
-        type: "select",
-        proxies: [...serviceProxyGroupProxies],
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png",
     },
     {
         ...proxyGroupCommon,
@@ -335,13 +334,6 @@ const proxyGroups = [
         type: "select",
         proxies: [...serviceProxyGroupProxies],
         icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png",
-    },
-    {
-        ...proxyGroupCommon,
-        name: "Microsoft",
-        type: "select",
-        proxies: [...serviceProxyGroupProxies],
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png",
     },
     {
         ...proxyGroupCommon,
