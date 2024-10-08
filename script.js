@@ -6,6 +6,7 @@ const services = [
     // Routing rules are matched in order from top to bottom, with the rule at the top of the list taking precedence over the rules below it.
     {
         name: "bilibili",
+        alias: "Bilibili",
         icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/bilibili_2.png",
     },
     {
@@ -169,13 +170,15 @@ const ruleProviderCommon = {
 
 function serviceRuleProviders(services, ruleProviderCommon) {
     const ruleProviders = {};
-    for (const { name } of services)
+    for (const { name, alias } of services) {
+        if (!alias) alias = name;
         ruleProviders[name.toLowerCase()] = {
             ...ruleProviderCommon,
             behavior: "classical",
-            url: `https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/${name}/${name}.yaml`,
+            url: `https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/${alias}/${alias}.yaml`,
             path: `./ruleset/blackmatrix7/${name.toLowerCase()}.yaml`,
         };
+    }
     return ruleProviders;
 }
 
