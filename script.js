@@ -1,3 +1,5 @@
+// GitHub repository URL: https://github.com/xixu-me/MCO
+
 const domesticNameservers = [
     "https://dns.alidns.com/dns-query",
     "https://doh.pub/dns-query",
