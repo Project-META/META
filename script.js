@@ -190,7 +190,7 @@ const dns = {
 
 // Hosts
 
-const hosts = [];
+const hosts = {};
 
 // Domain Sniffing
 
