@@ -127,7 +127,7 @@ const generalConfig = {
     "tcp-concurrent": true,
     "global-client-fingerprint": "chrome",
     "geodata-mode": false,
-    "geodata-loader": memconservative,
+    "geodata-loader": "memconservative",
     "geo-auto-update": true,
     "geo-update-interval": 24,
     "geo-url": {
