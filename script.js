@@ -14,6 +14,10 @@ const services = [
         icon: "https://img.icons8.com/arcade/100/binance.png",
     },
     {
+        name: "Copilot",
+        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Copilot.png",
+    },
+    {
         name: "OpenAI",
         icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ChatGPT.png",
     },
