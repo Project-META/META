@@ -159,11 +159,15 @@ const internationalNameservers = [
 
 const dns = {
     enable: true,
+    "prefer-h3": true,
+    "use-hosts": true,
+    "use-system-hosts": false,
+    "respect-rules": false,
     listen: "0.0.0.0:1053",
     ipv6: false,
-    "use-system-hosts": false,
     "enhanced-mode": "fake-ip",
     "fake-ip-range": "198.18.0.1/16",
+    "fake-ip-filter-mode": "blacklist",
     "fake-ip-filter": [
         "*",
         "+.lan",
@@ -178,10 +182,6 @@ const dns = {
     ],
     "default-nameserver": ["223.5.5.5", "119.29.29.29", "1.1.1.1", "8.8.8.8"],
     nameserver: [...chineseNameservers, ...internationalNameservers],
-    "proxy-server-nameserver": [
-        ...chineseNameservers,
-        ...internationalNameservers,
-    ],
     "nameserver-policy": {
         "geosite:private,cn,geolocation-cn": chineseNameservers,
         "geosite:geolocation-!cn": internationalNameservers,
