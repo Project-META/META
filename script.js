@@ -4,8 +4,6 @@
 
 const ICON_BASE_URL =
     "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/";
-const RULE_PROVIDER_BASE_URL =
-    "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/";
 
 const services = [
     // Routing rules are matched in order from top to bottom, with the rule at the top of the list taking precedence over the rules below it.
@@ -386,6 +384,9 @@ function createServiceRuleProviders(services, commonConfig) {
         return acc;
     }, {});
 }
+
+const RULE_PROVIDER_BASE_URL =
+    "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/";
 
 const ruleProviders = {
     direct: {
