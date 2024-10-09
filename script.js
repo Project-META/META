@@ -470,7 +470,7 @@ const ruleProviders = {
     ...createServiceRuleProviders(services, ruleProviderCommon),
 };
 
-// Main function
+// Generate Configuration
 
 function main(config) {
     try {
@@ -480,7 +480,9 @@ function main(config) {
                 ? Object.keys(config["proxy-providers"]).length
                 : 0;
         if (proxyCount === 0 && proxyProviderCount === 0)
-            throw new Error("No proxy was found in the profile");
+            throw new Error(
+                "Please import the configuration file containing proxies or proxy-providers."
+            );
 
         Object.assign(config, generalConfig, {
             dns,
