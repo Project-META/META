@@ -206,8 +206,8 @@ const tun = {
     "auto-route": true,
     "auto-redirect": true,
     "auto-detect-interface": true,
-    "dns-hijack": ["any:53", "tcp://any:53"],
     "strict-route": true,
+    "dns-hijack": ["any:53", "tcp://any:53"],
 };
 
 // Proxy Groups
