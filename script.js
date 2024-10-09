@@ -90,7 +90,7 @@ const locations = [
     },
     {
         name: "Türkiye",
-        filter: "(?i)土耳其|Türkiye|Turkey|TUR|TR|türkiye|turkey|turk|tr|🇹🇷",
+        filter: "(?i)土耳其|Türkiye|Turkey|TUR|TR|türkiye|turkey|tur|tr|🇹🇷",
         icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Turkey.png",
     },
     {
