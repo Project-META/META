@@ -393,6 +393,7 @@ const rules = [
 const ruleProviderCommon = {
     type: "http",
     interval: 86400,
+    proxy: "DIRECT",
     format: "yaml",
 };
 
