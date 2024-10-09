@@ -373,6 +373,8 @@ const rules = [
     "RULE-SET,applications,DIRECT",
     "RULE-SET,private,DIRECT",
     "RULE-SET,reject,Advertising",
+    "GEOSITE,win-spy,Advertising",
+    "GEOSITE,win-extra,Advertising",
     "RULE-SET,icloud,iCloud",
     "RULE-SET,apple,Apple",
     "RULE-SET,google,Google",
