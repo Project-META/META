@@ -112,6 +112,8 @@ const locations = [
 
 // ############################## Do Not Modify The Code Below Unless You Know What You Are Doing ##############################
 
+// General Configuration
+
 const generalConfig = {
     "allow-lan": false,
     mode: "rule",
@@ -139,9 +141,7 @@ const generalConfig = {
     "etag-support": true,
 };
 
-function applyGeneralConfig(config, generalConfig) {
-    for (const key in generalConfig) config[key] = generalConfig[key];
-}
+// DNS
 
 const chineseNameservers = [
     "https://dns.alidns.com/dns-query",
@@ -184,139 +184,11 @@ const dns = {
     ],
     "nameserver-policy": {
         "geosite:private,cn,geolocation-cn": chineseNameservers,
-        "geosite:google,youtube,telegram,gfw,geolocation-!cn":
-            internationalNameservers,
+        "geosite:geolocation-!cn": internationalNameservers,
     },
 };
 
-const ruleProviderCommon = {
-    type: "http",
-    interval: 86400,
-    format: "yaml",
-};
-
-function serviceRuleProviders(services, ruleProviderCommon) {
-    const ruleProviders = {};
-    for (const { name, alias } of services) {
-        const ruleName = alias ? alias : name;
-        ruleProviders[name.toLowerCase()] = {
-            ...ruleProviderCommon,
-            behavior: "classical",
-            url: `https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/${ruleName}/${ruleName}.yaml`,
-            path: `./ruleset/blackmatrix7/${name.toLowerCase()}.yaml`,
-        };
-    }
-    return ruleProviders;
-}
-
-const ruleProviders = {
-    direct: {
-        ...ruleProviderCommon,
-        behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt",
-        path: "./ruleset/loyalsoldier/direct.yaml",
-    },
-    proxy: {
-        ...ruleProviderCommon,
-        behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt",
-        path: "./ruleset/loyalsoldier/proxy.yaml",
-    },
-    reject: {
-        ...ruleProviderCommon,
-        behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt",
-        path: "./ruleset/loyalsoldier/reject.yaml",
-    },
-    private: {
-        ...ruleProviderCommon,
-        behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt",
-        path: "./ruleset/loyalsoldier/private.yaml",
-    },
-    apple: {
-        ...ruleProviderCommon,
-        behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt",
-        path: "./ruleset/loyalsoldier/apple.yaml",
-    },
-    icloud: {
-        ...ruleProviderCommon,
-        behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt",
-        path: "./ruleset/loyalsoldier/icloud.yaml",
-    },
-    google: {
-        ...ruleProviderCommon,
-        behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt",
-        path: "./ruleset/loyalsoldier/google.yaml",
-    },
-    gfw: {
-        ...ruleProviderCommon,
-        behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt",
-        path: "./ruleset/loyalsoldier/gfw.yaml",
-    },
-    "tld-not-cn": {
-        ...ruleProviderCommon,
-        behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt",
-        path: "./ruleset/loyalsoldier/tld-not-cn.yaml",
-    },
-    telegramcidr: {
-        ...ruleProviderCommon,
-        behavior: "ipcidr",
-        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt",
-        path: "./ruleset/loyalsoldier/telegramcidr.yaml",
-    },
-    lancidr: {
-        ...ruleProviderCommon,
-        behavior: "ipcidr",
-        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt",
-        path: "./ruleset/loyalsoldier/lancidr.yaml",
-    },
-    cncidr: {
-        ...ruleProviderCommon,
-        behavior: "ipcidr",
-        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt",
-        path: "./ruleset/loyalsoldier/cncidr.yaml",
-    },
-    applications: {
-        ...ruleProviderCommon,
-        behavior: "classical",
-        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt",
-        path: "./ruleset/loyalsoldier/applications.yaml",
-    },
-    ...serviceRuleProviders(services, ruleProviderCommon),
-};
-
-function serviceRules(services) {
-    const rules = [];
-    for (const { name } of services)
-        rules.push(`RULE-SET,${name.toLowerCase()},${name}`);
-    return rules;
-}
-
-const rules = [
-    ...serviceRules(services),
-    "RULE-SET,applications,DIRECT",
-    "RULE-SET,private,DIRECT",
-    "RULE-SET,reject,Advertising",
-    "RULE-SET,icloud,iCloud",
-    "RULE-SET,apple,Apple",
-    "RULE-SET,google,Google",
-    "RULE-SET,proxy,PROXY",
-    "RULE-SET,gfw,PROXY",
-    "RULE-SET,tld-not-cn,PROXY",
-    "RULE-SET,direct,DIRECT",
-    "RULE-SET,lancidr,DIRECT,no-resolve",
-    "RULE-SET,cncidr,DIRECT,no-resolve",
-    "RULE-SET,telegramcidr,Telegram,no-resolve",
-    "GEOIP,LAN,DIRECT,no-resolve",
-    "GEOIP,CN,DIRECT,no-resolve",
-    "MATCH,Others",
-];
+// Proxy Groups
 
 const proxyGroupCommon = {
     interval: 300,
@@ -463,6 +335,141 @@ const proxyGroups = [
     ...locationProxyGroups(locations, locationProxyGroupCommon),
 ];
 
+// Routing Rules
+
+function serviceRules(services) {
+    const rules = [];
+    for (const { name } of services)
+        rules.push(`RULE-SET,${name.toLowerCase()},${name}`);
+    return rules;
+}
+
+const rules = [
+    ...serviceRules(services),
+    "RULE-SET,applications,DIRECT",
+    "RULE-SET,private,DIRECT",
+    "RULE-SET,reject,Advertising",
+    "RULE-SET,icloud,iCloud",
+    "RULE-SET,apple,Apple",
+    "RULE-SET,google,Google",
+    "RULE-SET,proxy,PROXY",
+    "RULE-SET,gfw,PROXY",
+    "RULE-SET,tld-not-cn,PROXY",
+    "RULE-SET,direct,DIRECT",
+    "RULE-SET,lancidr,DIRECT,no-resolve",
+    "RULE-SET,cncidr,DIRECT,no-resolve",
+    "RULE-SET,telegramcidr,Telegram,no-resolve",
+    "GEOIP,LAN,DIRECT,no-resolve",
+    "GEOIP,CN,DIRECT,no-resolve",
+    "MATCH,Others",
+];
+
+// Rule Providers
+
+const ruleProviderCommon = {
+    type: "http",
+    interval: 86400,
+    format: "yaml",
+};
+
+function serviceRuleProviders(services, ruleProviderCommon) {
+    const ruleProviders = {};
+    for (const { name, alias } of services) {
+        const ruleName = alias ? alias : name;
+        ruleProviders[name.toLowerCase()] = {
+            ...ruleProviderCommon,
+            behavior: "classical",
+            url: `https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/${ruleName}/${ruleName}.yaml`,
+            path: `./ruleset/blackmatrix7/${name.toLowerCase()}.yaml`,
+        };
+    }
+    return ruleProviders;
+}
+
+const ruleProviders = {
+    direct: {
+        ...ruleProviderCommon,
+        behavior: "domain",
+        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt",
+        path: "./ruleset/loyalsoldier/direct.yaml",
+    },
+    proxy: {
+        ...ruleProviderCommon,
+        behavior: "domain",
+        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt",
+        path: "./ruleset/loyalsoldier/proxy.yaml",
+    },
+    reject: {
+        ...ruleProviderCommon,
+        behavior: "domain",
+        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt",
+        path: "./ruleset/loyalsoldier/reject.yaml",
+    },
+    private: {
+        ...ruleProviderCommon,
+        behavior: "domain",
+        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt",
+        path: "./ruleset/loyalsoldier/private.yaml",
+    },
+    apple: {
+        ...ruleProviderCommon,
+        behavior: "domain",
+        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt",
+        path: "./ruleset/loyalsoldier/apple.yaml",
+    },
+    icloud: {
+        ...ruleProviderCommon,
+        behavior: "domain",
+        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt",
+        path: "./ruleset/loyalsoldier/icloud.yaml",
+    },
+    google: {
+        ...ruleProviderCommon,
+        behavior: "domain",
+        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt",
+        path: "./ruleset/loyalsoldier/google.yaml",
+    },
+    gfw: {
+        ...ruleProviderCommon,
+        behavior: "domain",
+        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt",
+        path: "./ruleset/loyalsoldier/gfw.yaml",
+    },
+    "tld-not-cn": {
+        ...ruleProviderCommon,
+        behavior: "domain",
+        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt",
+        path: "./ruleset/loyalsoldier/tld-not-cn.yaml",
+    },
+    telegramcidr: {
+        ...ruleProviderCommon,
+        behavior: "ipcidr",
+        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt",
+        path: "./ruleset/loyalsoldier/telegramcidr.yaml",
+    },
+    lancidr: {
+        ...ruleProviderCommon,
+        behavior: "ipcidr",
+        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt",
+        path: "./ruleset/loyalsoldier/lancidr.yaml",
+    },
+    cncidr: {
+        ...ruleProviderCommon,
+        behavior: "ipcidr",
+        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt",
+        path: "./ruleset/loyalsoldier/cncidr.yaml",
+    },
+    applications: {
+        ...ruleProviderCommon,
+        behavior: "classical",
+        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt",
+        path: "./ruleset/loyalsoldier/applications.yaml",
+    },
+    ...serviceRuleProviders(services, ruleProviderCommon),
+};
+
+//
+
 function main(config) {
     const proxyCount = config?.proxies?.length ?? 0;
     const proxyProviderCount =
@@ -471,7 +478,7 @@ function main(config) {
             : 0;
     if (proxyCount === 0 && proxyProviderCount === 0)
         throw new Error("No proxy was found in the profile");
-    applyGeneralConfig(config, generalConfig);
+    for (const key in generalConfig) config[key] = generalConfig[key];
     config["dns"] = dns;
     config["proxy-groups"] = proxyGroups;
     config["rules"] = rules;
