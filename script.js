@@ -112,8 +112,35 @@ const locations = [
 
 // ############################## Do Not Modify The Code Below Unless You Know What You Are Doing ##############################
 
-function generateGeneralConfig(config) {
-    config["global-client-fingerprint"] = "chrome";
+const generalConfig = {
+    "allow-lan": false,
+    mode: "rule",
+    "log-level": "info",
+    ipv6: false,
+    "find-process-mode": "strict",
+    "external-controller": "",
+    profile: {
+        "store-selected": true,
+        "store-fake-ip": true,
+    },
+    "unified-delay": true,
+    "tcp-concurrent": true,
+    "global-client-fingerprint": "chrome",
+    "geodata-mode": false,
+    "geodata-loader": memconservative,
+    "geo-auto-update": true,
+    "geo-update-interval": 24,
+    "geo-url": {
+        geosite:
+            "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat",
+        mmdb: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country-lite.mmdb",
+    },
+    "global-ua": "clash.meta",
+    "etag-support": true,
+};
+
+function applyGeneralConfig(config, generalConfig) {
+    for (const key in generalConfig) config[key] = generalConfig[key];
 }
 
 const chineseNameservers = [
@@ -444,7 +471,7 @@ function main(config) {
             : 0;
     if (proxyCount === 0 && proxyProviderCount === 0)
         throw new Error("No proxy was found in the profile");
-    generateGeneralConfig(config);
+    applyGeneralConfig(config, generalConfig);
     config["dns"] = dns;
     config["proxy-groups"] = proxyGroups;
     config["rules"] = rules;
