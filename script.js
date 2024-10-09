@@ -2,60 +2,50 @@
 
 // ################################################### this section can be flexibly customized ###################################################
 
+const ICON_BASE_URL =
+    "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/";
+const RULE_PROVIDER_BASE_URL =
+    "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/";
+
 const services = [
     // Routing rules are matched in order from top to bottom, with the rule at the top of the list taking precedence over the rules below it.
     {
         name: "bilibili",
         alias: "BiliBili",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/bilibili_2.png",
+        icon: `${ICON_BASE_URL}bilibili_2.png`,
     },
-    {
-        name: "Binance",
-        icon: "https://img.icons8.com/arcade/100/binance.png",
-    },
-    {
-        name: "Copilot",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Copilot.png",
-    },
-    {
-        name: "OpenAI",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ChatGPT.png",
-    },
-    {
-        name: "Microsoft",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png",
-    },
-    {
-        name: "YouTube",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png",
-    },
+    { name: "Binance", icon: "https://img.icons8.com/arcade/100/binance.png" },
+    { name: "Copilot", icon: `${ICON_BASE_URL}Copilot.png` },
+    { name: "OpenAI", icon: `${ICON_BASE_URL}ChatGPT.png` },
+    { name: "Microsoft", icon: `${ICON_BASE_URL}Microsoft.png` },
+    { name: "YouTube", icon: `${ICON_BASE_URL}YouTube.png` },
 ];
 
 const locations = [
     {
         name: "Argentina",
         filter: "(?i)阿根廷|Argentina|ARG|AR|argentina|arg|ar|🇦🇷",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Argentina.png",
+        icon: `${ICON_BASE_URL}Argentina.png`,
     },
     {
         name: "Finland",
         filter: "(?i)芬兰|Finland|FIN|FI|finland|fin|fi|🇫🇮",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Finland.png",
+        icon: `${ICON_BASE_URL}Finland.png`,
     },
     {
         name: "France",
         filter: "(?i)法国|France|FR|france|fr|🇫🇷",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/France.png",
+        icon: `${ICON_BASE_URL}France.png`,
     },
     {
         name: "Germany",
         filter: "(?i)德国|Germany|GER|DE|germany|ger|de|🇩🇪",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Germany.png",
+        icon: `${ICON_BASE_URL}Germany.png`,
     },
     {
         name: "Hong Kong, China",
         filter: "(?i)香港|Hong Kong|HK|hong kong|hk|🇭🇰",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png",
+        icon: `${ICON_BASE_URL}Hong_Kong.png`,
     },
     {
         name: "Iraq",
@@ -65,52 +55,52 @@ const locations = [
     {
         name: "Japan",
         filter: "(?i)日本|Japan|japan|ja|🇯🇵",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png",
+        icon: `${ICON_BASE_URL}Japan.png`,
     },
     {
         name: "Korea",
         filter: "(?i)韩国|Korea|KR|korea|kr|🇰🇷",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Korea.png",
+        icon: `${ICON_BASE_URL}Korea.png`,
     },
     {
         name: "Russia",
         filter: "(?i)俄罗斯|Russia|RU|russia|ru|🇷🇺",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Russia.png",
+        icon: `${ICON_BASE_URL}Russia.png`,
     },
     {
         name: "Singapore",
         filter: "(?i)新加坡|Singapore|singapore|sg|🇸🇬",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png",
+        icon: `${ICON_BASE_URL}Singapore.png`,
     },
     {
         name: "Taiwan, China",
         filter: "(?i)台湾|Taiwan|TW|taiwan|tw|🇹🇼",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/China.png",
+        icon: `${ICON_BASE_URL}China.png`,
     },
     {
         name: "Thailand",
         filter: "(?i)泰国|Thailand|TH|thailand|th|🇹🇭",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Thailand.png",
+        icon: `${ICON_BASE_URL}Thailand.png`,
     },
     {
         name: "Türkiye",
         filter: "(?i)土耳其|Türkiye|Turkey|TUR|TR|türkiye|turkey|tur|tr|🇹🇷",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Turkey.png",
+        icon: `${ICON_BASE_URL}Turkey.png`,
     },
     {
         name: "United Kingdom",
         filter: "(?i)英国|United Kingdom|Great Britain|UK|GB|united kingdom|great britain|uk|gb|🇬🇧",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_Kingdom.png",
+        icon: `${ICON_BASE_URL}United_Kingdom.png`,
     },
     {
         name: "United States",
         filter: "(?i)美国|United States of America|United States|USA|US|united states of america|united states|usa|us|🇺🇸",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png",
+        icon: `${ICON_BASE_URL}United_States.png`,
     },
     {
         name: "Cloudflare",
         filter: "(?i)Cloudflare|CF|cloudflare|cf",
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Cloudflare.png",
+        icon: `${ICON_BASE_URL}Cloudflare.png`,
     },
 ];
 
@@ -243,33 +233,15 @@ const serviceProxyGroupProxies = [
     ...locations.map(({ name }) => name),
 ];
 
-function serviceProxyGroups(
-    services,
-    proxyGroupCommon,
-    serviceProxyGroupProxies
-) {
-    const proxyGroups = [];
-    for (const { name, icon } of services)
-        proxyGroups.push({
-            ...proxyGroupCommon,
-            name: name,
-            type: "select",
-            proxies: [...serviceProxyGroupProxies],
-            icon: icon,
-        });
-    return proxyGroups;
-}
-
-function locationProxyGroups(locations, locationProxyGroupCommon) {
-    const proxyGroups = [];
-    for (const { name, filter, icon } of locations)
-        proxyGroups.push({
-            ...locationProxyGroupCommon,
-            name: name,
-            filter: filter,
-            icon: icon,
-        });
-    return proxyGroups;
+function createProxyGroups(items, commonConfig, type, extraProps = {}) {
+    return items.map(({ name, icon, filter }) => ({
+        ...commonConfig,
+        name,
+        type,
+        icon,
+        filter,
+        ...extraProps,
+    }));
 }
 
 const proxyGroups = [
@@ -284,7 +256,7 @@ const proxyGroups = [
             "LOAD BALANCING (Round robin)",
             ...locations.map(({ name }) => name),
         ],
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png",
+        icon: `${ICON_BASE_URL}Proxy.png`,
     },
     {
         ...proxyGroupCommon,
@@ -292,14 +264,14 @@ const proxyGroups = [
         type: "url-test",
         tolerance: 100,
         proxies: [...locations.map(({ name }) => name)],
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png",
+        icon: `${ICON_BASE_URL}Auto.png`,
     },
     {
         ...proxyGroupCommon,
         name: "FALLBACK",
         type: "fallback",
         proxies: [...locations.map(({ name }) => name)],
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Available.png",
+        icon: `${ICON_BASE_URL}Available.png`,
     },
     {
         ...proxyGroupCommon,
@@ -307,7 +279,7 @@ const proxyGroups = [
         type: "load-balance",
         strategy: "consistent-hashing",
         proxies: [...locations.map(({ name }) => name)],
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Round_Robin_1.png",
+        icon: `${ICON_BASE_URL}Round_Robin_1.png`,
     },
     {
         ...proxyGroupCommon,
@@ -315,65 +287,64 @@ const proxyGroups = [
         type: "load-balance",
         strategy: "round-robin",
         proxies: [...locations.map(({ name }) => name)],
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Round_Robin.png",
+        icon: `${ICON_BASE_URL}Round_Robin.png`,
     },
-    ...serviceProxyGroups(services, proxyGroupCommon, serviceProxyGroupProxies),
+    ...createProxyGroups(services, proxyGroupCommon, "select", {
+        proxies: serviceProxyGroupProxies,
+    }),
     {
         ...proxyGroupCommon,
         name: "iCloud",
         type: "select",
         proxies: [...serviceProxyGroupProxies],
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/iCloud.png",
+        icon: `${ICON_BASE_URL}iCloud.png`,
     },
     {
         ...proxyGroupCommon,
         name: "Telegram",
         type: "select",
         proxies: [...serviceProxyGroupProxies],
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram_X.png",
+        icon: `${ICON_BASE_URL}Telegram_X.png`,
     },
     {
         ...proxyGroupCommon,
         name: "Apple",
         type: "select",
         proxies: [...serviceProxyGroupProxies],
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple_1.png",
+        icon: `${ICON_BASE_URL}Apple_1.png`,
     },
     {
         ...proxyGroupCommon,
         name: "Google",
         type: "select",
         proxies: [...serviceProxyGroupProxies],
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png",
+        icon: `${ICON_BASE_URL}Google_Search.png`,
     },
     {
         ...proxyGroupCommon,
         name: "Others",
         type: "select",
         proxies: [...serviceProxyGroupProxies],
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Final.png",
+        icon: `${ICON_BASE_URL}Final.png`,
     },
     {
         ...proxyGroupCommon,
         name: "Advertising",
         type: "select",
         proxies: ["REJECT", "DIRECT"],
-        icon: "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Advertising.png",
+        icon: `${ICON_BASE_URL}Advertising.png`,
     },
-    ...locationProxyGroups(locations, locationProxyGroupCommon),
+    ...createProxyGroups(locations, locationProxyGroupCommon, "url-test"),
 ];
 
 // Routing Rules
 
-function serviceRules(services) {
-    const rules = [];
-    for (const { name } of services)
-        rules.push(`RULE-SET,${name.toLowerCase()},${name}`);
-    return rules;
+function createServiceRules(services) {
+    return services.map(({ name }) => `RULE-SET,${name.toLowerCase()},${name}`);
 }
 
 const rules = [
-    ...serviceRules(services),
+    ...createServiceRules(services),
     "RULE-SET,applications,DIRECT",
     "RULE-SET,private,DIRECT",
     "RULE-SET,reject,Advertising",
@@ -403,119 +374,126 @@ const ruleProviderCommon = {
     format: "yaml",
 };
 
-function serviceRuleProviders(services, ruleProviderCommon) {
-    const ruleProviders = {};
-    for (const { name, alias } of services) {
-        const ruleName = alias ? alias : name;
-        ruleProviders[name.toLowerCase()] = {
-            ...ruleProviderCommon,
+function createServiceRuleProviders(services, commonConfig) {
+    return services.reduce((acc, { name, alias }) => {
+        const ruleName = alias || name;
+        acc[name.toLowerCase()] = {
+            ...commonConfig,
             behavior: "classical",
             url: `https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/${ruleName}/${ruleName}.yaml`,
             path: `./ruleset/blackmatrix7/${name.toLowerCase()}.yaml`,
         };
-    }
-    return ruleProviders;
+        return acc;
+    }, {});
 }
 
 const ruleProviders = {
     direct: {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt",
+        url: `${RULE_PROVIDER_BASE_URL}direct.txt`,
         path: "./ruleset/loyalsoldier/direct.yaml",
     },
     proxy: {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt",
+        url: `${RULE_PROVIDER_BASE_URL}proxy.txt`,
         path: "./ruleset/loyalsoldier/proxy.yaml",
     },
     reject: {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt",
+        url: `${RULE_PROVIDER_BASE_URL}reject.txt`,
         path: "./ruleset/loyalsoldier/reject.yaml",
     },
     private: {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt",
+        url: `${RULE_PROVIDER_BASE_URL}private.txt`,
         path: "./ruleset/loyalsoldier/private.yaml",
     },
     apple: {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt",
+        url: `${RULE_PROVIDER_BASE_URL}apple.txt`,
         path: "./ruleset/loyalsoldier/apple.yaml",
     },
     icloud: {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt",
+        url: `${RULE_PROVIDER_BASE_URL}icloud.txt`,
         path: "./ruleset/loyalsoldier/icloud.yaml",
     },
     google: {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt",
+        url: `${RULE_PROVIDER_BASE_URL}google.txt`,
         path: "./ruleset/loyalsoldier/google.yaml",
     },
     gfw: {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt",
+        url: `${RULE_PROVIDER_BASE_URL}gfw.txt`,
         path: "./ruleset/loyalsoldier/gfw.yaml",
     },
     "tld-not-cn": {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt",
+        url: `${RULE_PROVIDER_BASE_URL}tld-not-cn.txt`,
         path: "./ruleset/loyalsoldier/tld-not-cn.yaml",
     },
     telegramcidr: {
         ...ruleProviderCommon,
         behavior: "ipcidr",
-        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt",
+        url: `${RULE_PROVIDER_BASE_URL}telegramcidr.txt`,
         path: "./ruleset/loyalsoldier/telegramcidr.yaml",
     },
     lancidr: {
         ...ruleProviderCommon,
         behavior: "ipcidr",
-        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt",
+        url: `${RULE_PROVIDER_BASE_URL}lancidr.txt`,
         path: "./ruleset/loyalsoldier/lancidr.yaml",
     },
     cncidr: {
         ...ruleProviderCommon,
         behavior: "ipcidr",
-        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt",
+        url: `${RULE_PROVIDER_BASE_URL}cncidr.txt`,
         path: "./ruleset/loyalsoldier/cncidr.yaml",
     },
     applications: {
         ...ruleProviderCommon,
         behavior: "classical",
-        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt",
+        url: `${RULE_PROVIDER_BASE_URL}applications.txt`,
         path: "./ruleset/loyalsoldier/applications.yaml",
     },
-    ...serviceRuleProviders(services, ruleProviderCommon),
+    ...createServiceRuleProviders(services, ruleProviderCommon),
 };
 
-//
+// Main function
 
 function main(config) {
-    const proxyCount = config?.proxies?.length ?? 0;
-    const proxyProviderCount =
-        typeof config?.["proxy-providers"] === "object"
-            ? Object.keys(config["proxy-providers"]).length
-            : 0;
-    if (proxyCount === 0 && proxyProviderCount === 0)
-        throw new Error("No proxy was found in the profile");
-    for (const key in generalConfig) config[key] = generalConfig[key];
-    config["dns"] = dns;
-    config["hosts"] = hosts;
-    config["sniffer"] = sniffer;
-    config["tun"] = tun;
-    config["proxy-groups"] = proxyGroups;
-    config["rules"] = rules;
-    config["rule-providers"] = ruleProviders;
-    return config;
+    try {
+        const proxyCount = config?.proxies?.length ?? 0;
+        const proxyProviderCount =
+            typeof config?.["proxy-providers"] === "object"
+                ? Object.keys(config["proxy-providers"]).length
+                : 0;
+        if (proxyCount === 0 && proxyProviderCount === 0)
+            throw new Error("No proxy was found in the profile");
+
+        Object.assign(config, generalConfig, {
+            dns,
+            hosts,
+            sniffer,
+            tun,
+            "proxy-groups": proxyGroups,
+            rules,
+            "rule-providers": ruleProviders,
+        });
+
+        return config;
+    } catch (error) {
+        console.error("Error in main function:", error);
+        throw error;
+    }
 }
