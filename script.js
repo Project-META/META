@@ -213,8 +213,10 @@ const tun = {
 // Proxy Groups
 
 const proxyGroupCommon = {
+    url: "https://www.gstatic.com/generate_204",
     interval: 300,
     lazy: true,
+    timeout: 5000,
     "max-failed-times": 5,
     hidden: false,
 };
