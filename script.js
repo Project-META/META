@@ -7,6 +7,7 @@ const ICON_BASE_URL =
 
 const services = [
     // Routing rules are matched in order from top to bottom, with the rule at the top of the list taking precedence over the rules below it.
+    // Default services: Apple, iCloud, Google, Telegram.
     {
         name: "bilibili",
         alias: "BiliBili",
@@ -292,20 +293,6 @@ const proxyGroups = [
     }),
     {
         ...proxyGroupCommon,
-        name: "iCloud",
-        type: "select",
-        proxies: [...serviceProxyGroupProxies],
-        icon: `${ICON_BASE_URL}iCloud.png`,
-    },
-    {
-        ...proxyGroupCommon,
-        name: "Telegram",
-        type: "select",
-        proxies: [...serviceProxyGroupProxies],
-        icon: `${ICON_BASE_URL}Telegram_X.png`,
-    },
-    {
-        ...proxyGroupCommon,
         name: "Apple",
         type: "select",
         proxies: [...serviceProxyGroupProxies],
@@ -313,10 +300,24 @@ const proxyGroups = [
     },
     {
         ...proxyGroupCommon,
+        name: "iCloud",
+        type: "select",
+        proxies: [...serviceProxyGroupProxies],
+        icon: `${ICON_BASE_URL}iCloud.png`,
+    },
+    {
+        ...proxyGroupCommon,
         name: "Google",
         type: "select",
         proxies: [...serviceProxyGroupProxies],
         icon: `${ICON_BASE_URL}Google_Search.png`,
+    },
+    {
+        ...proxyGroupCommon,
+        name: "Telegram",
+        type: "select",
+        proxies: [...serviceProxyGroupProxies],
+        icon: `${ICON_BASE_URL}Telegram_X.png`,
     },
     {
         ...proxyGroupCommon,
