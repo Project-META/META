@@ -130,7 +130,7 @@ const generalConfig = {
     "geodata-loader": "memconservative",
     "geo-auto-update": true,
     "geo-update-interval": 24,
-    "geo-url": {
+    "geox-url": {
         geosite:
             "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat",
         mmdb: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country-lite.mmdb",
