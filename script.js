@@ -181,12 +181,16 @@ const dns = {
         "localhost.work.weixin.qq.com",
     ],
     "default-nameserver": ["223.5.5.5", "119.29.29.29", "1.1.1.1", "8.8.8.8"],
-    nameserver: [...chineseNameservers, ...internationalNameservers],
     "nameserver-policy": {
         "geosite:private,cn,geolocation-cn": chineseNameservers,
         "geosite:geolocation-!cn": internationalNameservers,
     },
+    nameserver: [...chineseNameservers, ...internationalNameservers],
 };
+
+// Hosts
+
+const hosts = {};
 
 // Proxy Groups
 
@@ -480,6 +484,7 @@ function main(config) {
         throw new Error("No proxy was found in the profile");
     for (const key in generalConfig) config[key] = generalConfig[key];
     config["dns"] = dns;
+    config["hosts"] = hosts;
     config["proxy-groups"] = proxyGroups;
     config["rules"] = rules;
     config["rule-providers"] = ruleProviders;
