@@ -192,6 +192,12 @@ const dns = {
 
 const hosts = {};
 
+// Domain Sniffing
+
+const sniffer = {
+    enable: false,
+};
+
 // Proxy Groups
 
 const proxyGroupCommon = {
@@ -485,6 +491,7 @@ function main(config) {
     for (const key in generalConfig) config[key] = generalConfig[key];
     config["dns"] = dns;
     config["hosts"] = hosts;
+    config["sniffer"] = sniffer;
     config["proxy-groups"] = proxyGroups;
     config["rules"] = rules;
     config["rule-providers"] = ruleProviders;
