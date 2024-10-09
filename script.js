@@ -470,7 +470,7 @@ const ruleProviders = {
     ...createServiceRuleProviders(services, ruleProviderCommon),
 };
 
-// Generate Configuration
+// generate configuration using the above settings
 
 function main(config) {
     try {
