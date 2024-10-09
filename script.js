@@ -198,6 +198,18 @@ const sniffer = {
     enable: false,
 };
 
+// TUN
+
+const tun = {
+    enable: true,
+    stack: "mixed",
+    "auto-route": true,
+    "auto-redirect": true,
+    "auto-detect-interface": true,
+    "dns-hijack": ["any:53", "tcp://any:53"],
+    "strict-route": true,
+};
+
 // Proxy Groups
 
 const proxyGroupCommon = {
@@ -492,6 +504,7 @@ function main(config) {
     config["dns"] = dns;
     config["hosts"] = hosts;
     config["sniffer"] = sniffer;
+    config["tun"] = tun;
     config["proxy-groups"] = proxyGroups;
     config["rules"] = rules;
     config["rule-providers"] = ruleProviders;
