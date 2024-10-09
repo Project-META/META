@@ -1,6 +1,6 @@
 // GitHub repository URL: https://github.com/xixu-me/MCG
 
-// ########################################### This Area Can Be Flexibly Customized ###########################################
+// ########################################### This area can be flexibly customized ###########################################
 
 const services = [
     // Routing rules are matched in order from top to bottom, with the rule at the top of the list taking precedence over the rules below it.
