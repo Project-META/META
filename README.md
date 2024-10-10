@@ -129,9 +129,7 @@ For detailed documentation, refer to the official ***M***ulti-function network t
 
 ## Demo
 
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/20f69597-f637-4198-86c9-b11a1a520ed3" width="75%" height="auto" alt="MCG-Demo">
-</div>
+A demo that use MCG to generate a configuration for the ***M***ulti-function network tool is available at [MCG Demo](https://github.com/user-attachments/assets/20f69597-f637-4198-86c9-b11a1a520ed3).
 
 ## Disclaimer
 
