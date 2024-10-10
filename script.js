@@ -473,18 +473,16 @@ const ruleProviders = {
 
 // generate configuration using the above settings
 
+function validateConfig(config) {
+    if (!Array.isArray(config.proxies) && !config["proxy-providers"])
+        throw new Error(
+            "The configuration you provide must include either a proxies array or a proxy-providers object."
+        );
+}
+
 function main(config) {
     try {
-        const proxyCount = config?.proxies?.length ?? 0;
-        const proxyProviderCount =
-            typeof config?.["proxy-providers"] === "object"
-                ? Object.keys(config["proxy-providers"]).length
-                : 0;
-        if (proxyCount === 0 && proxyProviderCount === 0)
-            throw new Error(
-                "Please import the configuration file containing proxies or proxy-providers."
-            );
-
+        validateConfig(config);
         Object.assign(config, generalConfig, {
             dns,
             hosts,
@@ -494,10 +492,13 @@ function main(config) {
             rules,
             "rule-providers": ruleProviders,
         });
-
+        console.log(config);
         return config;
     } catch (error) {
-        console.error("Error in main function:", error);
-        throw error;
+        console.error(
+            "An error occurred during configuration generation: ",
+            error
+        );
+        return { error: error.message, originalConfig: config };
     }
 }
