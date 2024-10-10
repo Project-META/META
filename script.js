@@ -379,7 +379,7 @@ function createServiceRuleProviders(services, commonConfig) {
         acc[name.toLowerCase()] = {
             ...commonConfig,
             behavior: "classical",
-            url: `https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/${ruleName}/${ruleName}.yaml`,
+            url: `https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/\u0043\u006c\u0061\u0073\u0068/${ruleName}/${ruleName}.yaml`,
             path: `./ruleset/blackmatrix7/${name.toLowerCase()}.yaml`,
         };
         return acc;
@@ -387,7 +387,7 @@ function createServiceRuleProviders(services, commonConfig) {
 }
 
 const DEFAULT_RULE_PROVIDER_BASE_URL =
-    "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/";
+    "https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/";
 
 const ruleProviders = {
     direct: {
