@@ -483,6 +483,7 @@ function validateConfig(config) {
 function main(config) {
     try {
         validateConfig(config);
+        d;
         Object.assign(config, generalConfig, {
             dns,
             hosts,
@@ -492,12 +493,11 @@ function main(config) {
             rules,
             "rule-providers": ruleProviders,
         });
-        console.log(config);
+        console.log("Generated configuration: " + JSON.stringify(config));
         return config;
     } catch (error) {
         console.error(
-            "An error occurred during configuration generation: ",
-            error
+            "An error occurred during configuration generation: " + error
         );
         return { error: error.message, originalConfig: config };
     }
