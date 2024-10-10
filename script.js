@@ -474,10 +474,19 @@ const ruleProviders = {
 // generate configuration using the above settings
 
 function validateConfig(config) {
-    if (!Array.isArray(config.proxies) && !config["proxy-providers"])
+    const proxyCount = Array.isArray(config.proxies)
+        ? config.proxies.length
+        : 0;
+    const proxyProviderCount =
+        typeof config["proxy-providers"] === "object" &&
+        config["proxy-providers"] !== null
+            ? Object.keys(config["proxy-providers"]).length
+            : 0;
+    if (proxyCount === 0 && proxyProviderCount === 0) {
         throw new Error(
-            "The configuration you provide must include either a proxies array or a proxy-providers object."
+            "the configuration you provide must contain a non-empty proxies array or a proxy-providers object"
         );
+    }
 }
 
 function main(config) {
@@ -496,7 +505,8 @@ function main(config) {
         return config;
     } catch (error) {
         console.error(
-            "An error occurred during configuration generation: " + error
+            "An error occurred during configuration generation: " +
+                error.message
         );
         return { error: error.message, originalConfig: config };
     }
