@@ -14,8 +14,8 @@ const services = [
         icon: `${ICON_BASE_URL}bilibili_2.png`,
     },
     { name: "Binance", icon: "https://img.icons8.com/arcade/100/binance.png" },
-    { name: "Copilot", icon: `${ICON_BASE_URL}Copilot.png` },
     { name: "OpenAI", icon: `${ICON_BASE_URL}ChatGPT.png` },
+    { name: "Copilot", icon: `${ICON_BASE_URL}Copilot.png` },
     { name: "Microsoft", icon: `${ICON_BASE_URL}Microsoft.png` },
     { name: "YouTube", icon: `${ICON_BASE_URL}YouTube.png` },
 ];
