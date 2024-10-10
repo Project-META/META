@@ -129,9 +129,7 @@ For detailed documentation, refer to the official ***M***ulti-function network t
 
 ## Demo
 
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/20f69597-f637-4198-86c9-b11a1a520ed3" width="50%" height="auto" alt="MCG">
-</div>
+![MCG Demo](https://github.com/user-attachments/assets/20f69597-f637-4198-86c9-b11a1a520ed3)
 
 ## Disclaimer
 
