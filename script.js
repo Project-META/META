@@ -491,7 +491,7 @@ function validateOriginalConfig(config) {
 
 function main(config) {
     try {
-        validateOriginalConfig();
+        validateOriginalConfig(config);
         Object.assign(config, generalConfig, {
             dns,
             hosts,
