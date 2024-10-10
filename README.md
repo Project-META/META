@@ -1,4 +1,4 @@
-# MCG - M. Configuration Generator
+# MCG - MCG Configuration Generator
 
 | Via | URL |
 | --- | --- |
