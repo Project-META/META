@@ -501,7 +501,7 @@ function main(config) {
             rules,
             "rule-providers": ruleProviders,
         });
-        console.log(`Generated configuration: ${JSON.stringify(config)}`);
+        console.log(`Generated configuration: ${config}`);
         return config;
     } catch (error) {
         console.error(
