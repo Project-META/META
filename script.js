@@ -1,4 +1,4 @@
-// GitHub repository URL: https://github.com/xixu-me/MCG
+// GitHub repository URL: https://github.com/MCG-Organization/MCG
 
 // ################################################### this section can be flexibly customized ###################################################
 
