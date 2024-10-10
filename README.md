@@ -1,1 +1,1 @@
-# See the [MCG Organization home page](https://github.com/MCG-Organization).
+See the [MCG Organization](https://github.com/MCG-Organization) page.
