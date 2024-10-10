@@ -484,7 +484,7 @@ function validateConfig(config) {
             : 0;
     if (proxyCount === 0 && proxyProviderCount === 0) {
         throw new Error(
-            "the configuration you provide must contain a non-empty proxies array or a proxy-providers object"
+            "The configuration you provide must contain a non-empty proxies array or a proxy-providers object"
         );
     }
 }
