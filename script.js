@@ -501,7 +501,8 @@ function main(config) {
             rules,
             "rule-providers": ruleProviders,
         });
-        console.log(`Generated configuration: ${config}`);
+        console.log("The generated configuration is as follows");
+        console.log(config);
         return config;
     } catch (error) {
         console.error(
