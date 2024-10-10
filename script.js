@@ -2,7 +2,7 @@
 
 // ################################################### this section can be flexibly customized ###################################################
 
-const ICON_BASE_URL =
+const ICON_SET_URL =
     "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/";
 
 const services = [
@@ -11,40 +11,40 @@ const services = [
     {
         name: "bilibili",
         alias: "BiliBili",
-        icon: `${ICON_BASE_URL}bilibili_2.png`,
+        icon: `${ICON_SET_URL}bilibili_2.png`,
     },
     { name: "Binance", icon: "https://img.icons8.com/arcade/100/binance.png" },
-    { name: "OpenAI", icon: `${ICON_BASE_URL}ChatGPT.png` },
-    { name: "Copilot", icon: `${ICON_BASE_URL}Copilot.png` },
-    { name: "Microsoft", icon: `${ICON_BASE_URL}Microsoft.png` },
-    { name: "YouTube", icon: `${ICON_BASE_URL}YouTube.png` },
+    { name: "OpenAI", icon: `${ICON_SET_URL}ChatGPT.png` },
+    { name: "Copilot", icon: `${ICON_SET_URL}Copilot.png` },
+    { name: "Microsoft", icon: `${ICON_SET_URL}Microsoft.png` },
+    { name: "YouTube", icon: `${ICON_SET_URL}YouTube.png` },
 ];
 
 const locations = [
     {
         name: "Argentina",
         filter: "(?i)阿根廷|Argentina|ARG|AR|argentina|arg|ar|🇦🇷",
-        icon: `${ICON_BASE_URL}Argentina.png`,
+        icon: `${ICON_SET_URL}Argentina.png`,
     },
     {
         name: "Finland",
         filter: "(?i)芬兰|Finland|FIN|FI|finland|fin|fi|🇫🇮",
-        icon: `${ICON_BASE_URL}Finland.png`,
+        icon: `${ICON_SET_URL}Finland.png`,
     },
     {
         name: "France",
         filter: "(?i)法国|France|FR|france|fr|🇫🇷",
-        icon: `${ICON_BASE_URL}France.png`,
+        icon: `${ICON_SET_URL}France.png`,
     },
     {
         name: "Germany",
         filter: "(?i)德国|Germany|GER|DE|germany|ger|de|🇩🇪",
-        icon: `${ICON_BASE_URL}Germany.png`,
+        icon: `${ICON_SET_URL}Germany.png`,
     },
     {
         name: "Hong Kong, China",
         filter: "(?i)香港|Hong Kong|HK|hong kong|hk|🇭🇰",
-        icon: `${ICON_BASE_URL}Hong_Kong.png`,
+        icon: `${ICON_SET_URL}Hong_Kong.png`,
     },
     {
         name: "Iraq",
@@ -54,52 +54,52 @@ const locations = [
     {
         name: "Japan",
         filter: "(?i)日本|Japan|japan|ja|🇯🇵",
-        icon: `${ICON_BASE_URL}Japan.png`,
+        icon: `${ICON_SET_URL}Japan.png`,
     },
     {
         name: "Korea",
         filter: "(?i)韩国|Korea|KR|korea|kr|🇰🇷",
-        icon: `${ICON_BASE_URL}Korea.png`,
+        icon: `${ICON_SET_URL}Korea.png`,
     },
     {
         name: "Russia",
         filter: "(?i)俄罗斯|Russia|RU|russia|ru|🇷🇺",
-        icon: `${ICON_BASE_URL}Russia.png`,
+        icon: `${ICON_SET_URL}Russia.png`,
     },
     {
         name: "Singapore",
         filter: "(?i)新加坡|Singapore|singapore|sg|🇸🇬",
-        icon: `${ICON_BASE_URL}Singapore.png`,
+        icon: `${ICON_SET_URL}Singapore.png`,
     },
     {
         name: "Taiwan, China",
         filter: "(?i)台湾|Taiwan|TW|taiwan|tw|🇹🇼",
-        icon: `${ICON_BASE_URL}China.png`,
+        icon: `${ICON_SET_URL}China.png`,
     },
     {
         name: "Thailand",
         filter: "(?i)泰国|Thailand|TH|thailand|th|🇹🇭",
-        icon: `${ICON_BASE_URL}Thailand.png`,
+        icon: `${ICON_SET_URL}Thailand.png`,
     },
     {
         name: "Türkiye",
         filter: "(?i)土耳其|Türkiye|Turkey|TUR|TR|türkiye|turkey|tur|tr|🇹🇷",
-        icon: `${ICON_BASE_URL}Turkey.png`,
+        icon: `${ICON_SET_URL}Turkey.png`,
     },
     {
         name: "United Kingdom",
         filter: "(?i)英国|United Kingdom|Great Britain|UK|GB|united kingdom|great britain|uk|gb|🇬🇧",
-        icon: `${ICON_BASE_URL}United_Kingdom.png`,
+        icon: `${ICON_SET_URL}United_Kingdom.png`,
     },
     {
         name: "United States",
         filter: "(?i)美国|United States of America|United States|USA|US|united states of america|united states|usa|us|🇺🇸",
-        icon: `${ICON_BASE_URL}United_States.png`,
+        icon: `${ICON_SET_URL}United_States.png`,
     },
     {
         name: "Cloudflare",
         filter: "(?i)Cloudflare|CF|cloudflare|cf",
-        icon: `${ICON_BASE_URL}Cloudflare.png`,
+        icon: `${ICON_SET_URL}Cloudflare.png`,
     },
 ];
 
@@ -255,7 +255,7 @@ const proxyGroups = [
             "LOAD BALANCING (Round robin)",
             ...locations.map(({ name }) => name),
         ],
-        icon: `${ICON_BASE_URL}Proxy.png`,
+        icon: `${ICON_SET_URL}Proxy.png`,
     },
     {
         ...proxyGroupCommon,
@@ -263,14 +263,14 @@ const proxyGroups = [
         type: "url-test",
         tolerance: 100,
         proxies: [...locations.map(({ name }) => name)],
-        icon: `${ICON_BASE_URL}Auto.png`,
+        icon: `${ICON_SET_URL}Auto.png`,
     },
     {
         ...proxyGroupCommon,
         name: "FALLBACK",
         type: "fallback",
         proxies: [...locations.map(({ name }) => name)],
-        icon: `${ICON_BASE_URL}Available.png`,
+        icon: `${ICON_SET_URL}Available.png`,
     },
     {
         ...proxyGroupCommon,
@@ -278,7 +278,7 @@ const proxyGroups = [
         type: "load-balance",
         strategy: "consistent-hashing",
         proxies: [...locations.map(({ name }) => name)],
-        icon: `${ICON_BASE_URL}Round_Robin_1.png`,
+        icon: `${ICON_SET_URL}Round_Robin_1.png`,
     },
     {
         ...proxyGroupCommon,
@@ -286,7 +286,7 @@ const proxyGroups = [
         type: "load-balance",
         strategy: "round-robin",
         proxies: [...locations.map(({ name }) => name)],
-        icon: `${ICON_BASE_URL}Round_Robin.png`,
+        icon: `${ICON_SET_URL}Round_Robin.png`,
     },
     ...createProxyGroups(services, proxyGroupCommon, "select", {
         proxies: serviceProxyGroupProxies,
@@ -296,42 +296,42 @@ const proxyGroups = [
         name: "Apple",
         type: "select",
         proxies: [...serviceProxyGroupProxies],
-        icon: `${ICON_BASE_URL}Apple_1.png`,
+        icon: `${ICON_SET_URL}Apple_1.png`,
     },
     {
         ...proxyGroupCommon,
         name: "iCloud",
         type: "select",
         proxies: [...serviceProxyGroupProxies],
-        icon: `${ICON_BASE_URL}iCloud.png`,
+        icon: `${ICON_SET_URL}iCloud.png`,
     },
     {
         ...proxyGroupCommon,
         name: "Google",
         type: "select",
         proxies: [...serviceProxyGroupProxies],
-        icon: `${ICON_BASE_URL}Google_Search.png`,
+        icon: `${ICON_SET_URL}Google_Search.png`,
     },
     {
         ...proxyGroupCommon,
         name: "Telegram",
         type: "select",
         proxies: [...serviceProxyGroupProxies],
-        icon: `${ICON_BASE_URL}Telegram_X.png`,
+        icon: `${ICON_SET_URL}Telegram_X.png`,
     },
     {
         ...proxyGroupCommon,
         name: "Others",
         type: "select",
         proxies: [...serviceProxyGroupProxies],
-        icon: `${ICON_BASE_URL}Final.png`,
+        icon: `${ICON_SET_URL}Final.png`,
     },
     {
         ...proxyGroupCommon,
         name: "Advertising",
         type: "select",
         proxies: ["REJECT", "DIRECT"],
-        icon: `${ICON_BASE_URL}Advertising.png`,
+        icon: `${ICON_SET_URL}Advertising.png`,
     },
     ...createProxyGroups(locations, locationProxyGroupCommon, "url-test"),
 ];
@@ -386,86 +386,86 @@ function createServiceRuleProviders(services, commonConfig) {
     }, {});
 }
 
-const RULE_PROVIDER_BASE_URL =
+const DEFAULT_RULE_PROVIDER_BASE_URL =
     "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/";
 
 const ruleProviders = {
     direct: {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: `${RULE_PROVIDER_BASE_URL}direct.txt`,
+        url: `${DEFAULT_RULE_PROVIDER_BASE_URL}direct.txt`,
         path: "./ruleset/loyalsoldier/direct.yaml",
     },
     proxy: {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: `${RULE_PROVIDER_BASE_URL}proxy.txt`,
+        url: `${DEFAULT_RULE_PROVIDER_BASE_URL}proxy.txt`,
         path: "./ruleset/loyalsoldier/proxy.yaml",
     },
     reject: {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: `${RULE_PROVIDER_BASE_URL}reject.txt`,
+        url: `${DEFAULT_RULE_PROVIDER_BASE_URL}reject.txt`,
         path: "./ruleset/loyalsoldier/reject.yaml",
     },
     private: {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: `${RULE_PROVIDER_BASE_URL}private.txt`,
+        url: `${DEFAULT_RULE_PROVIDER_BASE_URL}private.txt`,
         path: "./ruleset/loyalsoldier/private.yaml",
     },
     apple: {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: `${RULE_PROVIDER_BASE_URL}apple.txt`,
+        url: `${DEFAULT_RULE_PROVIDER_BASE_URL}apple.txt`,
         path: "./ruleset/loyalsoldier/apple.yaml",
     },
     icloud: {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: `${RULE_PROVIDER_BASE_URL}icloud.txt`,
+        url: `${DEFAULT_RULE_PROVIDER_BASE_URL}icloud.txt`,
         path: "./ruleset/loyalsoldier/icloud.yaml",
     },
     google: {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: `${RULE_PROVIDER_BASE_URL}google.txt`,
+        url: `${DEFAULT_RULE_PROVIDER_BASE_URL}google.txt`,
         path: "./ruleset/loyalsoldier/google.yaml",
     },
     gfw: {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: `${RULE_PROVIDER_BASE_URL}gfw.txt`,
+        url: `${DEFAULT_RULE_PROVIDER_BASE_URL}gfw.txt`,
         path: "./ruleset/loyalsoldier/gfw.yaml",
     },
     "tld-not-cn": {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: `${RULE_PROVIDER_BASE_URL}tld-not-cn.txt`,
+        url: `${DEFAULT_RULE_PROVIDER_BASE_URL}tld-not-cn.txt`,
         path: "./ruleset/loyalsoldier/tld-not-cn.yaml",
     },
     telegramcidr: {
         ...ruleProviderCommon,
         behavior: "ipcidr",
-        url: `${RULE_PROVIDER_BASE_URL}telegramcidr.txt`,
+        url: `${DEFAULT_RULE_PROVIDER_BASE_URL}telegramcidr.txt`,
         path: "./ruleset/loyalsoldier/telegramcidr.yaml",
     },
     lancidr: {
         ...ruleProviderCommon,
         behavior: "ipcidr",
-        url: `${RULE_PROVIDER_BASE_URL}lancidr.txt`,
+        url: `${DEFAULT_RULE_PROVIDER_BASE_URL}lancidr.txt`,
         path: "./ruleset/loyalsoldier/lancidr.yaml",
     },
     cncidr: {
         ...ruleProviderCommon,
         behavior: "ipcidr",
-        url: `${RULE_PROVIDER_BASE_URL}cncidr.txt`,
+        url: `${DEFAULT_RULE_PROVIDER_BASE_URL}cncidr.txt`,
         path: "./ruleset/loyalsoldier/cncidr.yaml",
     },
     applications: {
         ...ruleProviderCommon,
         behavior: "classical",
-        url: `${RULE_PROVIDER_BASE_URL}applications.txt`,
+        url: `${DEFAULT_RULE_PROVIDER_BASE_URL}applications.txt`,
         path: "./ruleset/loyalsoldier/applications.yaml",
     },
     ...createServiceRuleProviders(services, ruleProviderCommon),
