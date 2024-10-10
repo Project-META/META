@@ -473,7 +473,7 @@ const ruleProviders = {
 
 // generate configuration using the above settings
 
-function validateConfig(config) {
+function validateOiginalConfig(config) {
     const proxyCount = Array.isArray(config.proxies)
         ? config.proxies.length
         : 0;
@@ -491,7 +491,7 @@ function validateConfig(config) {
 
 function main(config) {
     try {
-        validateConfig(config);
+        validateOiginalConfig;
         Object.assign(config, generalConfig, {
             dns,
             hosts,
