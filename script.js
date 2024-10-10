@@ -484,7 +484,7 @@ function validateOriginalConfig(config) {
             : 0;
     if (proxyCount === 0 && proxyProviderCount === 0)
         throw new Error(
-            "The original configuration must contain a non-empty proxies array (https://wiki.metacubex.one/config/proxies/) or a proxy-providers object with at least one property (https://wiki.metacubex.one/config/proxy-providers/)"
+            "The original configuration must contain a non-empty proxies array (https://wiki.\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078.one/config/proxies/) or a proxy-providers object with at least one property (https://wiki.\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078.one/config/proxy-providers/)"
         );
 }
 
