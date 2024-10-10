@@ -70,7 +70,7 @@ Start with a valid ***M***ulti-function network tool configuration file containi
 
 Check your client’s execution log to ensure the MCG script is applied successfully.
 
-**Note**: The MCG script will override specific parts of your configuration (e.g., DNS settings, proxy groups).
+For detailed documentation, refer to the official client documentation.
 
 ## Customization Guide
 
