@@ -73,7 +73,7 @@ const locations = [
     },
     {
         name: "Taiwan, China",
-        filter: "(?i)台湾|Taiwan|TW|taiwan|tw|🇹🇼",
+        filter: "(?i)台湾|Taiwan|TW|taiwan|tw|\uD83C\uDDF9\uD83C\uDDFC",
         icon: `${ICON_SET_URL}China.png`,
     },
     {
