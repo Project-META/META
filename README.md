@@ -1,7 +1,5 @@
 # MCG - MCG is for Configuration Generation
 
-![MCG](https://github.com/user-attachments/assets/20f69597-f637-4198-86c9-b11a1a520ed3)
-
 ## Overview
 
 **MCG** is a JavaScript-based tool that simplifies and optimizes the configuration of the ***M***ulti-function network tool—a cross-platform, rule-based utility for managing network and application traffic. It provides extensive support for advanced features and custom configurations.
@@ -28,7 +26,7 @@
 - **Automatic Updates**: Enable auto-updates for GeoIP and GeoSite data.
 - **Compatibility**: Supports the ***M***ulti-functional network tool clients, enhancing standard configurations.
 
-## Installation & URLs
+## URLs for Importing MCG Script
 
 Choose one of the following URLs to import the MCG script:
 
@@ -128,6 +126,12 @@ For detailed documentation, refer to the official ***M***ulti-function network t
 
 - A valid configuration file with at least one proxy or proxy provider defined.
 - A compatible client that supports JavaScript overrides.
+
+## Demo
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/20f69597-f637-4198-86c9-b11a1a520ed3" width="50%" height="auto" alt="MCG">
+</div>
 
 ## Disclaimer
 
