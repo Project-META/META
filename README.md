@@ -1,5 +1,7 @@
 # MCG - MCG is for Configuration Generation
 
+![MCG](https://github.com/user-attachments/assets/20f69597-f637-4198-86c9-b11a1a520ed3)
+
 ## Overview
 
 **MCG** is a JavaScript-based tool that simplifies and optimizes the configuration of the ***M***ulti-function network tool—a cross-platform, rule-based utility for managing network and application traffic. It provides extensive support for advanced features and custom configurations.
