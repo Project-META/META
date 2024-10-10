@@ -501,12 +501,11 @@ function main(config) {
             rules,
             "rule-providers": ruleProviders,
         });
-        console.log("Generated configuration: " + JSON.stringify(config));
+        console.log(`Generated configuration: ${JSON.stringify(config)}`);
         return config;
     } catch (error) {
         console.error(
-            "An error occurred during configuration generation: " +
-                error.message
+            `An error occurred during configuration generation: ${error.message}`
         );
         return { error: error.message, originalConfig: config };
     }
