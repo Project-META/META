@@ -26,6 +26,10 @@
 - **Automatic Updates**: Enable auto-updates for GeoIP and GeoSite data.
 - **Compatibility**: Supports the ***M***ulti-functional network tool clients, enhancing standard configurations.
 
+## Demo
+
+A demo that use MCG to generate a configuration for the ***M***ulti-function network tool is available at [MCG Demo](https://github.com/user-attachments/assets/20f69597-f637-4198-86c9-b11a1a520ed3).
+
 ## URLs for Importing MCG Script
 
 Choose one of the following URLs to import the MCG script:
@@ -126,10 +130,6 @@ For detailed documentation, refer to the official ***M***ulti-function network t
 
 - A valid configuration file with at least one proxy or proxy provider defined.
 - A compatible client that supports JavaScript overrides.
-
-## Demo
-
-A demo that use MCG to generate a configuration for the ***M***ulti-function network tool is available at [MCG Demo](https://github.com/user-attachments/assets/20f69597-f637-4198-86c9-b11a1a520ed3).
 
 ## Disclaimer
 
