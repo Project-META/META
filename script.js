@@ -130,7 +130,7 @@ const generalConfig = {
             "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat",
         mmdb: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country-lite.mmdb",
     },
-    "global-ua": "\u0063\u006c\u0061\u0073\u0068.meta",
+    "global-ua": "\u0063\u006c\u0061\u0073\u0068.\u006D\u0065\u0074\u0061",
     "etag-support": true,
 };
 
