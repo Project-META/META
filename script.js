@@ -261,7 +261,7 @@ const proxyGroups = [
         ...proxyGroupCommon,
         name: "AUTO",
         type: "url-test",
-        tolerance: 100,
+        tolerance: 50,
         proxies: [...locations.map(({ name }) => name)],
         icon: `${ICON_SET_URL}Auto.png`,
     },
