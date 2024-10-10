@@ -483,7 +483,6 @@ function validateConfig(config) {
 function main(config) {
     try {
         validateConfig(config);
-        d;
         Object.assign(config, generalConfig, {
             dns,
             hosts,
