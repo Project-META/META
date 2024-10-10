@@ -144,6 +144,6 @@ For detailed documentation, refer to the official ***M***ulti-function network t
 
 ## License
 
-Copyright &copy; 2024 [Xi Xu](https://xi-xu.me). All rights reserved.
+Copyright &copy; 2024 MCG Organization. All rights reserved.
 
 Licensed under the [GPL-3.0](https://github.com/xixu-me/MCG/blob/main/LICENSE) license.  
