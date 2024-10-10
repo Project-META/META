@@ -482,11 +482,10 @@ function validateOriginalConfig(config) {
         config?.["proxy-providers"] !== null
             ? Object.keys(config?.["proxy-providers"])?.length
             : 0;
-    if (proxyCount === 0 && proxyProviderCount === 0) {
+    if (proxyCount === 0 && proxyProviderCount === 0)
         throw new Error(
             "The original configuration must contain a non-empty proxies array (https://wiki.metacubex.one/config/proxies/) or a proxy-providers object with at least one property (https://wiki.metacubex.one/config/proxy-providers/)"
         );
-    }
 }
 
 function main(config) {
