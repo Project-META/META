@@ -3,7 +3,7 @@ name: Check
 on:
   push:
     branches:
-      - hidden
+      - script
   workflow_dispatch:
 
 jobs:
@@ -24,4 +24,4 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Run script
-        run: node script.js
+        run: node MCG.js
