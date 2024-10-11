@@ -353,7 +353,7 @@ const rules = [
     "RULE-SET,apple,Apple",
     "RULE-SET,google,Google",
     "RULE-SET,proxy,PROXY",
-    "RULE-SET,gfw,PROXY",
+    "RULE-SET,\x67\x66\x77,PROXY",
     "RULE-SET,tld-not-cn,PROXY",
     "RULE-SET,direct,DIRECT",
     "RULE-SET,lancidr,DIRECT,no-resolve",
@@ -432,11 +432,11 @@ const ruleProviders = {
         url: `${DEFAULT_RULE_PROVIDER_BASE_URL}google.txt`,
         path: "./ruleset/loyalsoldier/google.yaml",
     },
-    gfw: {
+    "\x67\x66\x77": {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: `${DEFAULT_RULE_PROVIDER_BASE_URL}gfw.txt`,
-        path: "./ruleset/loyalsoldier/gfw.yaml",
+        url: `${DEFAULT_RULE_PROVIDER_BASE_URL}\x67\x66\x77.txt`,
+        path: "./ruleset/loyalsoldier/\x67\x66\x77.yaml",
     },
     "tld-not-cn": {
         ...ruleProviderCommon,
