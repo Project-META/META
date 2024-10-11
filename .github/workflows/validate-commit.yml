@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - hidden
+  workflow_dispatch:
 
 jobs:
   validate:
