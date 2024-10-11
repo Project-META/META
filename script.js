@@ -484,8 +484,42 @@ function validateOriginalConfig(config) {
             : 0;
     if (proxyCount === 0 && proxyProviderCount === 0)
         throw new Error(
-            "The original configuration must contain a non-empty proxies array (https://wiki.\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078.one/en/config/proxies/) or a proxy-providers object with at least one property (https://wiki.\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078.one/en/config/proxy-providers/)"
+            "The original configuration must contain a non-empty proxies array (see https://wiki.\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078.one/en/config/proxies/) or a proxy-providers object with at least one property (see https://wiki.\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078.one/en/config/proxy-providers/)"
         );
+    if (proxyCount > 0) {
+        const { proxies } = config;
+        i = 0;
+        proxies.forEach((proxy) => {
+            i++;
+            if (!proxy.name || !proxy.type || !proxy.server || !proxy.port) {
+                throw new Error(
+                    `Invalid proxy number ${i} configuration (see https://wiki.\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078.one/en/config/proxies/)`
+                );
+            }
+        });
+        console.log(
+            `The original configuration contains ${proxyCount} proxies, which will be preserved`
+        );
+    }
+    if (proxyProviderCount > 0) {
+        const { "proxy-providers": proxyProviders } = config;
+        i = 0;
+        Object.values(proxyProviders).forEach((provider) => {
+            i++;
+            if (
+                !provider.name ||
+                !provider.type ||
+                (provider.type === "http" && !provider.url)
+            ) {
+                throw new Error(
+                    `Invalid proxy provider number ${i} configuration (see https://wiki.\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078.one/en/config/proxy-providers/)`
+                );
+            }
+        });
+        console.log(
+            `The original configuration contains ${proxyProviderCount} proxy providers, which will be preserved`
+        );
+    }
 }
 
 function main(config) {
