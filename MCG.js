@@ -54,7 +54,7 @@ const locations = [
     {
         name: "Iraq",
         filter: "(?i)伊拉克|Iraq|IRQ|IQ|iraq|iq|🇮🇶",
-        icon: "https://img.icons8.com/color/96/iraq.png",
+        icon: "https://img.icons8.com/fluency/96/iraq.png",
     },
     {
         name: "Japan",
