@@ -14,18 +14,12 @@ const services = [
     // Default services: Apple, iCloud, Google, Telegram.
     {
         name: "bilibili",
-        alias: "BiliBili",
         icon: `${ICON_SET_URL}bilibili_2.png`,
+        alias: "BiliBili",
     },
-    {
-        name: "Binance",
-        icon: getFavicon("www.binance.com"),
-    },
-    {
-        name: "OKX",
-        icon: getFavicon("www.okx.com"),
-    },
-    { name: "OpenAI", icon: `${ICON_SET_URL}ChatGPT.png` },
+    { name: "Binance", icon: getFavicon("www.binance.com") },
+    { name: "OKX", icon: getFavicon("www.okx.com") },
+    { name: "OpenAI", icon: getFavicon("openai.com") },
     { name: "Copilot", icon: `${ICON_SET_URL}Copilot.png` },
     { name: "Microsoft", icon: `${ICON_SET_URL}Microsoft.png` },
     { name: "YouTube", icon: `${ICON_SET_URL}YouTube.png` },
