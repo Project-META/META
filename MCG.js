@@ -15,7 +15,11 @@ const services = [
     },
     {
         name: "Binance",
-        icon: "https://img.icons8.com/external-black-fill-lafs/FAB005/external-Binance-cryptocurrency-black-fill-lafs.png",
+        icon: "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://www.binance.com/&size=256",
+    },
+    {
+        name: "OKX",
+        icon: "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://www.okx.com/&size=256",
     },
     { name: "OpenAI", icon: `${ICON_SET_URL}ChatGPT.png` },
     { name: "Copilot", icon: `${ICON_SET_URL}Copilot.png` },
