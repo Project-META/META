@@ -1,6 +1,6 @@
 // Project MCG: https://github.com/Project-MCG
 
-function getFavicon(domain) {
+function extractFavicon(domain) {
     return `https://www.google.com/s2/favicons?sz=256&domain=${domain}`;
 }
 
@@ -19,9 +19,9 @@ const services = [
         icon: `${BASE_ICON_SET_URL}bilibili_2.png`,
         alias: "BiliBili",
     },
-    { name: "Binance", icon: getFavicon("www.binance.com") },
-    { name: "OKX", icon: getFavicon("www.okx.com") },
-    { name: "OpenAI", icon: getFavicon("openai.com") },
+    { name: "Binance", icon: extractFavicon("www.binance.com") },
+    { name: "OKX", icon: extractFavicon("www.okx.com") },
+    { name: "OpenAI", icon: extractFavicon("openai.com") },
     { name: "Copilot", icon: `${BASE_ICON_SET_URL}Copilot.png` },
     { name: "Microsoft", icon: `${BASE_ICON_SET_URL}Microsoft.png` },
     { name: "YouTube", icon: `${BASE_ICON_SET_URL}YouTube.png` },
