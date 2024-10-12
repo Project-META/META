@@ -29,82 +29,82 @@ const services = [
 
 const locations = [
     {
-        name: "Argentina",
+        name: "Argentina 🇦🇷",
         filter: "(?i)阿根廷|Argentina|ARG|AR|argentina|arg|ar|🇦🇷",
         icon: `${LOCATION_ICON_SET_URL}argentina.png`,
     },
     {
-        name: "Finland",
+        name: "Finland 🇫🇮",
         filter: "(?i)芬兰|Finland|FIN|FI|finland|fin|fi|🇫🇮",
         icon: `${LOCATION_ICON_SET_URL}finland.png`,
     },
     {
-        name: "France",
+        name: "France 🇫🇷",
         filter: "(?i)法国|France|FR|france|fr|🇫🇷",
         icon: `${LOCATION_ICON_SET_URL}france.png`,
     },
     {
-        name: "Germany",
+        name: "Germany 🇩🇪",
         filter: "(?i)德国|Germany|GER|DE|germany|ger|de|🇩🇪",
         icon: `${LOCATION_ICON_SET_URL}germany.png`,
     },
     {
-        name: "Hong Kong, China",
+        name: "Hong Kong, China 🇭🇰",
         filter: "(?i)香港|Hong Kong|HK|hong kong|hk|🇭🇰",
         icon: `${LOCATION_ICON_SET_URL}hongkong-circular.png`,
     },
     {
-        name: "Iraq",
+        name: "Iraq 🇮🇶",
         filter: "(?i)伊拉克|Iraq|IRQ|IQ|iraq|iq|🇮🇶",
         icon: `${LOCATION_ICON_SET_URL}iraq.png`,
     },
     {
-        name: "Japan",
+        name: "Japan 🇯🇵",
         filter: "(?i)日本|Japan|japan|ja|🇯🇵",
         icon: `${LOCATION_ICON_SET_URL}japan.png`,
     },
     {
-        name: "Korea",
+        name: "Korea 🇰🇷",
         filter: "(?i)韩国|Korea|KR|korea|kr|🇰🇷",
         icon: `${LOCATION_ICON_SET_URL}south-korea.png`,
     },
     {
-        name: "Russia",
+        name: "Russia 🇷🇺",
         filter: "(?i)俄罗斯|Russia Federation|Russia|RU|russia federation|russia|ru|🇷🇺",
         icon: `${LOCATION_ICON_SET_URL}russian-federation.png`,
     },
     {
-        name: "Singapore",
+        name: "Singapore 🇸🇬",
         filter: "(?i)新加坡|Singapore|singapore|sg|🇸🇬",
         icon: `${LOCATION_ICON_SET_URL}singapore.png`,
     },
     {
-        name: "Taiwan, China",
+        name: "Taiwan, China 🇨🇳",
         filter: "(?i)台湾|Taiwan|TW|taiwan|tw|\uD83C\uDDF9\uD83C\uDDFC|🇨🇳",
         icon: `${LOCATION_ICON_SET_URL}china.png`,
     },
     {
-        name: "Thailand",
+        name: "Thailand 🇹🇭",
         filter: "(?i)泰国|Thailand|TH|thailand|th|🇹🇭",
         icon: `${LOCATION_ICON_SET_URL}thailand.png`,
     },
     {
-        name: "Türkiye",
+        name: "Türkiye 🇹🇷",
         filter: "(?i)土耳其|Türkiye|Turkey|TUR|TR|türkiye|turkey|tur|tr|🇹🇷",
         icon: `${LOCATION_ICON_SET_URL}turkey.png`,
     },
     {
-        name: "United Kingdom",
+        name: "United Kingdom 🇬🇧",
         filter: "(?i)英国|United Kingdom|Great Britain|UK|GB|united kingdom|great britain|uk|gb|🇬🇧",
         icon: `${LOCATION_ICON_SET_URL}great-britain.png`,
     },
     {
-        name: "United States",
+        name: "United States 🇺🇸",
         filter: "(?i)美国|United States of America|United States|USA|US|united states of america|united states|usa|us|🇺🇸",
         icon: `${LOCATION_ICON_SET_URL}usa.png`,
     },
     {
-        name: "Cloudflare",
+        name: "Cloudflare 🌐",
         filter: "(?i)Cloudflare|CF|cloudflare|cf",
         icon: `${BASE_ICON_SET_URL}Cloudflare.png`,
     },
