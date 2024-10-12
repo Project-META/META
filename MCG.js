@@ -13,7 +13,10 @@ const services = [
         alias: "BiliBili",
         icon: `${ICON_SET_URL}bilibili_2.png`,
     },
-    { name: "Binance", icon: "https://img.icons8.com/arcade/100/binance.png" },
+    {
+        name: "Binance",
+        icon: "https://img.icons8.com/external-black-fill-lafs/100/FAB005/external-Binance-cryptocurrency-black-fill-lafs.png",
+    },
     { name: "OpenAI", icon: `${ICON_SET_URL}ChatGPT.png` },
     { name: "Copilot", icon: `${ICON_SET_URL}Copilot.png` },
     { name: "Microsoft", icon: `${ICON_SET_URL}Microsoft.png` },
