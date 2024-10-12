@@ -6,105 +6,107 @@ function getFavicon(domain) {
 
 // ################################################### this section can be flexibly customized ###################################################
 
-const ICON_SET_URL =
+const BASE_ICON_SET_URL =
     "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/";
+
+const LOCATION_ICON_SET_URL = "https://img.icons8.com/color/144/";
 
 const services = [
     // Routing rules are matched in order from top to bottom, with the rule at the top of the list taking precedence over the rules below it.
     // Default services: Apple, iCloud, Google, Telegram.
     {
         name: "bilibili",
-        icon: `${ICON_SET_URL}bilibili_2.png`,
+        icon: `${BASE_ICON_SET_URL}bilibili_2.png`,
         alias: "BiliBili",
     },
     { name: "Binance", icon: getFavicon("www.binance.com") },
     { name: "OKX", icon: getFavicon("www.okx.com") },
     { name: "OpenAI", icon: getFavicon("openai.com") },
-    { name: "Copilot", icon: `${ICON_SET_URL}Copilot.png` },
-    { name: "Microsoft", icon: `${ICON_SET_URL}Microsoft.png` },
-    { name: "YouTube", icon: `${ICON_SET_URL}YouTube.png` },
+    { name: "Copilot", icon: `${BASE_ICON_SET_URL}Copilot.png` },
+    { name: "Microsoft", icon: `${BASE_ICON_SET_URL}Microsoft.png` },
+    { name: "YouTube", icon: `${BASE_ICON_SET_URL}YouTube.png` },
 ];
 
 const locations = [
     {
         name: "Argentina",
         filter: "(?i)阿根廷|Argentina|ARG|AR|argentina|arg|ar|🇦🇷",
-        icon: `${ICON_SET_URL}Argentina.png`,
+        icon: `${LOCATION_ICON_SET_URL}argentina.png`,
     },
     {
         name: "Finland",
         filter: "(?i)芬兰|Finland|FIN|FI|finland|fin|fi|🇫🇮",
-        icon: `${ICON_SET_URL}Finland.png`,
+        icon: `${LOCATION_ICON_SET_URL}finland.png`,
     },
     {
         name: "France",
         filter: "(?i)法国|France|FR|france|fr|🇫🇷",
-        icon: `${ICON_SET_URL}France.png`,
+        icon: `${LOCATION_ICON_SET_URL}france.png`,
     },
     {
         name: "Germany",
         filter: "(?i)德国|Germany|GER|DE|germany|ger|de|🇩🇪",
-        icon: `${ICON_SET_URL}Germany.png`,
+        icon: `${LOCATION_ICON_SET_URL}germany.png`,
     },
     {
         name: "Hong Kong, China",
         filter: "(?i)香港|Hong Kong|HK|hong kong|hk|🇭🇰",
-        icon: `${ICON_SET_URL}Hong_Kong.png`,
+        icon: `${LOCATION_ICON_SET_URL}hongkong-circular.png`,
     },
     {
         name: "Iraq",
         filter: "(?i)伊拉克|Iraq|IRQ|IQ|iraq|iq|🇮🇶",
-        icon: "https://img.icons8.com/fluency/96/iraq.png",
+        icon: `${LOCATION_ICON_SET_URL}iraq.png`,
     },
     {
         name: "Japan",
         filter: "(?i)日本|Japan|japan|ja|🇯🇵",
-        icon: `${ICON_SET_URL}Japan.png`,
+        icon: `${LOCATION_ICON_SET_URL}japan.png`,
     },
     {
         name: "Korea",
         filter: "(?i)韩国|Korea|KR|korea|kr|🇰🇷",
-        icon: `${ICON_SET_URL}Korea.png`,
+        icon: `${LOCATION_ICON_SET_URL}south-korea.png`,
     },
     {
         name: "Russia",
-        filter: "(?i)俄罗斯|Russia|RU|russia|ru|🇷🇺",
-        icon: `${ICON_SET_URL}Russia.png`,
+        filter: "(?i)俄罗斯|Russia Federation|Russia|RU|russia federation|russia|ru|🇷🇺",
+        icon: `${LOCATION_ICON_SET_URL}russian-federation.png`,
     },
     {
         name: "Singapore",
         filter: "(?i)新加坡|Singapore|singapore|sg|🇸🇬",
-        icon: `${ICON_SET_URL}Singapore.png`,
+        icon: `${LOCATION_ICON_SET_URL}singapore.png`,
     },
     {
         name: "Taiwan, China",
         filter: "(?i)台湾|Taiwan|TW|taiwan|tw|\uD83C\uDDF9\uD83C\uDDFC|🇨🇳",
-        icon: `${ICON_SET_URL}China.png`,
+        icon: `${LOCATION_ICON_SET_URL}china.png`,
     },
     {
         name: "Thailand",
         filter: "(?i)泰国|Thailand|TH|thailand|th|🇹🇭",
-        icon: `${ICON_SET_URL}Thailand.png`,
+        icon: `${LOCATION_ICON_SET_URL}thailand.png`,
     },
     {
         name: "Türkiye",
         filter: "(?i)土耳其|Türkiye|Turkey|TUR|TR|türkiye|turkey|tur|tr|🇹🇷",
-        icon: `${ICON_SET_URL}Turkey.png`,
+        icon: `${LOCATION_ICON_SET_URL}turkey.png`,
     },
     {
         name: "United Kingdom",
         filter: "(?i)英国|United Kingdom|Great Britain|UK|GB|united kingdom|great britain|uk|gb|🇬🇧",
-        icon: `${ICON_SET_URL}United_Kingdom.png`,
+        icon: `${LOCATION_ICON_SET_URL}great-britain.png`,
     },
     {
         name: "United States",
         filter: "(?i)美国|United States of America|United States|USA|US|united states of america|united states|usa|us|🇺🇸",
-        icon: `${ICON_SET_URL}United_States.png`,
+        icon: `${LOCATION_ICON_SET_URL}usa.png`,
     },
     {
         name: "Cloudflare",
         filter: "(?i)Cloudflare|CF|cloudflare|cf",
-        icon: `${ICON_SET_URL}Cloudflare.png`,
+        icon: `${BASE_ICON_SET_URL}Cloudflare.png`,
     },
 ];
 
@@ -260,7 +262,7 @@ const proxyGroups = [
             "LOAD BALANCING (Round robin)",
             ...locations.map(({ name }) => name),
         ],
-        icon: `${ICON_SET_URL}Proxy.png`,
+        icon: `${BASE_ICON_SET_URL}Proxy.png`,
     },
     {
         ...proxyGroupCommon,
@@ -268,14 +270,14 @@ const proxyGroups = [
         type: "url-test",
         tolerance: 50,
         proxies: [...locations.map(({ name }) => name)],
-        icon: `${ICON_SET_URL}Auto.png`,
+        icon: `${BASE_ICON_SET_URL}Auto.png`,
     },
     {
         ...proxyGroupCommon,
         name: "FALLBACK",
         type: "fallback",
         proxies: [...locations.map(({ name }) => name)],
-        icon: `${ICON_SET_URL}Available.png`,
+        icon: `${BASE_ICON_SET_URL}Available.png`,
     },
     {
         ...proxyGroupCommon,
@@ -283,7 +285,7 @@ const proxyGroups = [
         type: "load-balance",
         strategy: "consistent-hashing",
         proxies: [...locations.map(({ name }) => name)],
-        icon: `${ICON_SET_URL}Round_Robin_1.png`,
+        icon: `${BASE_ICON_SET_URL}Round_Robin_1.png`,
     },
     {
         ...proxyGroupCommon,
@@ -291,7 +293,7 @@ const proxyGroups = [
         type: "load-balance",
         strategy: "round-robin",
         proxies: [...locations.map(({ name }) => name)],
-        icon: `${ICON_SET_URL}Round_Robin.png`,
+        icon: `${BASE_ICON_SET_URL}Round_Robin.png`,
     },
     ...createProxyGroups(services, proxyGroupCommon, "select", {
         proxies: serviceProxyGroupProxies,
@@ -301,42 +303,42 @@ const proxyGroups = [
         name: "Apple",
         type: "select",
         proxies: [...serviceProxyGroupProxies],
-        icon: `${ICON_SET_URL}Apple_1.png`,
+        icon: `${BASE_ICON_SET_URL}Apple_1.png`,
     },
     {
         ...proxyGroupCommon,
         name: "iCloud",
         type: "select",
         proxies: [...serviceProxyGroupProxies],
-        icon: `${ICON_SET_URL}iCloud.png`,
+        icon: `${BASE_ICON_SET_URL}iCloud.png`,
     },
     {
         ...proxyGroupCommon,
         name: "Google",
         type: "select",
         proxies: [...serviceProxyGroupProxies],
-        icon: `${ICON_SET_URL}Google_Search.png`,
+        icon: `${BASE_ICON_SET_URL}Google_Search.png`,
     },
     {
         ...proxyGroupCommon,
         name: "Telegram",
         type: "select",
         proxies: [...serviceProxyGroupProxies],
-        icon: `${ICON_SET_URL}Telegram_X.png`,
+        icon: `${BASE_ICON_SET_URL}Telegram_X.png`,
     },
     {
         ...proxyGroupCommon,
         name: "Others",
         type: "select",
         proxies: [...serviceProxyGroupProxies],
-        icon: `${ICON_SET_URL}Final.png`,
+        icon: `${BASE_ICON_SET_URL}Final.png`,
     },
     {
         ...proxyGroupCommon,
         name: "Advertising",
         type: "select",
         proxies: ["REJECT", "DIRECT"],
-        icon: `${ICON_SET_URL}Advertising.png`,
+        icon: `${BASE_ICON_SET_URL}Advertising.png`,
     },
     ...createProxyGroups(locations, locationProxyGroupCommon, "url-test"),
 ];
@@ -391,86 +393,86 @@ function createServiceRuleProviders(services, commonConfig) {
     }, {});
 }
 
-const DEFAULT_RULE_PROVIDER_BASE_URL =
+const BASE_RULE_PROVIDER_URL =
     "https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/";
 
 const ruleProviders = {
     direct: {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: `${DEFAULT_RULE_PROVIDER_BASE_URL}direct.txt`,
+        url: `${BASE_RULE_PROVIDER_URL}direct.txt`,
         path: "./ruleset/loyalsoldier/direct.yaml",
     },
     proxy: {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: `${DEFAULT_RULE_PROVIDER_BASE_URL}proxy.txt`,
+        url: `${BASE_RULE_PROVIDER_URL}proxy.txt`,
         path: "./ruleset/loyalsoldier/proxy.yaml",
     },
     reject: {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: `${DEFAULT_RULE_PROVIDER_BASE_URL}reject.txt`,
+        url: `${BASE_RULE_PROVIDER_URL}reject.txt`,
         path: "./ruleset/loyalsoldier/reject.yaml",
     },
     private: {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: `${DEFAULT_RULE_PROVIDER_BASE_URL}private.txt`,
+        url: `${BASE_RULE_PROVIDER_URL}private.txt`,
         path: "./ruleset/loyalsoldier/private.yaml",
     },
     apple: {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: `${DEFAULT_RULE_PROVIDER_BASE_URL}apple.txt`,
+        url: `${BASE_RULE_PROVIDER_URL}apple.txt`,
         path: "./ruleset/loyalsoldier/apple.yaml",
     },
     icloud: {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: `${DEFAULT_RULE_PROVIDER_BASE_URL}icloud.txt`,
+        url: `${BASE_RULE_PROVIDER_URL}icloud.txt`,
         path: "./ruleset/loyalsoldier/icloud.yaml",
     },
     google: {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: `${DEFAULT_RULE_PROVIDER_BASE_URL}google.txt`,
+        url: `${BASE_RULE_PROVIDER_URL}google.txt`,
         path: "./ruleset/loyalsoldier/google.yaml",
     },
     "\u0067\u0066\u0077": {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: `${DEFAULT_RULE_PROVIDER_BASE_URL}\u0067\u0066\u0077.txt`,
+        url: `${BASE_RULE_PROVIDER_URL}\u0067\u0066\u0077.txt`,
         path: "./ruleset/loyalsoldier/\u0067\u0066\u0077.yaml",
     },
     "tld-not-cn": {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: `${DEFAULT_RULE_PROVIDER_BASE_URL}tld-not-cn.txt`,
+        url: `${BASE_RULE_PROVIDER_URL}tld-not-cn.txt`,
         path: "./ruleset/loyalsoldier/tld-not-cn.yaml",
     },
     telegramcidr: {
         ...ruleProviderCommon,
         behavior: "ipcidr",
-        url: `${DEFAULT_RULE_PROVIDER_BASE_URL}telegramcidr.txt`,
+        url: `${BASE_RULE_PROVIDER_URL}telegramcidr.txt`,
         path: "./ruleset/loyalsoldier/telegramcidr.yaml",
     },
     lancidr: {
         ...ruleProviderCommon,
         behavior: "ipcidr",
-        url: `${DEFAULT_RULE_PROVIDER_BASE_URL}lancidr.txt`,
+        url: `${BASE_RULE_PROVIDER_URL}lancidr.txt`,
         path: "./ruleset/loyalsoldier/lancidr.yaml",
     },
     cncidr: {
         ...ruleProviderCommon,
         behavior: "ipcidr",
-        url: `${DEFAULT_RULE_PROVIDER_BASE_URL}cncidr.txt`,
+        url: `${BASE_RULE_PROVIDER_URL}cncidr.txt`,
         path: "./ruleset/loyalsoldier/cncidr.yaml",
     },
     applications: {
         ...ruleProviderCommon,
         behavior: "classical",
-        url: `${DEFAULT_RULE_PROVIDER_BASE_URL}applications.txt`,
+        url: `${BASE_RULE_PROVIDER_URL}applications.txt`,
         path: "./ruleset/loyalsoldier/applications.yaml",
     },
     ...createServiceRuleProviders(services, ruleProviderCommon),
