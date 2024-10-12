@@ -351,8 +351,6 @@ function createServiceRules(services) {
 
 const rules = [
     ...createServiceRules(services),
-    "RULE-SET,apple,Apple",
-    "RULE-SET,google,Google",
     "RULE-SET,applications,DIRECT",
     "RULE-SET,private,DIRECT",
     "RULE-SET,reject,Advertising",
@@ -360,7 +358,9 @@ const rules = [
     "GEOSITE,win-extra,Advertising",
     "RULE-SET,icloud,iCloud",
     "RULE-SET,apple@cn,Apple",
+    "RULE-SET,apple,Apple",
     "RULE-SET,google@cn,Google",
+    "RULE-SET,google,Google",
     "RULE-SET,proxy,PROXY",
     "RULE-SET,\u0067\u0066\u0077,PROXY",
     "RULE-SET,tld-not-cn,PROXY",
