@@ -15,7 +15,7 @@ const services = [
     },
     {
         name: "Binance",
-        icon: "https://img.icons8.com/external-black-fill-lafs/100/FAB005/external-Binance-cryptocurrency-black-fill-lafs.png",
+        icon: "https://img.icons8.com/external-black-fill-lafs/FAB005/external-Binance-cryptocurrency-black-fill-lafs.png",
     },
     { name: "OpenAI", icon: `${ICON_SET_URL}ChatGPT.png` },
     { name: "Copilot", icon: `${ICON_SET_URL}Copilot.png` },
