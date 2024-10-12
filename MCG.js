@@ -1,5 +1,9 @@
 // Project MCG: https://github.com/Project-MCG
 
+function getFavicon(domain) {
+    return `https://www.google.com/s2/favicons?sz=256&domain=${domain}`;
+}
+
 // ################################################### this section can be flexibly customized ###################################################
 
 const ICON_SET_URL =
@@ -15,11 +19,11 @@ const services = [
     },
     {
         name: "Binance",
-        icon: "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://www.binance.com/&size=256",
+        icon: getFavicon("www.binance.com"),
     },
     {
         name: "OKX",
-        icon: "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://www.okx.com/&size=256",
+        icon: getFavicon("www.okx.com"),
     },
     { name: "OpenAI", icon: `${ICON_SET_URL}ChatGPT.png` },
     { name: "Copilot", icon: `${ICON_SET_URL}Copilot.png` },
