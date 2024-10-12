@@ -357,8 +357,8 @@ const rules = [
     "GEOSITE,win-spy,Advertising",
     "GEOSITE,win-extra,Advertising",
     "RULE-SET,icloud,iCloud",
-    "RULE-SET,apple,Apple",
-    "RULE-SET,google,Google",
+    "RULE-SET,apple@cn,Apple",
+    "RULE-SET,google@cn,Google",
     "RULE-SET,proxy,PROXY",
     "RULE-SET,\u0067\u0066\u0077,PROXY",
     "RULE-SET,tld-not-cn,PROXY",
@@ -393,86 +393,83 @@ function createServiceRuleProviders(services, commonConfig) {
     }, {});
 }
 
-const BASE_RULE_PROVIDER_URL =
-    "https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/";
-
 const ruleProviders = {
     direct: {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: `${BASE_RULE_PROVIDER_URL}direct.txt`,
+        url: `https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/direct.txt`,
         path: "./ruleset/loyalsoldier/direct.yaml",
     },
     proxy: {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: `${BASE_RULE_PROVIDER_URL}proxy.txt`,
+        url: `https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/proxy.txt`,
         path: "./ruleset/loyalsoldier/proxy.yaml",
     },
     reject: {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: `${BASE_RULE_PROVIDER_URL}reject.txt`,
+        url: `https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/reject.txt`,
         path: "./ruleset/loyalsoldier/reject.yaml",
     },
     private: {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: `${BASE_RULE_PROVIDER_URL}private.txt`,
+        url: `https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/private.txt`,
         path: "./ruleset/loyalsoldier/private.yaml",
     },
-    apple: {
+    "apple@cn": {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: `${BASE_RULE_PROVIDER_URL}apple.txt`,
-        path: "./ruleset/loyalsoldier/apple.yaml",
+        url: `https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/apple.txt`,
+        path: "./ruleset/loyalsoldier/apple@cn.yaml",
     },
     icloud: {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: `${BASE_RULE_PROVIDER_URL}icloud.txt`,
+        url: `https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/icloud.txt`,
         path: "./ruleset/loyalsoldier/icloud.yaml",
     },
-    google: {
+    "google@cn": {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: `${BASE_RULE_PROVIDER_URL}google.txt`,
-        path: "./ruleset/loyalsoldier/google.yaml",
+        url: `https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/google.txt`,
+        path: "./ruleset/loyalsoldier/google@cn.yaml",
     },
     "\u0067\u0066\u0077": {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: `${BASE_RULE_PROVIDER_URL}\u0067\u0066\u0077.txt`,
+        url: `https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/\u0067\u0066\u0077.txt`,
         path: "./ruleset/loyalsoldier/\u0067\u0066\u0077.yaml",
     },
     "tld-not-cn": {
         ...ruleProviderCommon,
         behavior: "domain",
-        url: `${BASE_RULE_PROVIDER_URL}tld-not-cn.txt`,
+        url: `https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/tld-not-cn.txt`,
         path: "./ruleset/loyalsoldier/tld-not-cn.yaml",
     },
     telegramcidr: {
         ...ruleProviderCommon,
         behavior: "ipcidr",
-        url: `${BASE_RULE_PROVIDER_URL}telegramcidr.txt`,
+        url: `https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/telegramcidr.txt`,
         path: "./ruleset/loyalsoldier/telegramcidr.yaml",
     },
     lancidr: {
         ...ruleProviderCommon,
         behavior: "ipcidr",
-        url: `${BASE_RULE_PROVIDER_URL}lancidr.txt`,
+        url: `https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/lancidr.txt`,
         path: "./ruleset/loyalsoldier/lancidr.yaml",
     },
     cncidr: {
         ...ruleProviderCommon,
         behavior: "ipcidr",
-        url: `${BASE_RULE_PROVIDER_URL}cncidr.txt`,
+        url: `https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/cncidr.txt`,
         path: "./ruleset/loyalsoldier/cncidr.yaml",
     },
     applications: {
         ...ruleProviderCommon,
         behavior: "classical",
-        url: `${BASE_RULE_PROVIDER_URL}applications.txt`,
+        url: `https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/applications.txt`,
         path: "./ruleset/loyalsoldier/applications.yaml",
     },
     ...createServiceRuleProviders(services, ruleProviderCommon),
