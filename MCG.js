@@ -1,4 +1,4 @@
-// GitHub URL: https://github.com/Project-MCG
+// Project MCG: https://github.com/Project-MCG
 
 // ################################################### this section can be flexibly customized ###################################################
 
