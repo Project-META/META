@@ -1,3 +1,3 @@
-[![MCG-LOGO](https://github.com/user-attachments/assets/c505fd2e-41a1-4408-88b5-0e95c88ee975)](https://github.com/Project-MCG)
+[![META-LOGO](https://github.com/user-attachments/assets/c2b164e9-5323-4ee5-8976-a73fcd2d91bb)](https://github.com/Project-META)
 
-Click 👆 to enter the **Project MCG** page.
+Click 👆 to enter the **Project META** page.
