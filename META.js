@@ -19,11 +19,24 @@ const services = [
         icon: `${BASE_ICON_SET_URL}bilibili_2.png`,
         alias: "BiliBili",
     },
+    { name: "Netflix", icon: `${BASE_ICON_SET_URL}Netflix.png` },
+    {
+        name: "Prime Video",
+        icon: `${BASE_ICON_SET_URL}Prime_Video_2.png`,
+        alias: "PrimeVideo",
+    },
+    {
+        name: "Disney+",
+        icon: `${BASE_ICON_SET_URL}Disney+_2.png`,
+        alias: "Disney",
+    },
+    { name: "HBO Max", icon: `${BASE_ICON_SET_URL}HBO_Max.png`, alias: "HBO" },
     { name: "Binance", icon: extractFavicon("www.binance.com") },
     { name: "OKX", icon: extractFavicon("www.okx.com") },
     { name: "OpenAI", icon: extractFavicon("openai.com") },
     { name: "Copilot", icon: `${BASE_ICON_SET_URL}Copilot.png` },
     { name: "Microsoft", icon: `${BASE_ICON_SET_URL}Microsoft.png` },
+    { name: "Gemini", icon: extractFavicon("gemini.google.com") },
     { name: "YouTube", icon: `${BASE_ICON_SET_URL}YouTube.png` },
 ];
 
