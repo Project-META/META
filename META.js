@@ -33,6 +33,7 @@ const services = [
     { name: "HBO Max", icon: `${BASE_ICON_SET_URL}HBO_Max.png`, alias: "HBO" },
     { name: "Binance", icon: extractFavicon("www.binance.com") },
     { name: "OKX", icon: extractFavicon("www.okx.com") },
+    { name: "Claude", icon: extractFavicon("claude.ai") },
     { name: "OpenAI", icon: extractFavicon("openai.com") },
     { name: "Copilot", icon: `${BASE_ICON_SET_URL}Copilot.png` },
     { name: "Microsoft", icon: `${BASE_ICON_SET_URL}Microsoft.png` },
