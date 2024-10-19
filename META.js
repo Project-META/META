@@ -15,6 +15,11 @@ const services = [
     // Routing rules are matched in order from top to bottom, with the rule at the top of the list taking precedence over the rules below it.
     // Default services: Apple, iCloud, Google, Telegram.
     {
+        name: "X",
+        icon: `${BASE_ICON_SET_URL}X.png`,
+        alias: "Twitter",
+    },
+    {
         name: "bilibili",
         icon: `${BASE_ICON_SET_URL}bilibili_2.png`,
         alias: "BiliBili",
