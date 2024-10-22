@@ -172,14 +172,6 @@ const generalConfig = {
     "unified-delay": true,
     "tcp-concurrent": true,
     "global-client-fingerprint": "chrome",
-    "geodata-mode": false,
-    "geodata-loader": "memconservative",
-    "geo-auto-update": true,
-    "geo-update-interval": 24,
-    "geox-url": {
-        geosite:
-            "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@release/geosite.dat",
-    },
     "global-ua": "\u0063\u006c\u0061\u0073\u0068.\u006D\u0065\u0074\u0061",
     "etag-support": true,
 };
@@ -225,8 +217,8 @@ const dns = {
     ],
     "default-nameserver": ["223.5.5.5", "119.29.29.29", "1.1.1.1", "8.8.8.8"],
     "nameserver-policy": {
-        "geosite:private,cn,geolocation-cn": chineseNameservers,
-        "geosite:geolocation-!cn": internationalNameservers,
+        "rule-set:private,cn,geolocation-cn": chineseNameservers,
+        "rule-set:geolocation-!cn": internationalNameservers,
     },
     nameserver: [...chineseNameservers, ...internationalNameservers],
 };
@@ -461,10 +453,10 @@ const ruleProviders = {
     },
     private: {
         ...ruleProviderCommon,
-        format: "yaml",
+        format: "mrs",
         behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/private.txt",
-        path: "./ruleset/loyalsoldier/private.yaml",
+        url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/private.mrs",
+        path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/private.mrs",
     },
     "apple@cn": {
         ...ruleProviderCommon,
@@ -528,6 +520,27 @@ const ruleProviders = {
         behavior: "classical",
         url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/applications.txt",
         path: "./ruleset/loyalsoldier/applications.yaml",
+    },
+    cn: {
+        ...ruleProviderCommon,
+        format: "mrs",
+        behavior: "domain",
+        url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/cn.mrs",
+        path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/cn.mrs",
+    },
+    "geolocation-cn": {
+        ...ruleProviderCommon,
+        format: "mrs",
+        behavior: "domain",
+        url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/geolocation-cn.mrs",
+        path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/geolocation-cn.mrs",
+    },
+    "geolocation-!cn": {
+        ...ruleProviderCommon,
+        format: "mrs",
+        behavior: "domain",
+        url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/geolocation-!cn.mrs",
+        path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/geolocation-!cn.mrs",
     },
     "win-spy": {
         ...ruleProviderCommon,
