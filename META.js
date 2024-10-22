@@ -278,7 +278,7 @@ const serviceProxyGroupProxies = [
     ...locations.map(({ name }) => name),
 ];
 
-function createProxyGroups(items, defaultConfig, type, extraProps = {}) {
+function generateProxyGroups(items, defaultConfig, type, extraProps = {}) {
     return items.map(({ name, icon, filter }) => ({
         ...defaultConfig,
         name,
@@ -334,7 +334,7 @@ const proxyGroups = [
         proxies: [...locations.map(({ name }) => name)],
         icon: `${BASE_ICON_SET_URL}Round_Robin.png`,
     },
-    ...createProxyGroups(services, proxyGroupDefaults, "select", {
+    ...generateProxyGroups(services, proxyGroupDefaults, "select", {
         proxies: serviceProxyGroupProxies,
     }),
     {
@@ -358,12 +358,12 @@ const proxyGroups = [
         proxies: ["REJECT", "DIRECT"],
         icon: `${BASE_ICON_SET_URL}Advertising.png`,
     },
-    ...createProxyGroups(locations, locationProxyGroupDefaults, "url-test"),
+    ...generateProxyGroups(locations, locationProxyGroupDefaults, "url-test"),
 ];
 
 // Routing Rules
 
-function createServiceRules(services) {
+function generateServiceRules(services) {
     return services.map(({ name }) => `RULE-SET,${name.toLowerCase()},${name}`);
 }
 
@@ -374,7 +374,7 @@ const rules = [
     "RULE-SET,category-ads-all,Advertising",
     "RULE-SET,win-spy,Advertising",
     "RULE-SET,win-extra,Advertising",
-    ...createServiceRules(services),
+    ...generateServiceRules(services),
     "RULE-SET,proxy,PROXY",
     "RULE-SET,\u0067\u0066\u0077,PROXY",
     "RULE-SET,tld-!cn,PROXY",
@@ -393,7 +393,7 @@ const ruleProviderDefaults = {
     proxy: "DIRECT",
 };
 
-function createServiceRuleProviders(services, defaultConfig) {
+function generateServiceRuleProviders(services, defaultConfig) {
     return services.reduce((acc, { name, alias }) => {
         const ruleName = alias || name;
         acc[name.toLowerCase()] = {
@@ -520,7 +520,7 @@ const ruleProviders = {
         url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geoip/telegram.mrs",
         path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/telegramcidr.mrs",
     },
-    ...createServiceRuleProviders(services, ruleProviderDefaults),
+    ...generateServiceRuleProviders(services, ruleProviderDefaults),
 };
 
 // generate configuration using the above settings
