@@ -385,12 +385,12 @@ function createServiceRules(services) {
 }
 
 const rules = [
-    ...createServiceRules(services),
     "RULE-SET,applications,DIRECT",
     "RULE-SET,private,DIRECT",
     "RULE-SET,reject,Advertising",
     "RULE-SET,win-spy,Advertising",
     "RULE-SET,win-extra,Advertising",
+    ...createServiceRules(services),
     "RULE-SET,icloud,iCloud",
     "RULE-SET,apple,Apple",
     "RULE-SET,google,Google",
