@@ -22,24 +22,53 @@ const services = [
     {
         name: "bilibili",
         icon: `${BASE_ICON_SET_URL}bilibili_2.png`,
-        alias: "BiliBili",
     },
-    { name: "Netflix", icon: `${BASE_ICON_SET_URL}Netflix.png` },
+    {
+        name: "Netflix",
+        icon: `${BASE_ICON_SET_URL}Netflix.png`,
+    },
     {
         name: "Prime Video",
         icon: `${BASE_ICON_SET_URL}Prime_Video_2.png`,
         alias: "PrimeVideo",
     },
-    { name: "Disney", icon: `${BASE_ICON_SET_URL}Disney.png` },
-    { name: "HBO", icon: `${BASE_ICON_SET_URL}HBO_1.png` },
-    { name: "Binance", icon: extractFavicon("www.binance.com") },
-    { name: "OKX", icon: extractFavicon("www.okx.com") },
-    { name: "Claude", icon: extractFavicon("claude.ai") },
-    { name: "OpenAI", icon: extractFavicon("openai.com") },
-    { name: "Copilot", icon: `${BASE_ICON_SET_URL}Copilot.png` },
-    { name: "Microsoft", icon: `${BASE_ICON_SET_URL}Microsoft.png` },
-    { name: "Gemini", icon: extractFavicon("gemini.google.com") },
-    { name: "YouTube", icon: `${BASE_ICON_SET_URL}YouTube.png` },
+    {
+        name: "Disney",
+        icon: `${BASE_ICON_SET_URL}Disney.png`,
+    },
+    {
+        name: "HBO",
+        icon: `${BASE_ICON_SET_URL}HBO_1.png`,
+    },
+    {
+        name: "Binance",
+        icon: extractFavicon("www.binance.com"),
+    },
+    {
+        name: "OKX",
+        icon: extractFavicon("www.okx.com"),
+    },
+    {
+        name: "Anthropic",
+        icon: extractFavicon("www.anthropic.com"),
+    },
+    {
+        name: "OpenAI",
+        icon: extractFavicon("openai.com"),
+    },
+    {
+        name: "Microsoft",
+        icon: `${BASE_ICON_SET_URL}Microsoft.png`,
+    },
+    {
+        name: "Gemini",
+        icon: extractFavicon("gemini.google.com"),
+        alias: "Google-Gemini",
+    },
+    {
+        name: "YouTube",
+        icon: `${BASE_ICON_SET_URL}YouTube.png`,
+    },
 ];
 
 const locations = [
@@ -394,7 +423,6 @@ const ruleProviderCommon = {
     type: "http",
     interval: 86400,
     proxy: "DIRECT",
-    format: "yaml",
 };
 
 function createServiceRuleProviders(services, commonConfig) {
@@ -402,9 +430,10 @@ function createServiceRuleProviders(services, commonConfig) {
         const ruleName = alias || name;
         acc[name.toLowerCase()] = {
             ...commonConfig,
-            behavior: "classical",
-            url: `https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/\u0043\u006c\u0061\u0073\u0068/${ruleName}/${ruleName}.yaml`,
-            path: `./ruleset/blackmatrix7/${name.toLowerCase()}.yaml`,
+            format: "mrs",
+            behavior: "domain",
+            url: `https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/${ruleName.toLowerCase()}.mrs`,
+            path: `./ruleset/metacubex/${name.toLowerCase()}.mrs`,
         };
         return acc;
     }, {});
@@ -413,90 +442,105 @@ function createServiceRuleProviders(services, commonConfig) {
 const ruleProviders = {
     direct: {
         ...ruleProviderCommon,
+        format: "yaml",
         behavior: "domain",
         url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/direct.txt",
         path: "./ruleset/loyalsoldier/direct.yaml",
     },
     proxy: {
         ...ruleProviderCommon,
+        format: "yaml",
         behavior: "domain",
         url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/proxy.txt",
         path: "./ruleset/loyalsoldier/proxy.yaml",
     },
     reject: {
         ...ruleProviderCommon,
+        format: "yaml",
         behavior: "domain",
         url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/reject.txt",
         path: "./ruleset/loyalsoldier/reject.yaml",
     },
     private: {
         ...ruleProviderCommon,
+        format: "yaml",
         behavior: "domain",
         url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/private.txt",
         path: "./ruleset/loyalsoldier/private.yaml",
     },
     "apple@cn": {
         ...ruleProviderCommon,
+        format: "yaml",
         behavior: "domain",
         url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/apple.txt",
         path: "./ruleset/loyalsoldier/apple@cn.yaml",
     },
     icloud: {
         ...ruleProviderCommon,
+        format: "yaml",
         behavior: "domain",
         url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/icloud.txt",
         path: "./ruleset/loyalsoldier/icloud.yaml",
     },
     "google@cn": {
         ...ruleProviderCommon,
+        format: "yaml",
         behavior: "domain",
         url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/google.txt",
         path: "./ruleset/loyalsoldier/google@cn.yaml",
     },
     "\u0067\u0066\u0077": {
         ...ruleProviderCommon,
+        format: "yaml",
         behavior: "domain",
         url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/\u0067\u0066\u0077.txt",
         path: "./ruleset/loyalsoldier/\u0067\u0066\u0077.yaml",
     },
     "tld-not-cn": {
         ...ruleProviderCommon,
+        format: "yaml",
         behavior: "domain",
         url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/tld-not-cn.txt",
         path: "./ruleset/loyalsoldier/tld-not-cn.yaml",
     },
     telegramcidr: {
         ...ruleProviderCommon,
+        format: "yaml",
         behavior: "ipcidr",
         url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/telegramcidr.txt",
         path: "./ruleset/loyalsoldier/telegramcidr.yaml",
     },
     lancidr: {
         ...ruleProviderCommon,
+        format: "yaml",
         behavior: "ipcidr",
         url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/lancidr.txt",
         path: "./ruleset/loyalsoldier/lancidr.yaml",
     },
     cncidr: {
         ...ruleProviderCommon,
+        format: "yaml",
         behavior: "ipcidr",
         url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/cncidr.txt",
         path: "./ruleset/loyalsoldier/cncidr.yaml",
     },
     applications: {
         ...ruleProviderCommon,
+        format: "yaml",
         behavior: "classical",
         url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/applications.txt",
         path: "./ruleset/loyalsoldier/applications.yaml",
     },
     apple: {
         ...ruleProviderCommon,
+        format: "yaml",
         behavior: "classical",
         url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/\u0043\u006c\u0061\u0073\u0068/Apple/Apple.yaml",
         path: "./ruleset/blackmatrix7/apple.yaml",
     },
     google: {
         ...ruleProviderCommon,
+        format: "yaml",
         behavior: "classical",
         url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/\u0043\u006c\u0061\u0073\u0068/Google/Google.yaml",
         path: "./ruleset/blackmatrix7/google.yaml",
