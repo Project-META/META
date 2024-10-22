@@ -13,7 +13,7 @@ const LOCATION_ICON_SET_URL = "https://img.icons8.com/color/144/";
 
 const services = [
     // Routing rules are matched in order from top to bottom, with the rule at the top of the list taking precedence over the rules below it.
-    // Default services: Apple, iCloud, Google, Telegram.
+    // Default services: Telegram.
     {
         name: "X",
         icon: `${BASE_ICON_SET_URL}X.png`,
@@ -68,6 +68,10 @@ const services = [
     {
         name: "YouTube",
         icon: `${BASE_ICON_SET_URL}YouTube.png`,
+    },
+    {
+        name: "Google",
+        icon: `${BASE_ICON_SET_URL}Google_Search.png`,
     },
 ];
 
@@ -335,27 +339,6 @@ const proxyGroups = [
     }),
     {
         ...proxyGroupCommon,
-        name: "Apple",
-        type: "select",
-        proxies: [...serviceProxyGroupProxies],
-        icon: `${BASE_ICON_SET_URL}Apple_1.png`,
-    },
-    {
-        ...proxyGroupCommon,
-        name: "iCloud",
-        type: "select",
-        proxies: [...serviceProxyGroupProxies],
-        icon: `${BASE_ICON_SET_URL}iCloud.png`,
-    },
-    {
-        ...proxyGroupCommon,
-        name: "Google",
-        type: "select",
-        proxies: [...serviceProxyGroupProxies],
-        icon: `${BASE_ICON_SET_URL}Google_Search.png`,
-    },
-    {
-        ...proxyGroupCommon,
         name: "Telegram",
         type: "select",
         proxies: [...serviceProxyGroupProxies],
@@ -391,9 +374,6 @@ const rules = [
     "RULE-SET,win-spy,Advertising",
     "RULE-SET,win-extra,Advertising",
     ...createServiceRules(services),
-    "RULE-SET,icloud,iCloud",
-    "RULE-SET,apple,Apple",
-    "RULE-SET,google,Google",
     "RULE-SET,proxy,PROXY",
     "RULE-SET,\u0067\u0066\u0077,PROXY",
     "RULE-SET,tld-!cn,PROXY",
@@ -454,13 +434,6 @@ const ruleProviders = {
         behavior: "domain",
         url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/private.mrs",
         path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/private.mrs",
-    },
-    icloud: {
-        ...ruleProviderCommon,
-        format: "mrs",
-        behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/icloud.mrs",
-        path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/icloud.mrs",
     },
     "\u0067\u0066\u0077": {
         ...ruleProviderCommon,
@@ -538,20 +511,6 @@ const ruleProviders = {
         behavior: "domain",
         url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/win-extra.mrs",
         path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/win-extra.mrs",
-    },
-    apple: {
-        ...ruleProviderCommon,
-        format: "mrs",
-        behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/apple.mrs",
-        path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/apple.mrs",
-    },
-    google: {
-        ...ruleProviderCommon,
-        format: "mrs",
-        behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/google.mrs",
-        path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/google.mrs",
     },
     ...createServiceRuleProviders(services, ruleProviderCommon),
 };
