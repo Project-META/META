@@ -251,7 +251,7 @@ const tun = {
 
 // Proxy Groups
 
-const proxyGroupCommon = {
+const proxyGroupDefaults = {
     url: "https://www.gstatic.com/generate_204",
     interval: 300,
     lazy: true,
@@ -260,8 +260,8 @@ const proxyGroupCommon = {
     hidden: false,
 };
 
-const locationProxyGroupCommon = {
-    ...proxyGroupCommon,
+const locationProxyGroupDefaults = {
+    ...proxyGroupDefaults,
     type: "url-test",
     tolerance: 50,
     proxies: ["REJECT"],
@@ -278,9 +278,9 @@ const serviceProxyGroupProxies = [
     ...locations.map(({ name }) => name),
 ];
 
-function createProxyGroups(items, commonConfig, type, extraProps = {}) {
+function createProxyGroups(items, defaultConfig, type, extraProps = {}) {
     return items.map(({ name, icon, filter }) => ({
-        ...commonConfig,
+        ...defaultConfig,
         name,
         type,
         icon,
@@ -291,7 +291,7 @@ function createProxyGroups(items, commonConfig, type, extraProps = {}) {
 
 const proxyGroups = [
     {
-        ...proxyGroupCommon,
+        ...proxyGroupDefaults,
         name: "PROXY",
         type: "select",
         proxies: [
@@ -304,7 +304,7 @@ const proxyGroups = [
         icon: `${BASE_ICON_SET_URL}Proxy.png`,
     },
     {
-        ...proxyGroupCommon,
+        ...proxyGroupDefaults,
         name: "AUTO",
         type: "url-test",
         tolerance: 50,
@@ -312,14 +312,14 @@ const proxyGroups = [
         icon: `${BASE_ICON_SET_URL}Auto.png`,
     },
     {
-        ...proxyGroupCommon,
+        ...proxyGroupDefaults,
         name: "FALLBACK",
         type: "fallback",
         proxies: [...locations.map(({ name }) => name)],
         icon: `${BASE_ICON_SET_URL}Available.png`,
     },
     {
-        ...proxyGroupCommon,
+        ...proxyGroupDefaults,
         name: "LOAD BALANCING (Consistent hashing)",
         type: "load-balance",
         strategy: "consistent-hashing",
@@ -327,38 +327,38 @@ const proxyGroups = [
         icon: `${BASE_ICON_SET_URL}Round_Robin_1.png`,
     },
     {
-        ...proxyGroupCommon,
+        ...proxyGroupDefaults,
         name: "LOAD BALANCING (Round robin)",
         type: "load-balance",
         strategy: "round-robin",
         proxies: [...locations.map(({ name }) => name)],
         icon: `${BASE_ICON_SET_URL}Round_Robin.png`,
     },
-    ...createProxyGroups(services, proxyGroupCommon, "select", {
+    ...createProxyGroups(services, proxyGroupDefaults, "select", {
         proxies: serviceProxyGroupProxies,
     }),
     {
-        ...proxyGroupCommon,
+        ...proxyGroupDefaults,
         name: "Telegram",
         type: "select",
         proxies: [...serviceProxyGroupProxies],
         icon: `${BASE_ICON_SET_URL}Telegram_X.png`,
     },
     {
-        ...proxyGroupCommon,
+        ...proxyGroupDefaults,
         name: "Others",
         type: "select",
         proxies: [...serviceProxyGroupProxies],
         icon: `${BASE_ICON_SET_URL}Final.png`,
     },
     {
-        ...proxyGroupCommon,
+        ...proxyGroupDefaults,
         name: "Advertising",
         type: "select",
         proxies: ["REJECT", "DIRECT"],
         icon: `${BASE_ICON_SET_URL}Advertising.png`,
     },
-    ...createProxyGroups(locations, locationProxyGroupCommon, "url-test"),
+    ...createProxyGroups(locations, locationProxyGroupDefaults, "url-test"),
 ];
 
 // Routing Rules
@@ -387,17 +387,17 @@ const rules = [
 
 // Rule Providers
 
-const ruleProviderCommon = {
+const ruleProviderDefaults = {
     type: "http",
     interval: 86400,
     proxy: "DIRECT",
 };
 
-function createServiceRuleProviders(services, commonConfig) {
+function createServiceRuleProviders(services, defaultConfig) {
     return services.reduce((acc, { name, alias }) => {
         const ruleName = alias || name;
         acc[name.toLowerCase()] = {
-            ...commonConfig,
+            ...defaultConfig,
             format: "mrs",
             behavior: "domain",
             url: `https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/${ruleName.toLowerCase()}.mrs`,
@@ -409,118 +409,118 @@ function createServiceRuleProviders(services, commonConfig) {
 
 const ruleProviders = {
     direct: {
-        ...ruleProviderCommon,
+        ...ruleProviderDefaults,
         format: "yaml",
         behavior: "domain",
         url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/direct.txt",
         path: "./ruleset/loyalsoldier/direct.yaml",
     },
     proxy: {
-        ...ruleProviderCommon,
+        ...ruleProviderDefaults,
         format: "yaml",
         behavior: "domain",
         url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/proxy.txt",
         path: "./ruleset/loyalsoldier/proxy.yaml",
     },
     reject: {
-        ...ruleProviderCommon,
+        ...ruleProviderDefaults,
         format: "yaml",
         behavior: "domain",
         url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/reject.txt",
         path: "./ruleset/loyalsoldier/reject.yaml",
     },
     applications: {
-        ...ruleProviderCommon,
+        ...ruleProviderDefaults,
         format: "yaml",
         behavior: "classical",
         url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/\u0063\u006c\u0061\u0073\u0068-rules@release/applications.txt",
         path: "./ruleset/loyalsoldier/applications.yaml",
     },
     private: {
-        ...ruleProviderCommon,
+        ...ruleProviderDefaults,
         format: "mrs",
         behavior: "domain",
         url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/private.mrs",
         path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/private.mrs",
     },
     "\u0067\u0066\u0077": {
-        ...ruleProviderCommon,
+        ...ruleProviderDefaults,
         format: "mrs",
         behavior: "domain",
         url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/\u0067\u0066\u0077.mrs",
         path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/\u0067\u0066\u0077.mrs",
     },
     "tld-!cn": {
-        ...ruleProviderCommon,
+        ...ruleProviderDefaults,
         format: "mrs",
         behavior: "domain",
         url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/tld-!cn.mrs",
         path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/tld-!cn.mrs",
     },
     "category-ads-all": {
-        ...ruleProviderCommon,
+        ...ruleProviderDefaults,
         format: "mrs",
         behavior: "domain",
         url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/category-ads-all.mrs",
         path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/category-ads-all.mrs",
     },
     "win-spy": {
-        ...ruleProviderCommon,
+        ...ruleProviderDefaults,
         format: "mrs",
         behavior: "domain",
         url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/win-spy.mrs",
         path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/win-spy.mrs",
     },
     "win-extra": {
-        ...ruleProviderCommon,
+        ...ruleProviderDefaults,
         format: "mrs",
         behavior: "domain",
         url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/win-extra.mrs",
         path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/win-extra.mrs",
     },
     cn: {
-        ...ruleProviderCommon,
+        ...ruleProviderDefaults,
         format: "mrs",
         behavior: "domain",
         url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/cn.mrs",
         path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/cn.mrs",
     },
     "geolocation-cn": {
-        ...ruleProviderCommon,
+        ...ruleProviderDefaults,
         format: "mrs",
         behavior: "domain",
         url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/geolocation-cn.mrs",
         path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/geolocation-cn.mrs",
     },
     "geolocation-!cn": {
-        ...ruleProviderCommon,
+        ...ruleProviderDefaults,
         format: "mrs",
         behavior: "domain",
         url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/geolocation-!cn.mrs",
         path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/geolocation-!cn.mrs",
     },
     lancidr: {
-        ...ruleProviderCommon,
+        ...ruleProviderDefaults,
         format: "mrs",
         behavior: "ipcidr",
         url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geoip/private.mrs",
         path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/lancidr.mrs",
     },
     cncidr: {
-        ...ruleProviderCommon,
+        ...ruleProviderDefaults,
         format: "mrs",
         behavior: "ipcidr",
         url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geoip/cn.mrs",
         path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/cncidr.mrs",
     },
     telegramcidr: {
-        ...ruleProviderCommon,
+        ...ruleProviderDefaults,
         format: "mrs",
         behavior: "ipcidr",
         url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geoip/telegram.mrs",
         path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/telegramcidr.mrs",
     },
-    ...createServiceRuleProviders(services, ruleProviderCommon),
+    ...createServiceRuleProviders(services, ruleProviderDefaults),
 };
 
 // generate configuration using the above settings
