@@ -382,6 +382,9 @@ const rules = [
     "RULE-SET,lancidr,DIRECT,no-resolve",
     "RULE-SET,cncidr,DIRECT,no-resolve",
     "RULE-SET,telegramcidr,Telegram,no-resolve",
+    "RULE-SET,xcidr,X,no-resolve",
+    "RULE-SET,netflixcidr,Netflix,no-resolve",
+    "RULE-SET,googlecidr,Google,no-resolve",
     "MATCH,Others",
 ];
 
@@ -519,6 +522,27 @@ const ruleProviders = {
         behavior: "ipcidr",
         url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geoip/telegram.mrs",
         path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/telegramcidr.mrs",
+    },
+    googlecidr: {
+        ...ruleProviderDefaults,
+        format: "mrs",
+        behavior: "ipcidr",
+        url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geoip/google.mrs",
+        path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/googlecidr.mrs",
+    },
+    netflixcidr: {
+        ...ruleProviderDefaults,
+        format: "mrs",
+        behavior: "ipcidr",
+        url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geoip/netflix.mrs",
+        path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/netflixcidr.mrs",
+    },
+    xcidr: {
+        ...ruleProviderDefaults,
+        format: "mrs",
+        behavior: "ipcidr",
+        url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geoip/twitter.mrs",
+        path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/xcidr.mrs",
     },
     ...generateServiceRuleProviders(services, ruleProviderDefaults),
 };
