@@ -432,7 +432,7 @@ function createServiceRuleProviders(services, commonConfig) {
             ...commonConfig,
             format: "mrs",
             behavior: "domain",
-            url: `https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/${ruleName.toLowerCase()}.mrs`,
+            url: `https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/meta-rules-dat@meta/geo/geosite/${ruleName.toLowerCase()}.mrs`,
             path: `./ruleset/metacubex/${name.toLowerCase()}.mrs`,
         };
         return acc;
