@@ -412,7 +412,7 @@ const rules = [
     "RULE-SET,lancidr,DIRECT,no-resolve",
     "RULE-SET,cncidr,DIRECT,no-resolve",
     "RULE-SET,telegramcidr,Telegram,no-resolve",
-    "RULE-SET,cn,DIRECT,no-resolve",
+    "RULE-SET,geoip-cn,DIRECT,no-resolve",
     "MATCH,Others",
 ];
 
@@ -544,12 +544,12 @@ const ruleProviders = {
         url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/google.mrs",
         path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/google.mrs",
     },
-    cn: {
+    "geoip-cn": {
         ...ruleProviderCommon,
         format: "mrs",
         behavior: "ipcidr",
         url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geoip/cn.mrs",
-        path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/cn.mrs",
+        path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/geoip-cn.mrs",
     },
     ...createServiceRuleProviders(services, ruleProviderCommon),
 };
