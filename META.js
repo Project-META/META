@@ -371,6 +371,7 @@ const rules = [
     "RULE-SET,applications,DIRECT",
     "RULE-SET,private,DIRECT",
     "RULE-SET,reject,Advertising",
+    "RULE-SET,category-ads-all,Advertising",
     "RULE-SET,win-spy,Advertising",
     "RULE-SET,win-extra,Advertising",
     ...createServiceRules(services),
@@ -455,6 +456,13 @@ const ruleProviders = {
         behavior: "domain",
         url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/tld-!cn.mrs",
         path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/tld-!cn.mrs",
+    },
+    "category-ads-all": {
+        ...ruleProviderCommon,
+        format: "mrs",
+        behavior: "domain",
+        url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/category-ads-all.mrs",
+        path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/category-ads-all.mrs",
     },
     "win-spy": {
         ...ruleProviderCommon,
