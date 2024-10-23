@@ -13,7 +13,6 @@ const LOCATION_ICON_SET_URL = "https://img.icons8.com/color/144/";
 
 const services = [
     // Routing rules are matched in order from top to bottom, with the rule at the top of the list taking precedence over the rules below it.
-    // Default services: Telegram.
     {
         name: "X",
         icon: `${BASE_ICON_SET_URL}X.png`,
@@ -72,6 +71,10 @@ const services = [
     {
         name: "Google",
         icon: `${BASE_ICON_SET_URL}Google_Search.png`,
+    },
+    {
+        name: "Telegram",
+        icon: `${BASE_ICON_SET_URL}Telegram_X.png`,
     },
 ];
 
@@ -344,13 +347,6 @@ const proxyGroups = [
     }),
     {
         ...proxyGroupDefaults,
-        name: "Telegram",
-        type: "select",
-        proxies: [...serviceProxyGroupProxies],
-        icon: `${BASE_ICON_SET_URL}Telegram_X.png`,
-    },
-    {
-        ...proxyGroupDefaults,
         name: "Others",
         type: "select",
         proxies: [...serviceProxyGroupProxies],
@@ -386,10 +382,10 @@ const rules = [
     "RULE-SET,direct,DIRECT",
     "RULE-SET,lancidr,DIRECT,no-resolve",
     "RULE-SET,cncidr,DIRECT,no-resolve",
-    "RULE-SET,telegramcidr,Telegram,no-resolve",
     "RULE-SET,xcidr,X,no-resolve",
     "RULE-SET,netflixcidr,Netflix,no-resolve",
     "RULE-SET,googlecidr,Google,no-resolve",
+    "RULE-SET,telegramcidr,Telegram,no-resolve",
     "MATCH,Others",
 ];
 
@@ -521,13 +517,6 @@ const ruleProviders = {
         url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geoip/cn.mrs",
         path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/cncidr.mrs",
     },
-    telegramcidr: {
-        ...ruleProviderDefaults,
-        format: "mrs",
-        behavior: "ipcidr",
-        url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geoip/telegram.mrs",
-        path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/telegramcidr.mrs",
-    },
     googlecidr: {
         ...ruleProviderDefaults,
         format: "mrs",
@@ -548,6 +537,13 @@ const ruleProviders = {
         behavior: "ipcidr",
         url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geoip/twitter.mrs",
         path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/xcidr.mrs",
+    },
+    telegramcidr: {
+        ...ruleProviderDefaults,
+        format: "mrs",
+        behavior: "ipcidr",
+        url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geoip/telegram.mrs",
+        path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/telegramcidr.mrs",
     },
     ...generateServiceRuleProviders(services, ruleProviderDefaults),
 };
