@@ -82,6 +82,11 @@ const locations = [
         filter: "(?i)\u963f\u6839\u5ef7|Argentina|ARG|AR|argentina|arg|ar|🇦🇷",
     },
     {
+        name: "Canada 🇨🇦",
+        icon: `${LOCATION_ICON_SET_URL}canada.png`,
+        filter: "(?i)\u52a0\u62ff\u5927|Canada|CAN|CA|canada|ca|🇨🇦",
+    },
+    {
         name: "Finland 🇫🇮",
         icon: `${LOCATION_ICON_SET_URL}finland.png`,
         filter: "(?i)\u82ac\u5170|Finland|FIN|FI|finland|fin|fi|🇫🇮",
