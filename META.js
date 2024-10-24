@@ -229,8 +229,8 @@ const dns = {
     ],
     "default-nameserver": ["223.5.5.5", "119.29.29.29", "1.1.1.1", "8.8.8.8"],
     "nameserver-policy": {
-        "rule-set:private,cn,geolocation-cn": chineseNameservers,
-        "rule-set:geolocation-!cn": internationalNameservers,
+        "rule-set:private,direct,geolocation-cn": chineseNameservers,
+        "rule-set:proxy": internationalNameservers,
     },
     nameserver: [...chineseNameservers, ...internationalNameservers],
 };
@@ -370,22 +370,26 @@ function generateServiceRules(services) {
 
 const rules = [
     "RULE-SET,applications,DIRECT",
+    "RULE-SET,lancidr,DIRECT,no-resolve",
+
     "RULE-SET,private,DIRECT",
     "RULE-SET,ads,Advertising",
     "RULE-SET,win-spy,Advertising",
     // "RULE-SET,win-extra,Advertising",
+
     ...generateServiceRules(services),
     "RULE-SET,google@cn,Google,",
+
     "RULE-SET,proxy,PROXY",
     "RULE-SET,\u0067\u0066\u0077,PROXY",
     "RULE-SET,tld-!cn,PROXY",
     "RULE-SET,direct,DIRECT",
-    "RULE-SET,lancidr,DIRECT,no-resolve",
-    "RULE-SET,cncidr,DIRECT",
+
     "RULE-SET,xcidr,X",
     "RULE-SET,netflixcidr,Netflix",
     "RULE-SET,googlecidr,Google",
     "RULE-SET,telegramcidr,Telegram",
+    "RULE-SET,cncidr,DIRECT",
     "MATCH,Others",
 ];
 
@@ -489,26 +493,12 @@ const ruleProviders = {
         url: "https://cdn.jsdelivr.net/gh/Project-META/rules-mrs@release/tld-!cn.mrs",
         path: "./ruleset/project-meta/tld-!cn.mrs",
     },
-    cn: {
-        ...ruleProviderDefaults,
-        format: "mrs",
-        behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/cn.mrs",
-        path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/cn.mrs",
-    },
     "geolocation-cn": {
         ...ruleProviderDefaults,
         format: "mrs",
         behavior: "domain",
         url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/geolocation-cn.mrs",
         path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/geolocation-cn.mrs",
-    },
-    "geolocation-!cn": {
-        ...ruleProviderDefaults,
-        format: "mrs",
-        behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/geolocation-!cn.mrs",
-        path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/geolocation-!cn.mrs",
     },
     "win-spy": {
         ...ruleProviderDefaults,
