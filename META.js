@@ -381,7 +381,6 @@ const rules = [
     "RULE-SET,google@cn,Google,",
 
     "RULE-SET,proxy,PROXY",
-    "RULE-SET,\u0067\u0066\u0077,PROXY",
     "RULE-SET,tld-!cn,PROXY",
     "RULE-SET,direct,DIRECT",
 
@@ -443,13 +442,6 @@ const ruleProviders = {
         behavior: "domain",
         url: "https://cdn.jsdelivr.net/gh/Project-META/rules-mrs@release/direct.mrs",
         path: "./ruleset/project-meta/direct.mrs",
-    },
-    "\u0067\u0066\u0077": {
-        ...ruleProviderDefaults,
-        format: "mrs",
-        behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Project-META/rules-mrs@release/\u0067\u0066\u0077.mrs",
-        path: "/ruleset/project-meta/\u0067\u0066\u0077.mrs",
     },
     "google@cn": {
         ...ruleProviderDefaults,
