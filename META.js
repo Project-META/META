@@ -267,17 +267,17 @@ const proxyGroupDefaults = {
     "max-failed-times": 5,
 };
 
-const locationPolicyProxyGroupDefaults = {
-    ...proxyGroupDefaults,
-    proxies: ["REJECT"],
-    "include-all": true,
-};
-
 const serviceProxyGroupProxies = [
     "PROXY",
     "DIRECT",
     ...locations.map(({ name }) => name),
 ];
+
+const locationPolicyProxyGroupDefaults = {
+    ...proxyGroupDefaults,
+    proxies: ["REJECT"],
+    "include-all": true,
+};
 
 function generateServiceProxyGroups(items, defaultConfig) {
     return items.map(({ name, icon }) => ({
@@ -286,22 +286,6 @@ function generateServiceProxyGroups(items, defaultConfig) {
         icon,
         type: "select",
         proxies: serviceProxyGroupProxies,
-    }));
-}
-
-function generateLocationSelectProxyGroups() {
-    return locations.map(({ name, icon }) => ({
-        ...proxyGroupDefaults,
-        name,
-        type: "select",
-        icon,
-        proxies: [
-            `AUTO ${name.split(" ").pop()}`,
-            `FALLBACK ${name.split(" ").pop()}`,
-            `LOAD BALANCING (consistent hashing) ${name.split(" ").pop()}`,
-            `LOAD BALANCING (round-robin) ${name.split(" ").pop()}`,
-            `LOAD BALANCING (sticky sessions) ${name.split(" ").pop()}`,
-        ],
     }));
 }
 
@@ -346,6 +330,22 @@ function generateLocationPolicyProxyGroups(
             ...extraProps,
         };
     });
+}
+
+function generateLocationSelectProxyGroups() {
+    return locations.map(({ name, icon }) => ({
+        ...proxyGroupDefaults,
+        name,
+        type: "select",
+        icon,
+        proxies: [
+            `AUTO ${name.split(" ").pop()}`,
+            `FALLBACK ${name.split(" ").pop()}`,
+            `LOAD BALANCING (consistent hashing) ${name.split(" ").pop()}`,
+            `LOAD BALANCING (round-robin) ${name.split(" ").pop()}`,
+            `LOAD BALANCING (sticky sessions) ${name.split(" ").pop()}`,
+        ],
+    }));
 }
 
 const proxyGroups = [
