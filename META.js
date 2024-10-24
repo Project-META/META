@@ -150,6 +150,11 @@ const locations = [
         filter: "(?i)\u571f\u8033\u5176|Türkiye|Turkey|TUR|TR|türkiye|turkey|tur|tr|🇹🇷",
     },
     {
+        name: "Ukraine 🇺🇦",
+        icon: `${LOCATION_ICON_SET_URL}ukraine.png`,
+        filter: "(?i)\u4e4c\u514b\u5170|Ukraine|UKR|UA|ukraine|ukr|ua|🇺🇦",
+    },
+    {
         name: "United Kingdom 🇬🇧",
         icon: `${LOCATION_ICON_SET_URL}great-britain.png`,
         filter: "(?i)\u82f1\u56fd|United Kingdom|Great Britain|UK|GB|united kingdom|great britain|uk|gb|🇬🇧",
