@@ -268,8 +268,8 @@ const proxyGroupDefaults = {
 };
 
 const serviceProxyGroupProxies = [
-    "STATIC",
     "PROXY",
+    "STATIC",
     "DIRECT",
     ...locations.map(({ name }) => name),
 ];
@@ -352,17 +352,17 @@ function generateLocationSelectProxyGroups() {
 const proxyGroups = [
     {
         ...proxyGroupDefaults,
-        name: "STATIC",
-        type: "select",
-        "include-all": true,
-        icon: `${BASE_ICON_SET_URL}Static.png`,
-    },
-    {
-        ...proxyGroupDefaults,
         name: "PROXY",
         type: "select",
         proxies: ["STATIC", ...locations.map(({ name }) => name)],
         icon: `${BASE_ICON_SET_URL}Proxy.png`,
+    },
+    {
+        ...proxyGroupDefaults,
+        name: "STATIC",
+        type: "select",
+        "include-all": true,
+        icon: `${BASE_ICON_SET_URL}Static.png`,
     },
     ...generateServiceProxyGroups(services, proxyGroupDefaults),
     {
