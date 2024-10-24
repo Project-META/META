@@ -271,6 +271,7 @@ const serviceProxyGroupProxies = [
     "PROXY",
     "DIRECT",
     ...locations.map(({ name }) => name),
+    "STATIC",
 ];
 
 const locationPolicyProxyGroupDefaults = {
@@ -353,7 +354,7 @@ const proxyGroups = [
         ...proxyGroupDefaults,
         name: "PROXY",
         type: "select",
-        proxies: [...locations.map(({ name }) => name)],
+        proxies: [...locations.map(({ name }) => name), "STATIC"],
         icon: `${BASE_ICON_SET_URL}Proxy.png`,
     },
     ...generateServiceProxyGroups(services, proxyGroupDefaults),
@@ -409,6 +410,13 @@ const proxyGroups = [
         }
     ),
     ...generateLocationSelectProxyGroups(),
+    {
+        ...proxyGroupDefaults,
+        name: "STATIC",
+        type: "select",
+        "include-all": true,
+        icon: `${BASE_ICON_SET_URL}Static.png`,
+    },
 ];
 
 // Routing Rules
