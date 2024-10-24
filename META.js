@@ -380,7 +380,7 @@ const rules = [
     "RULE-SET,\u0067\u0066\u0077,PROXY",
     "RULE-SET,tld-!cn,PROXY",
     "RULE-SET,direct,DIRECT",
-    "RULE-SET,lancidr,DIRECT",
+    "RULE-SET,lancidr,DIRECT,no-resolve",
     "RULE-SET,cncidr,DIRECT",
     "RULE-SET,xcidr,X",
     "RULE-SET,netflixcidr,Netflix",
