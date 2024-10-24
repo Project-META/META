@@ -270,8 +270,6 @@ const proxyGroupDefaults = {
 
 const locationProxyGroupDefaults = {
     ...proxyGroupDefaults,
-    type: "url-test",
-    tolerance: 50,
     proxies: ["REJECT"],
     "include-all": true,
 };
@@ -359,7 +357,10 @@ const proxyGroups = [
         proxies: ["REJECT", "DIRECT"],
         icon: `${BASE_ICON_SET_URL}Advertising.png`,
     },
-    ...generateProxyGroups(locations, locationProxyGroupDefaults, "url-test"),
+    {},
+    ...generateProxyGroups(locations, locationProxyGroupDefaults, "url-test", {
+        tolerance: 50,
+    }),
 ];
 
 // Routing Rules
