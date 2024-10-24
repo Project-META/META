@@ -265,10 +265,9 @@ const proxyGroupDefaults = {
     lazy: true,
     timeout: 5000,
     "max-failed-times": 5,
-    hidden: false,
 };
 
-const locationProxyGroupDefaults = {
+const locationPolicyProxyGroupDefaults = {
     ...proxyGroupDefaults,
     proxies: ["REJECT"],
     "include-all": true,
@@ -276,23 +275,77 @@ const locationProxyGroupDefaults = {
 
 const serviceProxyGroupProxies = [
     "PROXY",
-    "AUTO",
-    "FALLBACK",
-    "LOAD BALANCING (Consistent hashing)",
-    "LOAD BALANCING (Round robin)",
     "DIRECT",
     ...locations.map(({ name }) => name),
 ];
 
-function generateProxyGroups(items, defaultConfig, type, extraProps = {}) {
-    return items.map(({ name, icon, filter }) => ({
+function generateServiceProxyGroups(items, defaultConfig) {
+    return items.map(({ name, icon }) => ({
         ...defaultConfig,
         name,
-        type,
         icon,
-        filter,
-        ...extraProps,
+        type: "select",
+        proxies: serviceProxyGroupProxies,
     }));
+}
+
+function generateLocationSelectProxyGroups() {
+    return locations.map(({ name, icon }) => ({
+        ...proxyGroupDefaults,
+        name,
+        type: "select",
+        icon,
+        proxies: [
+            `AUTO ${name.split(" ").pop()}`,
+            `FALLBACK ${name.split(" ").pop()}`,
+            `LOAD BALANCING (consistent hashing) ${name.split(" ").pop()}`,
+            `LOAD BALANCING (round-robin) ${name.split(" ").pop()}`,
+            `LOAD BALANCING (sticky sessions) ${name.split(" ").pop()}`,
+        ],
+    }));
+}
+
+function generateLocationPolicyProxyGroups(
+    items,
+    defaultConfig,
+    type,
+    extraProps = {}
+) {
+    const getStrategyName = (type, strategy) => {
+        switch (type) {
+            case "url-test":
+                return "AUTO";
+            case "fallback":
+                return "FALLBACK";
+            case "load-balance":
+                switch (strategy) {
+                    case "consistent-hashing":
+                        return "LOAD BALANCING (consistent hashing)";
+                    case "round-robin":
+                        return "LOAD BALANCING (round-robin)";
+                    case "sticky-sessions":
+                        return "LOAD BALANCING (sticky sessions)";
+                    default:
+                        return "LOAD BALANCING";
+                }
+            default:
+                return type.toUpperCase();
+        }
+    };
+    return items.map(({ name, icon, filter }) => {
+        const strategyName = getStrategyName(type, extraProps.strategy);
+        const emoji = name.split(" ").pop();
+        const newName = `${strategyName} ${emoji}`;
+        return {
+            ...defaultConfig,
+            name: newName,
+            type,
+            icon,
+            filter,
+            hidden: true,
+            ...extraProps,
+        };
+    });
 }
 
 const proxyGroups = [
@@ -300,49 +353,10 @@ const proxyGroups = [
         ...proxyGroupDefaults,
         name: "PROXY",
         type: "select",
-        proxies: [
-            "AUTO",
-            "FALLBACK",
-            "LOAD BALANCING (Consistent hashing)",
-            "LOAD BALANCING (Round robin)",
-            ...locations.map(({ name }) => name),
-        ],
+        proxies: [...locations.map(({ name }) => name)],
         icon: `${BASE_ICON_SET_URL}Proxy.png`,
     },
-    {
-        ...proxyGroupDefaults,
-        name: "AUTO",
-        type: "url-test",
-        tolerance: 50,
-        proxies: [...locations.map(({ name }) => name)],
-        icon: `${BASE_ICON_SET_URL}Auto.png`,
-    },
-    {
-        ...proxyGroupDefaults,
-        name: "FALLBACK",
-        type: "fallback",
-        proxies: [...locations.map(({ name }) => name)],
-        icon: `${BASE_ICON_SET_URL}Available.png`,
-    },
-    {
-        ...proxyGroupDefaults,
-        name: "LOAD BALANCING (Consistent hashing)",
-        type: "load-balance",
-        strategy: "consistent-hashing",
-        proxies: [...locations.map(({ name }) => name)],
-        icon: `${BASE_ICON_SET_URL}Round_Robin_1.png`,
-    },
-    {
-        ...proxyGroupDefaults,
-        name: "LOAD BALANCING (Round robin)",
-        type: "load-balance",
-        strategy: "round-robin",
-        proxies: [...locations.map(({ name }) => name)],
-        icon: `${BASE_ICON_SET_URL}Round_Robin.png`,
-    },
-    ...generateProxyGroups(services, proxyGroupDefaults, "select", {
-        proxies: serviceProxyGroupProxies,
-    }),
+    ...generateServiceProxyGroups(services, proxyGroupDefaults),
     {
         ...proxyGroupDefaults,
         name: "Others",
@@ -357,9 +371,44 @@ const proxyGroups = [
         proxies: ["REJECT", "DIRECT"],
         icon: `${BASE_ICON_SET_URL}Advertising.png`,
     },
-    ...generateProxyGroups(locations, locationProxyGroupDefaults, "url-test", {
-        tolerance: 50,
-    }),
+    ...generateLocationPolicyProxyGroups(
+        locations,
+        locationPolicyProxyGroupDefaults,
+        "url-test",
+        {
+            tolerance: 50,
+        }
+    ),
+    ...generateLocationPolicyProxyGroups(
+        locations,
+        locationPolicyProxyGroupDefaults,
+        "fallback"
+    ),
+    ...generateLocationPolicyProxyGroups(
+        locations,
+        locationPolicyProxyGroupDefaults,
+        "load-balance",
+        {
+            strategy: "round-robin",
+        }
+    ),
+    ...generateLocationPolicyProxyGroups(
+        locations,
+        locationPolicyProxyGroupDefaults,
+        "load-balance",
+        {
+            strategy: "consistent-hashing",
+        }
+    ),
+    ...generateLocationPolicyProxyGroups(
+        locations,
+        locationPolicyProxyGroupDefaults,
+        "load-balance",
+        {
+            strategy: "sticky-sessions",
+        }
+    ),
+    ...generateLocationSelectProxyGroups(),
 ];
 
 // Routing Rules
