@@ -380,12 +380,12 @@ const rules = [
     "RULE-SET,\u0067\u0066\u0077,PROXY",
     "RULE-SET,tld-!cn,PROXY",
     "RULE-SET,direct,DIRECT",
-    "RULE-SET,lancidr,DIRECT,no-resolve",
-    "RULE-SET,cncidr,DIRECT,no-resolve",
-    "RULE-SET,xcidr,X,no-resolve",
-    "RULE-SET,netflixcidr,Netflix,no-resolve",
-    "RULE-SET,googlecidr,Google,no-resolve",
-    "RULE-SET,telegramcidr,Telegram,no-resolve",
+    "RULE-SET,lancidr,DIRECT",
+    "RULE-SET,cncidr,DIRECT",
+    "RULE-SET,xcidr,X",
+    "RULE-SET,netflixcidr,Netflix",
+    "RULE-SET,googlecidr,Google",
+    "RULE-SET,telegramcidr,Telegram",
     "MATCH,Others",
 ];
 
