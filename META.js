@@ -357,7 +357,6 @@ const proxyGroups = [
         proxies: ["REJECT", "DIRECT"],
         icon: `${BASE_ICON_SET_URL}Advertising.png`,
     },
-    {},
     ...generateProxyGroups(locations, locationProxyGroupDefaults, "url-test", {
         tolerance: 50,
     }),
