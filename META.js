@@ -165,7 +165,7 @@ const locations = [
         filter: "(?i)\u7f8e\u56fd|United States of America|United States|USA|US|united states of america|united states|usa|us|🇺🇸",
     },
     {
-        name: "Cloudflare 🌐",
+        name: "Cloudflare ☁️",
         icon: `${BASE_ICON_SET_URL}Cloudflare.png`,
         filter: "(?i)Cloudflare|CF|cloudflare|cf",
     },
@@ -276,6 +276,7 @@ const serviceProxyGroupProxies = [
     "PROXY",
     "STATIC",
     "DIRECT",
+    "AUTO 🌐",
     ...locations.map(({ name }) => name),
 ];
 
@@ -359,7 +360,7 @@ const proxyGroups = [
         ...proxyGroupDefaults,
         name: "PROXY",
         type: "select",
-        proxies: ["STATIC", ...locations.map(({ name }) => name)],
+        proxies: ["STATIC", "AUTO 🌐", ...locations.map(({ name }) => name)],
         icon: `${BASE_ICON_SET_URL}Proxy.png`,
     },
     {
@@ -421,6 +422,15 @@ const proxyGroups = [
             strategy: "sticky-sessions",
         }
     ),
+    {
+        ...proxyGroupDefaults,
+        name: "AUTO 🌐",
+        type: "url-test",
+        tolerance: 50,
+        "include-all": true,
+        icon: `${BASE_ICON_SET_URL}Auto.png`,
+        hidden: true,
+    },
     ...generateLocationSelectProxyGroups(),
 ];
 
