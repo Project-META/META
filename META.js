@@ -580,13 +580,13 @@ const ruleProviders = {
         url: "https://cdn.jsdelivr.net/gh/Project-META/rules-mrs@release/tld-!cn.mrs",
         path: "./ruleset/project-meta/tld-!cn.mrs",
     },
-    "geolocation-cn": {
-        ...ruleProviderDefaults,
-        format: "mrs",
-        behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/geolocation-cn.mrs",
-        path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/geolocation-cn.mrs",
-    },
+    // "geolocation-cn": {
+    //     ...ruleProviderDefaults,
+    //     format: "mrs",
+    //     behavior: "domain",
+    //     url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/geolocation-cn.mrs",
+    //     path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/geolocation-cn.mrs",
+    // },
     "win-spy": {
         ...ruleProviderDefaults,
         format: "mrs",
