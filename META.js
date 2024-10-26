@@ -478,7 +478,7 @@ const rules = [
 const ruleProviderDefaults = {
     type: "http",
     interval: 86400,
-    proxy: "DIRECT",
+    proxy: "Mainland China 🇨🇳",
 };
 
 function generateServiceRuleProviders(services, defaultConfig) {
