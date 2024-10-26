@@ -212,6 +212,17 @@ const internationalNameservers = [
     "https://doh.dns.apple.com/dns-query",
     "https://cloudflare-dns.com/dns-query",
     "https://common.dot.dns.yandex.net/dns-query",
+    "https://unfiltered.adguard-dns.com/dns-query",
+];
+
+const adguardDefaultNameservers = [
+    "quic://dns.adguard-dns.com:784",
+    "https://dns.adguard-dns.com/dns-query",
+];
+
+const adguardFamilyNameservers = [
+    "quic://family.adguard-dns.com:784",
+    "https://family.adguard-dns.com/dns-query",
 ];
 
 const dns = {
@@ -239,15 +250,11 @@ const dns = {
     ],
     "default-nameserver": ["223.5.5.5", "119.29.29.29", "1.1.1.1", "8.8.8.8"],
     "proxy-server-nameserver": [...chineseNameservers],
-    // "nameserver-policy": {
-    //     "rule-set:private,direct,geolocation-cn": chineseNameservers,
-    //     "rule-set:proxy,tld-!cn": internationalNameservers,
-    // },
-    nameserver: [
-        // ...chineseNameservers,
-        // ...internationalNameservers,
-        ...adguardDefaultNameservers,
-    ],
+    "nameserver-policy": {
+        "rule-set:private,direct,geolocation-cn": chineseNameservers,
+        "rule-set:proxy,tld-!cn": internationalNameservers,
+    },
+    nameserver: [...chineseNameservers, ...internationalNameservers],
 };
 
 // Hosts
@@ -569,13 +576,13 @@ const ruleProviders = {
         url: "https://cdn.jsdelivr.net/gh/Project-META/rules-mrs@release/tld-!cn.mrs",
         path: "./ruleset/project-meta/tld-!cn.mrs",
     },
-    // "geolocation-cn": {
-    //     ...ruleProviderDefaults,
-    //     format: "mrs",
-    //     behavior: "domain",
-    //     url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/geolocation-cn.mrs",
-    //     path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/geolocation-cn.mrs",
-    // },
+    "geolocation-cn": {
+        ...ruleProviderDefaults,
+        format: "mrs",
+        behavior: "domain",
+        url: "https://cdn.jsdelivr.net/gh/\u004D\u0065\u0074\u0061\u0043\u0075\u0062\u0065\u0058/\u006D\u0065\u0074\u0061-rules-dat@\u006D\u0065\u0074\u0061/geo/geosite/geolocation-cn.mrs",
+        path: "./ruleset/\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078/geolocation-cn.mrs",
+    },
     "win-spy": {
         ...ruleProviderDefaults,
         format: "mrs",
