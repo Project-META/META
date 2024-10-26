@@ -212,6 +212,17 @@ const internationalNameservers = [
     "https://doh.dns.apple.com/dns-query",
     "https://cloudflare-dns.com/dns-query",
     "https://common.dot.dns.yandex.net/dns-query",
+    "https://unfiltered.adguard-dns.com/dns-query",
+];
+
+const adguardDefaultNameservers = [
+    "quic://dns.adguard-dns.com:784",
+    "https://dns.adguard-dns.com/dns-query",
+];
+
+const adguardFamilyNameservers = [
+    "quic://family.adguard-dns.com:784",
+    "https://family.adguard-dns.com/dns-query",
 ];
 
 const dns = {
