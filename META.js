@@ -196,14 +196,22 @@ const generalConfig = {
 // DNS
 
 const chineseNameservers = [
-    "https://dns.alidns.com/dns-query",
     "https://doh.pub/dns-query",
+    "https://dns.alidns.com/dns-query",
 ];
 
 const internationalNameservers = [
-    "https://cloudflare-dns.com/dns-query",
+    "https://dns.google/dns-query",
+    "https://doh.dns.sb/dns-query",
+    "https://dns.quad9.net/dns-query",
     "https://doh.opendns.com/dns-query",
     "https://dns.mullvad.net/dns-query",
+    "https://doh.umbrella.com/dns-query",
+    "https://wikimedia-dns.org/dns-query",
+    "https://doh.dns.apple.com/dns-query",
+    "https://cloudflare-dns.com/dns-query",
+    "https://common.dot.dns.yandex.net/dns-query",
+    "https://unfiltered.adguard-dns.com/dns-query",
 ];
 
 const dns = {
