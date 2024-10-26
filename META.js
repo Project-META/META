@@ -254,7 +254,12 @@ const dns = {
         "rule-set:private,direct,geolocation-cn": chineseNameservers,
         "rule-set:proxy,tld-!cn": internationalNameservers,
     },
-    nameserver: [...chineseNameservers, ...internationalNameservers],
+    nameserver: [
+        ...chineseNameservers,
+        ...internationalNameservers,
+        // ...adguardDefaultNameservers,
+        // ...adguardFamilyNameservers,
+    ],
 };
 
 // Hosts
