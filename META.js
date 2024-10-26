@@ -135,7 +135,7 @@ const locations = [
         filter: "(?i)\u65b0\u52a0\u5761|Singapore|singapore|sg|🇸🇬",
     },
     {
-        name: "Taiwan, China 🇹🇼",
+        name: "Taiwan, China 🇨🇳",
         icon: `${LOCATION_ICON_SET_URL}china-circular`,
         filter: "(?i)\u53f0\u6e7e|Taiwan|TW|taiwan|tw|\uD83C\uDDF9\uD83C\uDDFC",
     },
