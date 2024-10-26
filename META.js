@@ -201,6 +201,7 @@ const chineseNameservers = [
 ];
 
 const internationalNameservers = [
+    "quic://unfiltered.adguard-dns.com:784",
     "https://dns.google/dns-query",
     "https://doh.dns.sb/dns-query",
     "https://dns.quad9.net/dns-query",
@@ -211,7 +212,6 @@ const internationalNameservers = [
     "https://doh.dns.apple.com/dns-query",
     "https://cloudflare-dns.com/dns-query",
     "https://common.dot.dns.yandex.net/dns-query",
-    "https://unfiltered.adguard-dns.com/dns-query",
 ];
 
 const dns = {
