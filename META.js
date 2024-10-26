@@ -238,6 +238,7 @@ const dns = {
         "localhost.work.weixin.qq.com",
     ],
     "default-nameserver": ["223.5.5.5", "119.29.29.29", "1.1.1.1", "8.8.8.8"],
+    "proxy-server-nameserver": [...chineseNameservers],
     "nameserver-policy": {
         "rule-set:private,direct,geolocation-cn": chineseNameservers,
         "rule-set:proxy,tld-!cn": internationalNameservers,
