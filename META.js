@@ -447,7 +447,6 @@ const rules = [
     "RULE-SET,ads,Advertising",
     "RULE-SET,win-spy,Advertising",
     ...generateServiceRules(services),
-    "RULE-SET,google@cn,Google,",
     "RULE-SET,direct,DIRECT",
     "RULE-SET,proxy,PROXY",
     "RULE-SET,tld-!cn,PROXY",
@@ -509,13 +508,6 @@ const ruleProviders = {
         behavior: "domain",
         url: "https://cdn.jsdelivr.net/gh/Project-META/rules-mrs@release/direct.mrs",
         path: "./ruleset/project-meta/direct.mrs",
-    },
-    "google@cn": {
-        ...ruleProviderDefaults,
-        format: "mrs",
-        behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Project-META/rules-mrs@release/google@cn.mrs",
-        path: "./ruleset/project-meta/google@cn.mrs",
     },
     lancidr: {
         ...ruleProviderDefaults,
