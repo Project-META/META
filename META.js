@@ -277,6 +277,7 @@ const serviceProxyGroupProxies = [
     "AUTO",
     "STATIC",
     "DIRECT",
+    "Mainland China 🇨🇳",
     ...locations.map(({ name }) => name),
 ];
 
@@ -360,7 +361,12 @@ const proxyGroups = [
         ...proxyGroupDefaults,
         name: "PROXY",
         type: "select",
-        proxies: ["AUTO", "STATIC", ...locations.map(({ name }) => name)],
+        proxies: [
+            "AUTO",
+            "STATIC",
+            "Mainland China 🇨🇳",
+            ...locations.map(({ name }) => name),
+        ],
         icon: `${BASE_ICON_SET_URL}Proxy.png`,
     },
     {
