@@ -201,12 +201,9 @@ const chineseNameservers = [
 ];
 
 const internationalNameservers = [
-    "https://1.1.1.1/dns-query",
-    "https://1.0.0.1/dns-query",
-    "https://208.67.222.222/dns-query",
-    "https://208.67.220.220/dns-query",
-    "https://194.242.2.2/dns-query",
-    "https://194.242.2.3/dns-query",
+    "https://cloudflare-dns.com/dns-query",
+    "https://doh.opendns.com/dns-query",
+    "https://dns.mullvad.net/dns-query",
 ];
 
 const dns = {
