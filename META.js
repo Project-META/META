@@ -575,7 +575,7 @@ const ruleProviders = {
         ...ruleProviderDefaults,
         format: "mrs",
         behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Project-META/rules-mrs@basic/ld-!cn.mrs",
+        url: "https://cdn.jsdelivr.net/gh/Project-META/rules-mrs@basic/tld-!cn.mrs",
         path: "./rulesets/tld-!cn.mrs",
     },
     "geolocation-cn": {
