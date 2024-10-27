@@ -499,7 +499,7 @@ const rules = [
 
 const ruleProviderDefaults = {
     type: "http",
-    interval: 86400,
+    interval: 14400,
     proxy: "Mainland China 🇨🇳",
 };
 
