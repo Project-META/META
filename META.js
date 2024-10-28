@@ -252,7 +252,7 @@ const dns = {
     "proxy-server-nameserver": [...chineseNameservers],
     "nameserver-policy": {
         "rule-set:private,direct,geolocation-cn": chineseNameservers,
-        "rule-set:proxy,tld-!cn": internationalNameservers,
+        "rule-set:proxy": internationalNameservers,
     },
     nameserver: [
         ...chineseNameservers,
@@ -486,7 +486,6 @@ const rules = [
     ...generateServiceRules(services),
     "RULE-SET,direct,Mainland China 🇨🇳",
     "RULE-SET,proxy,PROXY",
-    "RULE-SET,tld-!cn,PROXY",
     "RULE-SET,telegramcidr,Telegram",
     "RULE-SET,cncidr,Mainland China 🇨🇳",
     "MATCH,Others",
@@ -570,13 +569,6 @@ const ruleProviders = {
         behavior: "ipcidr",
         url: "https://cdn.jsdelivr.net/gh/Project-META/rules-mrs@basic/telegramcidr.mrs",
         path: "./rulesets/telegramcidr.mrs",
-    },
-    "tld-!cn": {
-        ...ruleProviderDefaults,
-        format: "mrs",
-        behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Project-META/rules-mrs@basic/tld-!cn.mrs",
-        path: "./rulesets/tld-!cn.mrs",
     },
     "geolocation-cn": {
         ...ruleProviderDefaults,
