@@ -4,9 +4,9 @@
 
 ## Overview
 
-***M***ETA is a JavaScript-based project that simplifies and optimizes the configuration of the ***M***ulti-function network tool — a cross-platform, rule-based utility for managing network and application traffic. It provides extensive support for advanced features and custom configurations.
+***M***ETA is a JavaScript-based script that simplifies and optimizes the configuration of the ***M***ulti-function network tool — a cross-platform, rule-based utility for managing network and application traffic. It provides extensive support for advanced features and custom configurations.
 
-So, what exactly does the Multi-functional network tool refer to? Well, if you are asking this question, this project may not be for you because you probably don’t need the Multi-function network tool at all.
+So, what exactly does the Multi-functional network tool refer to? Well, if you are asking this question, this repository may not be for you because you probably don’t need the Multi-function network tool at all.
 
 ## Key Features
 
@@ -37,7 +37,7 @@ So, what exactly does the Multi-functional network tool refer to? Well, if you a
   - **Detailed Error Reporting**: Receive clear and informative error messages to assist in troubleshooting and configuration adjustments, making it easier to maintain a stable and efficient network setup.
 
 - **Extensible and Customizable**
-  - **Open Source and Community-Driven**: As an open-source project, META encourages community contributions and customization. Users can tailor the tool to their specific requirements, fostering a collaborative and innovative development environment.
+  - **Open Source and Community-Driven**: As an public repository, META encourages community contributions and customization. Users can tailor the tool to their specific requirements, fostering a collaborative and innovative development environment.
   - **Modular Design Architecture**: The codebase is structured for easy integration of new features and services. This modularity ensures that the tool can adapt to future needs and incorporate the latest advancements in network management.
 
 - **Optimized Performance and Security**
@@ -167,14 +167,14 @@ It is strongly recommended to refer to the official documentation of the Multi-f
 
 ## Disclaimer
 
-1. This project is strictly for educational and research purposes.
-2. Use at your own risk. The project assumes no responsibility for potential issues.
+1. This repository is strictly for educational and research purposes.
+2. Use at your own risk. The repository assumes no responsibility for potential issues.
 3. No guarantee of accuracy, completeness, or reliability.
 4. Not liable for data loss or damages.
 5. Ensure compliance with relevant licenses and legal regulations.
 6. No endorsement of third-party hardware/software.
 7. User modifications are their own responsibility.
-8. Terms may change at any time. By using this project, you agree to these terms.
+8. Terms may change at any time. By using this repository, you agree to these terms.
 
 ## License
 
