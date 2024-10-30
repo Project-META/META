@@ -419,7 +419,7 @@ const proxyGroups = [
         ...proxyGroupDefaults,
         name: "Advertising",
         type: "select",
-        proxies: ["REJECT", "DIRECT"],
+        proxies: ["REJECT", "DIRECT", "PROXY"],
         icon: `${BASE_ICON_SET_URL}Advertising.png`,
     },
     {
