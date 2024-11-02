@@ -1,0 +1,35 @@
+name: Check and Purge CDN Cache
+
+on:
+  push:
+    branches:
+      - script
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+
+      - name: Run script
+        run: node META.js
+
+  purge-dns-cache:
+    runs-on: ubuntu-latest
+    needs: check
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Purge CDN cache
+        run: |
+          for file in $(ls); do
+            curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@script/${file}"
+          done
