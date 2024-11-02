@@ -57,10 +57,9 @@ Choose one of the following URLs to import the META script:
 | Source | URL |
 | ------------------------- | --- |
 | **GitHub Raw** | [https://raw.githubusercontent.com/Project-META/META/refs/heads/script/META.js](https://raw.githubusercontent.com/Project-META/META/refs/heads/script/META.js) |
+| **Xget** | [https://xget.us.kg/gh/Project-META/META/raw/refs/heads/script/META.js](https://xget.us.kg/gh/Project-META/META/raw/refs/heads/script/META.js) |
 | **Xi Xu's Proxy Everything** | [https://proxy.xi-xu.me/?url=https%3A%2F%2Fraw.githubusercontent.com%2FProject-META%2FMETA%2Frefs%2Fheads%2Fscript%2FMETA.js](https://proxy.xi-xu.me/?url=https%3A%2F%2Fraw.githubusercontent.com%2FProject-META%2FMETA%2Frefs%2Fheads%2Fscript%2FMETA.js) |
-| **Mirror of Xi Xu's Proxy Everything** | [https://proxy.xixu.us.kg/?url=https%3A%2F%2Fraw.githubusercontent.com%2FProject-META%2FMETA%2Frefs%2Fheads%2Fscript%2FMETA.js](https://proxy.xixu.us.kg/?url=https%3A%2F%2Fraw.githubusercontent.com%2FProject-META%2FMETA%2Frefs%2Fheads%2Fscript%2FMETA.js) |
 | **jsDelivr** | [https://cdn.jsdelivr.net/gh/Project-META/META@script/META.js](https://cdn.jsdelivr.net/gh/Project-META/META@script/META.js) |
-| **jsDelivr on Cloudflare** | [https://testingcf.jsdelivr.net/gh/Project-META/META@script/META.js](https://testingcf.jsdelivr.net/gh/Project-META/META@script/META.js) |
 | **GitHub Proxy** | [https://ghp.ci/https://raw.githubusercontent.com/Project-META/META/refs/heads/script/META.js](https://ghp.ci/https://raw.githubusercontent.com/Project-META/META/refs/heads/script/META.js) |
 
 ## Usage Guide
