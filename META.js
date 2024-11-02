@@ -179,7 +179,7 @@ const generalConfig = {
     "allow-lan": false,
     mode: "rule",
     "log-level": "info",
-    ipv6: false,
+    ipv6: true,
     "find-process-mode": "strict",
     "external-controller": "",
     profile: {
@@ -232,7 +232,7 @@ const dns = {
     "use-system-hosts": false,
     "respect-rules": false,
     listen: "0.0.0.0:1053",
-    ipv6: false,
+    ipv6: true,
     "enhanced-mode": "fake-ip",
     "fake-ip-range": "198.18.0.1/16",
     "fake-ip-filter-mode": "blacklist",
