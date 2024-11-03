@@ -1,6 +1,6 @@
 # META Enhances Tailored Automation (META)
 
-**Original ｜ [Chinese](https://t.me/Project_META/12)**
+**Original ｜ [Chinese](https://f4l.us.kg/META)**
 
 ## Overview
 
@@ -24,7 +24,7 @@ So, what exactly does the Multi-functional network tool refer to? Well, if you a
   - **Dynamic Nameserver Policies**: Implement sophisticated nameserver policies that adapt based on rulesets and geolocation, providing intelligent DNS resolution tailored to your network's needs.
 
 - **Robust Rule Management**
-  - **Integration with MRS Format Rulesets**: Seamlessly integrates with our meticulously designed ***[Rulesets in MRS Format](https://github.com/Project-META/rules-mrs)***. The compact MRS format ensures efficient matching and enhanced performance.
+  - **Integration with MRS Format Rulesets**: Seamlessly integrates with our meticulously designed ***[Rulesets in MRS Format](https://github.com/xixu-me/rulesets-for-META)***. The compact MRS format ensures efficient matching and enhanced performance.
   - **Service-Specific Rules**: Automatically generate and manage rules for each service, ensuring that traffic is consistently routed according to predefined policies and enhancing overall network control.
   - **Dynamic Rule Providers**: Integrate with external rule providers to keep your configuration up-to-date with the latest domain and IP rules. This ensures that your network remains resilient against emerging threats and changes.
 
@@ -56,11 +56,11 @@ Choose one of the following URLs to import the META script:
 
 | Source | URL |
 | ------------------------- | --- |
-| **GitHub Raw** | [https://raw.githubusercontent.com/Project-META/META/refs/heads/script/META.js](https://raw.githubusercontent.com/Project-META/META/refs/heads/script/META.js) |
-| **Xget** | [https://xget.us.kg/gh/Project-META/META/raw/refs/heads/script/META.js](https://xget.us.kg/gh/Project-META/META/raw/refs/heads/script/META.js) |
-| **Xi Xu's Proxy Everything** | [https://proxy.xi-xu.me/?url=https%3A%2F%2Fraw.githubusercontent.com%2FProject-META%2FMETA%2Frefs%2Fheads%2Fscript%2FMETA.js](https://proxy.xi-xu.me/?url=https%3A%2F%2Fraw.githubusercontent.com%2FProject-META%2FMETA%2Frefs%2Fheads%2Fscript%2FMETA.js) |
-| **jsDelivr** | [https://cdn.jsdelivr.net/gh/Project-META/META@script/META.js](https://cdn.jsdelivr.net/gh/Project-META/META@script/META.js) |
-| **GitHub Proxy** | [https://ghp.ci/https://raw.githubusercontent.com/Project-META/META/refs/heads/script/META.js](https://ghp.ci/https://raw.githubusercontent.com/Project-META/META/refs/heads/script/META.js) |
+| **GitHub Raw** | [https://raw.githubusercontent.com/xixu-me/META/refs/heads/script/META.js](https://raw.githubusercontent.com/xixu-me/META/refs/heads/script/META.js) |
+| **Xget** | [https://xget.us.kg/gh/xixu-me/META/raw/refs/heads/script/META.js](https://xget.us.kg/gh/xixu-me/META/raw/refs/heads/script/META.js) |
+| **Xi Xu's Proxy Everything** | [https://proxy.xi-xu.me/?url=https%3A%2F%2Fraw.githubusercontent.com%2Fxixu-me%2FMETA%2Frefs%2Fheads%2Fscript%2FMETA.js](https://proxy.xi-xu.me/?url=https%3A%2F%2Fraw.githubusercontent.com%2Fxixu-me%2FMETA%2Frefs%2Fheads%2Fscript%2FMETA.js) |
+| **jsDelivr** | [https://cdn.jsdelivr.net/gh/xixu-me/META@script/META.js](https://cdn.jsdelivr.net/gh/xixu-me/META@script/META.js) |
+| **GitHub Proxy** | [https://ghp.ci/https://raw.githubusercontent.com/xixu-me/META/refs/heads/script/META.js](https://ghp.ci/https://raw.githubusercontent.com/xixu-me/META/refs/heads/script/META.js) |
 
 ## Usage Guide
 
