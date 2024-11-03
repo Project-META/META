@@ -2,6 +2,8 @@
 
 **Original ｜ [Chinese](https://f4l.us.kg/META)**
 
+[![license](https://img.shields.io/github/license/xixu-me/META)](https://github.com/xixu-me/META/blob/main/LICENSE) [![build](https://img.shields.io/github/actions/workflow/status/xixu-me/META/check.yml)](https://github.com/xixu-me/META/actions/workflows/check.yml)
+
 ## Overview
 
 ***M***ETA is a JavaScript-based script that simplifies and optimizes the configuration of the ***M***ulti-function network tool — a cross-platform, rule-based utility for managing network and application traffic. It provides extensive support for advanced features and custom configurations.
