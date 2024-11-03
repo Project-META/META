@@ -1,4 +1,4 @@
-// Project META: https://github.com/Project-META
+// from https://github.com/xixu-me/META
 
 function extractFavicon(domain) {
     return `https://www.google.com/s2/favicons?sz=256&domain=${domain}`;
@@ -14,50 +14,29 @@ const LOCATION_ICON_SET_URL = "https://img.icons8.com/color/144/";
 const services = [
     // Routing rules are matched in order from top to bottom, with the rule at the top of the list taking precedence over the rules below it.
     {
-        name: "X",
-        icon: `${BASE_ICON_SET_URL}X.png`,
-        alias: "Twitter",
+        name: "YouTube",
+        icon: `${BASE_ICON_SET_URL}YouTube.png`,
     },
     {
         name: "bilibili",
         icon: `${BASE_ICON_SET_URL}bilibili_2.png`,
     },
     {
-        name: "Netflix",
-        icon: `${BASE_ICON_SET_URL}Netflix.png`,
-    },
-    {
-        name: "Prime Video",
-        icon: `${BASE_ICON_SET_URL}Prime_Video_2.png`,
-        alias: "PrimeVideo",
-    },
-    {
-        name: "Disney",
-        icon: `${BASE_ICON_SET_URL}Disney.png`,
-    },
-    {
-        name: "HBO",
-        icon: `${BASE_ICON_SET_URL}HBO_1.png`,
-    },
-    {
-        name: "Binance",
-        icon: extractFavicon("www.binance.com"),
+        name: "X",
+        icon: `${BASE_ICON_SET_URL}X.png`,
+        alias: "Twitter",
     },
     {
         name: "OKX",
         icon: extractFavicon("www.okx.com"),
     },
     {
-        name: "Anthropic",
-        icon: extractFavicon("www.anthropic.com"),
+        name: "Binance",
+        icon: extractFavicon("www.binance.com"),
     },
     {
         name: "OpenAI",
         icon: extractFavicon("openai.com"),
-    },
-    {
-        name: "Microsoft",
-        icon: `${BASE_ICON_SET_URL}Microsoft.png`,
     },
     {
         name: "Gemini",
@@ -65,16 +44,24 @@ const services = [
         alias: "Google-Gemini",
     },
     {
-        name: "YouTube",
-        icon: `${BASE_ICON_SET_URL}YouTube.png`,
+        name: "Anthropic",
+        icon: extractFavicon("www.anthropic.com"),
+    },
+    {
+        name: "Apple",
+        icon: `${BASE_ICON_SET_URL}Apple_1.png`,
     },
     {
         name: "Google",
         icon: `${BASE_ICON_SET_URL}Google_Search.png`,
     },
     {
-        name: "Telegram",
-        icon: `${BASE_ICON_SET_URL}Telegram_X.png`,
+        name: "Microsoft",
+        icon: `${BASE_ICON_SET_URL}Microsoft.png`,
+    },
+    {
+        name: "Cloudflare",
+        icon: `${BASE_ICON_SET_URL}Cloudflare.png`,
     },
 ];
 
@@ -165,9 +152,9 @@ const locations = [
         filter: "(?i)\u7f8e\u56fd|United States of America|United States|USA|US|united states of america|united states|usa|us|🇺🇸",
     },
     {
-        name: "Cloudflare 🌐",
-        icon: `${BASE_ICON_SET_URL}Cloudflare.png`,
-        filter: "(?i)Cloudflare|CF|cloudflare|cf",
+        name: "Global 🌐",
+        icon: "https://img.icons8.com/?size=144&id=3685&format=png&color=7bbbe9",
+        filter: "(?i)Global|GL|global|gl|Cloudflare|CF|cloudflare|cf|🌐",
     },
 ];
 
@@ -497,7 +484,9 @@ const rules = [
     ...generateServiceRules(services),
     "RULE-SET,direct,Mainland China 🇨🇳",
     "RULE-SET,proxy,PROXY",
-    "RULE-SET,telegramcidr,Telegram",
+    "RULE-SET,xcidr,X",
+    "RULE-SET,googlecidr,Google",
+    "RULE-SET,cloudflarecidr,Cloudflare",
     "RULE-SET,cncidr,Mainland China 🇨🇳",
     "MATCH,Others",
 ];
@@ -516,7 +505,7 @@ function generateServiceRuleProviders(services, defaultConfig) {
             ...defaultConfig,
             format: "mrs",
             behavior: "domain",
-            url: `https://cdn.jsdelivr.net/gh/Project-META/rules-mrs@universal/${ruleName.toLowerCase()}.mrs`,
+            url: `https://cdn.jsdelivr.net/gh/xixu-me/rulesets-for-META@universal/${ruleName.toLowerCase()}.mrs`,
             path: `./rulesets/${name.toLowerCase()}.mrs`,
         };
         return acc;
@@ -528,70 +517,84 @@ const ruleProviders = {
         ...ruleProviderDefaults,
         format: "yaml",
         behavior: "classical",
-        url: "https://cdn.jsdelivr.net/gh/Project-META/rules-mrs@basic/applications.yaml",
+        url: "https://cdn.jsdelivr.net/gh/xixu-me/rulesets-for-META@basic/applications.yaml",
         path: "./rulesets/applications.yaml",
-    },
-    cncidr: {
-        ...ruleProviderDefaults,
-        format: "mrs",
-        behavior: "ipcidr",
-        url: "https://cdn.jsdelivr.net/gh/Project-META/rules-mrs@basic/cncidr.mrs",
-        path: "./rulesets/cncidr.mrs",
-    },
-    direct: {
-        ...ruleProviderDefaults,
-        format: "mrs",
-        behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Project-META/rules-mrs@basic/direct.mrs",
-        path: "./rulesets/direct.mrs",
     },
     lancidr: {
         ...ruleProviderDefaults,
         format: "mrs",
         behavior: "ipcidr",
-        url: "https://cdn.jsdelivr.net/gh/Project-META/rules-mrs@basic/lancidr.mrs",
+        url: "https://cdn.jsdelivr.net/gh/xixu-me/rulesets-for-META@basic/lancidr.mrs",
         path: "./rulesets/lancidr.mrs",
+    },
+    cncidr: {
+        ...ruleProviderDefaults,
+        format: "mrs",
+        behavior: "ipcidr",
+        url: "https://cdn.jsdelivr.net/gh/xixu-me/rulesets-for-META@basic/cncidr.mrs",
+        path: "./rulesets/cncidr.mrs",
+    },
+    cloudflarecidr: {
+        ...ruleProviderDefaults,
+        format: "mrs",
+        behavior: "ipcidr",
+        url: "https://cdn.jsdelivr.net/gh/xixu-me/rulesets-for-META@basic/cloudflarecidr.mrs",
+        path: "./rulesets/cloudflarecidr.mrs",
+    },
+    googlecidr: {
+        ...ruleProviderDefaults,
+        format: "mrs",
+        behavior: "ipcidr",
+        url: "https://cdn.jsdelivr.net/gh/xixu-me/rulesets-for-META@basic/googlecidr.mrs",
+        path: "./rulesets/googlecidr.mrs",
+    },
+    xcidr: {
+        ...ruleProviderDefaults,
+        format: "mrs",
+        behavior: "ipcidr",
+        url: "https://cdn.jsdelivr.net/gh/xixu-me/rulesets-for-META@basic/xcidr.mrs",
+        path: "./rulesets/xcidr.mrs",
     },
     private: {
         ...ruleProviderDefaults,
         format: "mrs",
         behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Project-META/rules-mrs@basic/private.mrs",
+        url: "https://cdn.jsdelivr.net/gh/xixu-me/rulesets-for-META@basic/private.mrs",
         path: "./rulesets/private.mrs",
+    },
+    direct: {
+        ...ruleProviderDefaults,
+        format: "mrs",
+        behavior: "domain",
+        url: "https://cdn.jsdelivr.net/gh/xixu-me/rulesets-for-META@basic/direct.mrs",
+        path: "./rulesets/direct.mrs",
     },
     proxy: {
         ...ruleProviderDefaults,
         format: "mrs",
         behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Project-META/rules-mrs@basic/proxy.mrs",
+        url: "https://cdn.jsdelivr.net/gh/xixu-me/rulesets-for-META@basic/proxy.mrs",
         path: "./rulesets/proxy.mrs",
-    },
-    reject: {
-        ...ruleProviderDefaults,
-        format: "mrs",
-        behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Project-META/rules-mrs@basic/reject.mrs",
-        path: "./rulesets/reject.mrs",
-    },
-    telegramcidr: {
-        ...ruleProviderDefaults,
-        format: "mrs",
-        behavior: "ipcidr",
-        url: "https://cdn.jsdelivr.net/gh/Project-META/rules-mrs@basic/telegramcidr.mrs",
-        path: "./rulesets/telegramcidr.mrs",
     },
     "geolocation-cn": {
         ...ruleProviderDefaults,
         format: "mrs",
         behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Project-META/rules-mrs@universal/geolocation-cn.mrs",
+        url: "https://cdn.jsdelivr.net/gh/xixu-me/rulesets-for-META@universal/geolocation-cn.mrs",
         path: "./rulesets/geolocation-cn.mrs",
+    },
+    reject: {
+        ...ruleProviderDefaults,
+        format: "mrs",
+        behavior: "domain",
+        url: "https://cdn.jsdelivr.net/gh/xixu-me/rulesets-for-META@basic/reject.mrs",
+        path: "./rulesets/reject.mrs",
     },
     "win-spy": {
         ...ruleProviderDefaults,
         format: "mrs",
         behavior: "domain",
-        url: "https://cdn.jsdelivr.net/gh/Project-META/rules-mrs@universal/win-spy.mrs",
+        url: "https://cdn.jsdelivr.net/gh/xixu-me/rulesets-for-META@universal/win-spy.mrs",
         path: "./rulesets/win-spy.mrs",
     },
     ...generateServiceRuleProviders(services, ruleProviderDefaults),
@@ -600,26 +603,25 @@ const ruleProviders = {
 // generate configuration using the above settings
 
 function validateOriginalConfig(config) {
-    const proxyCount = Array.isArray(config?.proxies)
-        ? config?.proxies?.length
+    if (!config)
+        throw new Error("Configuration object cannot be null or undefined");
+    const proxyCount = Array.isArray(config.proxies)
+        ? config.proxies.length
         : 0;
-    const proxyProviderCount =
-        typeof config?.["proxy-providers"] === "object" &&
-        config?.["proxy-providers"] !== null
-            ? Object.keys(config?.["proxy-providers"])?.length
-            : 0;
+    const proxyProviderCount = Object.keys(
+        config["proxy-providers"] || {}
+    ).length;
     if (proxyCount === 0 && proxyProviderCount === 0)
         throw new Error(
             "The original configuration must contain a non-empty proxies array (see https://wiki.\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078.one/en/config/proxies/) or a proxy-providers object with at least one property (see https://wiki.\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078.one/en/config/proxy-providers/)"
         );
     if (proxyCount > 0) {
-        const { proxies } = config;
-        i = 0;
-        proxies.forEach((proxy) => {
-            i++;
+        config.proxies.forEach((proxy, index) => {
             if (!proxy.name || !proxy.type || !proxy.server || !proxy.port) {
                 throw new Error(
-                    `Invalid proxy number ${i} configuration (see https://wiki.\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078.one/en/config/proxies/)`
+                    `Invalid proxy number ${
+                        index + 1
+                    } configuration (see https://wiki.\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078.one/en/config/proxies/)`
                 );
             }
         });
@@ -628,24 +630,25 @@ function validateOriginalConfig(config) {
         );
     }
     if (proxyProviderCount > 0) {
-        const { "proxy-providers": proxyProviders } = config;
-        i = 0;
-        Object.values(proxyProviders).forEach((provider) => {
-            i++;
-            if (
-                !provider.name ||
-                !provider.type ||
-                (provider.type === "http" && !provider.url)
-            ) {
-                throw new Error(
-                    `Invalid proxy provider number ${i} configuration (see https://wiki.\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078.one/en/config/proxy-providers/)`
-                );
+        Object.entries(config["proxy-providers"]).forEach(
+            ([name, provider], index) => {
+                if (
+                    !provider.type ||
+                    (provider.type === "http" && !provider.url)
+                ) {
+                    throw new Error(
+                        `Invalid proxy provider number ${
+                            index + 1
+                        } configuration (see https://wiki.\u006D\u0065\u0074\u0061\u0063\u0075\u0062\u0065\u0078.one/en/config/proxy-providers/)`
+                    );
+                }
             }
-        });
+        );
         console.log(
             `The original configuration contains ${proxyProviderCount} proxy providers, which will be preserved`
         );
     }
+    return true;
 }
 
 function main(config) {
