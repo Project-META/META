@@ -177,6 +177,6 @@ It is strongly recommended to refer to the official documentation of the Multi-f
 
 ## License
 
-Copyright &copy; 2024 [Project META](https://github.com/Project-META). All rights reserved.
+Copyright &copy; 2024 [Xi Xu](https://xi-xu.me). All rights reserved.
 
-Licensed under the [GPL-3.0](https://github.com/Project-META/META/blob/main/LICENSE) license.  
+Licensed under the [GPL-3.0](https://github.com/xixu-me/META/blob/main/LICENSE) license.  
