@@ -248,10 +248,6 @@ const dns = {
         "208.67.222.222",
         "208.67.220.220",
     ],
-    "nameserver-policy": {
-        "rule-set:private,direct,geolocation-cn": chineseNameservers,
-        "rule-set:proxy": internationalNameservers,
-    },
     nameserver: [
         ...chineseNameservers,
         ...internationalNameservers,
