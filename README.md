@@ -50,7 +50,7 @@ By leveraging these key features, META delivers a powerful, flexible, and secure
 
 ## Demo
 
-***A demo that use META to generate a configuration for the Multi-function network tool is available at 👉 <https://github.com/user-attachments/assets/279d0db0-e007-4c3d-ba32-f6e0746aff5a> 👈.***
+***A demo that use META to generate a configuration for the Multi-function network tool is available at 👉 https://github.com/user-attachments/assets/834e050e-a3c7-4b29-b366-1d5a80da90ce 👈.***
 
 ## Quick Start
 
