@@ -335,8 +335,6 @@ function generateLocationPolicyProxyGroups(
                         return "LOAD BALANCING (consistent hashing)";
                     case "round-robin":
                         return "LOAD BALANCING (round-robin)";
-                    case "sticky-sessions":
-                        return "LOAD BALANCING (sticky sessions)";
                     default:
                         return "LOAD BALANCING";
                 }
@@ -371,7 +369,6 @@ function generateLocationSelectProxyGroups() {
             `FALLBACK ${name.split(" ").pop()}`,
             `LOAD BALANCING (consistent hashing) ${name.split(" ").pop()}`,
             `LOAD BALANCING (round-robin) ${name.split(" ").pop()}`,
-            `LOAD BALANCING (sticky sessions) ${name.split(" ").pop()}`,
         ],
     }));
 }
@@ -456,14 +453,6 @@ const proxyGroups = [
         "load-balance",
         {
             strategy: "consistent-hashing",
-        }
-    ),
-    ...generateLocationPolicyProxyGroups(
-        locations,
-        locationPolicyProxyGroupDefaults,
-        "load-balance",
-        {
-            strategy: "sticky-sessions",
         }
     ),
     ...generateLocationSelectProxyGroups(),
