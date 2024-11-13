@@ -405,6 +405,13 @@ const proxyGroups = [
         "include-all": true,
         icon: `${BASE_ICON_SET_URL}Static.png`,
     },
+    {
+        ...proxyGroupDefaults,
+        name: "VS Code",
+        type: "select",
+        proxies: [...serviceProxyGroupProxies],
+        icon: extractFavicon("code.visualstudio.com"),
+    },
     ...generateServiceProxyGroups(services, proxyGroupDefaults),
     {
         ...proxyGroupDefaults,
@@ -476,6 +483,7 @@ function generateServiceRules(services) {
 }
 
 const rules = [
+    "PROCESS-NAME,Code.exe,VS Code",
     "RULE-SET,applications,DIRECT",
     "RULE-SET,lancidr,DIRECT,no-resolve",
     "RULE-SET,private,DIRECT",
