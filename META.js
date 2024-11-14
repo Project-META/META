@@ -22,6 +22,10 @@ const services = [
         icon: `${BASE_ICON_SET_URL}bilibili_2.png`,
     },
     {
+        name: "Telegram",
+        icon: `${BASE_ICON_SET_URL}Telegram_X.png`,
+    },
+    {
         name: "X",
         icon: `${BASE_ICON_SET_URL}X.png`,
         alias: "Twitter",
@@ -492,6 +496,7 @@ const rules = [
     ...generateServiceRules(services),
     "RULE-SET,direct,Mainland China 🇨🇳",
     "RULE-SET,proxy,PROXY",
+    "RULE-SET,telegramcidr,Telegram",
     "RULE-SET,xcidr,X",
     "RULE-SET,googlecidr,Google",
     "RULE-SET,cloudflarecidr,Cloudflare",
@@ -555,6 +560,13 @@ const ruleProviders = {
         behavior: "ipcidr",
         url: "https://cdn.jsdelivr.net/gh/xixu-me/rulesets-for-META@basic/googlecidr.mrs",
         path: "./rulesets/googlecidr.mrs",
+    },
+    telegramcidr: {
+        ...ruleProviderDefaults,
+        format: "mrs",
+        behavior: "ipcidr",
+        url: "https://cdn.jsdelivr.net/gh/xixu-me/rulesets-for-META@basic/telegramcidr.mrs",
+        path: "./rulesets/telegramcidr.mrs",
     },
     xcidr: {
         ...ruleProviderDefaults,
