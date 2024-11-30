@@ -39,6 +39,10 @@ const services = [
         icon: extractFavicon("www.binance.com"),
     },
     {
+        name: "Perplexity",
+        icon: extractFavicon("www.perplexity.ai"),
+    },
+    {
         name: "OpenAI",
         icon: extractFavicon("openai.com"),
     },
