@@ -290,6 +290,26 @@ const tun = {
     "dns-hijack": ["any:53", "tcp://any:53"],
 };
 
+// Proxy Providers
+
+const proxyProviderUrls = [];
+
+const proxyProviderDefaults = {
+    type: "http",
+    interval: 86400,
+    proxy: "PROXY",
+};
+
+const proxyProviders = Object.fromEntries(
+    proxyProviderUrls.map((url, index) => [
+        `provider${index + 1}`,
+        {
+            ...proxyProviderDefaults,
+            url,
+        },
+    ])
+);
+
 // Proxy Groups
 
 const proxyGroupDefaults = {
@@ -683,6 +703,7 @@ function main(config) {
             hosts,
             sniffer,
             tun,
+            "proxy-providers": proxyProviders,
             "proxy-groups": proxyGroups,
             rules,
             "rule-providers": ruleProviders,
