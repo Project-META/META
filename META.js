@@ -1,5 +1,11 @@
 // from https://github.com/xixu-me/META
 
+const proxyProviderUrls = {
+    A: "https://the.url.of/A.yaml",
+    B: "https://the.url.of/B.yaml",
+    C: "https://the.url.of/C.yaml",
+};
+
 function extractFavicon(domain) {
     return `https://www.google.com/s2/favicons?sz=256&domain=${domain}`;
 }
@@ -295,12 +301,6 @@ const tun = {
 };
 
 // Proxy Providers
-
-const proxyProviderUrls = {
-    A: "https://the.url.of/A.yaml",
-    B: "https://the.url.of/B.yaml",
-    C: "https://the.url.of/C.yaml",
-};
 
 const proxyProviderDefaults = {
     type: "http",
