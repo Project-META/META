@@ -63,6 +63,10 @@ const services = [
         name: "Cloudflare",
         icon: `${BASE_ICON_SET_URL}Cloudflare.png`,
     },
+    {
+        name: "Speedtest",
+        icon: `${BASE_ICON_SET_URL}Speedtest.png`,
+    },
 ];
 
 const locations = [
