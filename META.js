@@ -431,7 +431,7 @@ const proxyGroups = [
         type: "select",
         proxies: [...serviceProxyGroupProxies],
         icon: `${BASE_ICON_SET_URL}Final.png`,
-    },
+    }, 
     {
         ...proxyGroupDefaults,
         name: "Advertising",
