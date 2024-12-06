@@ -71,6 +71,10 @@ const services = [
         name: "Cloudflare",
         icon: `${BASE_ICON_SET_URL}Cloudflare.png`,
     },
+    {
+        name: "Speedtest",
+        icon: `${BASE_ICON_SET_URL}Speedtest.png`,
+    },
 ];
 
 const locations = [
@@ -289,40 +293,6 @@ const tun = {
     "strict-route": true,
     "dns-hijack": ["any:53", "tcp://any:53"],
 };
-
-// Proxy Providers
-
-const proxyProviderUrls = {
-    "proxy-provider-1":
-        "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Provider/ProxyProvider.yaml",
-    "proxy-provider-2":
-        "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Provider/ProxyProvider.yaml",
-    "proxy-provider-3":
-        "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Provider/ProxyProvider.yaml",
-};
-
-const proxyProviderDefaults = {
-    type: "http",
-    interval: 86400,
-    proxy: "PROXY",
-    "health-check": {
-        enable: true,
-        url: "https://www.gstatic.com/generate_204",
-        interval: 300,
-    },
-    filter: "^(?!.*(\u7fa4\u007c\u9080\u8bf7\u007c\u8fd4\u5229\u007c\u5faa\u73af\u007c\u5b98\u7f51\u007c\u5ba2\u670d\u007c\u7f51\u7ad9\u007c\u7f51\u5740\u007c\u83b7\u53d6\u007c\u8ba2\u9605\u007c\u6d41\u91cf\u007c\u5230\u671f\u007c\u673a\u573a\u007c\u4e0b\u6b21\u007c\u7248\u672c\u007c\u5b98\u5740\u007c\u5907\u7528\u007c\u8fc7\u671f\u007c\u5df2\u7528\u007c\u8054\u7cfb\u007c\u90ae\u7bb1\u007c\u5de5\u5355\u007c\u8d29\u5356\u007c\u901a\u77e5\u007c\u5012\u5356\u007c\u9632\u6b62\u007c\u56fd\u5185\u007c\u5730\u5740\u007c\u9891\u9053\u007c\u65e0\u6cd5\u007c\u8bf4\u660e\u007c\u4f7f\u7528\u007c\u63d0\u793a\u007c\u7279\u522b\u007c\u8bbf\u95ee\u007c\u652f\u6301\u007c\u6559\u7a0b\u007c\u5173\u6ce8\u007c\u66f4\u65b0\u007c\u4f5c\u8005\u007c\u52a0\u5165\u007c\u0055\u0053\u0045\u007c\u0055\u0053\u0045\u0044\u007c\u0054\u004f\u0054\u0041\u004c\u007c\u0045\u0058\u0050\u0049\u0052\u0045\u007c\u0045\u004d\u0041\u0049\u004c\u007c\u0050\u0061\u006e\u0065\u006c\u007c\u0043\u0068\u0061\u006e\u006e\u0065\u006c\u007c\u0041\u0075\u0074\u0068\u006f\u0072))",
-};
-
-const proxyProviders = Object.entries(proxyProviderUrls).map(([key, url]) => [
-    key,
-    {
-        ...proxyProviderDefaults,
-        url,
-        override: {
-            "additional-prefix": key,
-        },
-    },
-]);
 
 // Proxy Groups
 
@@ -717,7 +687,6 @@ function main(config) {
             hosts,
             sniffer,
             tun,
-            "proxy-providers": proxyProviders,
             "proxy-groups": proxyGroups,
             rules,
             "rule-providers": ruleProviders,
