@@ -107,6 +107,6 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git checkout -b config
           git add .
-          git commit -m "Convert JS to YAML"
+          git commit -m "Update YAML configuration"
           git remote add origin "https://github-actions[bot]:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
           git push -f origin config
