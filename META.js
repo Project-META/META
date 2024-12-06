@@ -6,10 +6,6 @@ const proxyProviderUrls = {
     C: "https://the.url.of/C.yaml",
 };
 
-function extractFavicon(domain) {
-    return `https://www.google.com/s2/favicons?sz=256&domain=${domain}`;
-}
-
 // ################################################### this section can be flexibly customized ###################################################
 
 const BASE_ICON_SET_URL =
@@ -177,6 +173,10 @@ const locations = [
 ];
 
 // ####################################### DO NOT MODIFY THE CODE BELOW UNLESS YOU KNOW WHAT YOU ARE DOING #######################################
+
+function extractFavicon(domain) {
+    return `https://www.google.com/s2/favicons?sz=256&domain=${domain}`;
+}
 
 // General Configuration
 
