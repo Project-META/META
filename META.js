@@ -1,10 +1,10 @@
 // from https://github.com/xixu-me/META
 
-const proxyProviderUrls = {
-    A: "https://the.url.of/A.yaml",
-    B: "https://the.url.of/B.yaml",
-    C: "https://the.url.of/C.yaml",
-};
+// const proxyProviderUrls = {
+//     A: "https://the.url.of/A.yaml",
+//     B: "https://the.url.of/B.yaml",
+//     C: "https://the.url.of/C.yaml",
+// };
 
 // ################################################### this section can be flexibly customized ###################################################
 
