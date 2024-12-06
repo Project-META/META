@@ -1,0 +1,112 @@
+name: Generate YAML Configuration
+
+on:
+  push:
+    branches:
+      - script
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Remove validation function
+        run: |
+          sed -i '/function validateOriginalConfig/,/^}/d' META.js
+          sed -i 's/validateOriginalConfig(config);//' META.js
+
+      - name: Install dependencies
+        run: npm install yaml
+
+      - name: Create conversion script
+        run: |
+          cat > generate.js << 'EOL'
+          const fs = require('fs');
+          const vm = require('vm');
+          const yaml = require('yaml');
+
+          // Read the JS config file
+          const jsContent = fs.readFileSync('./META.js', 'utf8');
+
+          // Create a sandbox context
+          const context = {
+            console,
+            require,
+            process,
+            __dirname,
+            module,
+            exports,
+          };
+
+          // Create empty config object
+          const baseConfig = {};
+
+          // Prepare the script
+          const fullScript = `${jsContent}\nmodule.exports = main(${JSON.stringify(baseConfig)});`;
+
+          // Execute in sandbox
+          vm.createContext(context);
+          vm.runInContext(fullScript, context);
+
+          // Get the result and convert to YAML
+          const config = context.module.exports;
+          const yamlContent = yaml.stringify(config);
+
+          // Write output
+          fs.writeFileSync('./META.yaml', yamlContent);
+          EOL
+
+      - name: Generate YAML configuration
+        run: |
+          mkdir -p publish
+          node generate.js
+          cat > publish/META.yaml << 'EOL'
+          proxy-providers-defaults: &ppd
+            type: http
+            proxy: PROXY
+            interval: 86400
+            health-check:
+              enable: true
+              url: "https://www.gstatic.com/generate_204"
+              interval: 300
+            filter: "^(?!.*(群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author))"
+
+          proxy-providers:
+            Provider A:
+              <<: *ppd
+              url: "https://the.url.of/A.yaml"
+              override:
+                additional-prefix: "[A] "
+            Provider B:
+              <<: *ppd
+              url: "https://the.url.of/B.yaml"
+              override:
+                additional-prefix: "[B] "
+            Provider C:
+              <<: *ppd
+              url: "https://the.url.of/C.yaml"
+              override:
+                additional-prefix: "[C] "
+          EOL
+          cat META.yaml >> publish/META.yaml
+
+      - name: Push to config branch
+        run: |
+          cd publish
+          git init
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b config
+          git add .
+          git commit -m "Convert JS to YAML"
+          git remote add origin "https://github-actions[bot]:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
+          git push -f origin config
