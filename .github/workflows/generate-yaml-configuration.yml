@@ -96,6 +96,7 @@ jobs:
               url: "https://the.url.of/C.yaml"
               override:
                 additional-prefix: "[C] "
+
           EOL
           cat META.yaml >> publish/META.yaml
 
