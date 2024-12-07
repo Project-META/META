@@ -50,7 +50,7 @@ By leveraging these key features, META delivers a powerful, flexible, and secure
 
 ## Demo
 
-***A demo that use META to generate a configuration for the Multi-function network tool is available at 👉 https://github.com/user-attachments/assets/834e050e-a3c7-4b29-b366-1d5a80da90ce 👈.***
+***A demo that use META to generate a configuration for the Multi-function network tool is available at 👉 <https://github.com/user-attachments/assets/834e050e-a3c7-4b29-b366-1d5a80da90ce> 👈.***
 
 ## Quick Start
 
@@ -63,6 +63,14 @@ Choose one of the following URLs to import the META:
 | **Xi Xu's Proxy Everything** | [https://proxy.xi-xu.me/?url=https%3A%2F%2Fraw.githubusercontent.com%2Fxixu-me%2FMETA%2Frefs%2Fheads%2Fscript%2FMETA.js](https://proxy.xi-xu.me/?url=https%3A%2F%2Fraw.githubusercontent.com%2Fxixu-me%2FMETA%2Frefs%2Fheads%2Fscript%2FMETA.js) |
 | **jsDelivr** | [https://cdn.jsdelivr.net/gh/xixu-me/META@script/META.js](https://cdn.jsdelivr.net/gh/xixu-me/META@script/META.js) |
 | **GitHub Proxy** | [https://ghp.ci/https://raw.githubusercontent.com/xixu-me/META/refs/heads/script/META.js](https://ghp.ci/https://raw.githubusercontent.com/xixu-me/META/refs/heads/script/META.js) |
+
+Alternatively, you can use the pre-generated YAML configuration:
+
+| Source | URL |
+| ------------------------- | --- |
+| **GitHub Raw** | [https://raw.githubusercontent.com/xixu-me/META/refs/heads/config/META.yaml](https://raw.githubusercontent.com/xixu-me/META/refs/heads/config/META.yaml) |
+
+The YAML configuration is automatically generated from the JavaScript version and updated whenever changes are pushed to the script branch. This provides a static configuration option for users who prefer not to use JavaScript overrides.
 
 ## Usage Guide
 
