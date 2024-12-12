@@ -495,6 +495,7 @@ function generateServiceRules(services) {
 }
 
 const rules = [
+    "PROCESS-NAME,code,VS Code",
     "PROCESS-NAME,Code.exe,VS Code",
     "RULE-SET,applications,DIRECT",
     "RULE-SET,lancidr,DIRECT,no-resolve",
